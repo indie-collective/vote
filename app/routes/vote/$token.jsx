@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { useState } from "react";
 import {
   Container,
@@ -10,16 +9,15 @@ import {
   Button,
 } from "@chakra-ui/react";
 
+// export const loader = async ({ params }) => {
+//   console.log(params.token);
+// };
+
 export default function Vote() {
   const [value, setValue] = useState("1");
 
   return (
     <div>
-      <Head>
-        <title>IndieCo - Vote</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <Container as="main">
         <Heading>Vote</Heading>
         <Box p="5">
