@@ -2,9 +2,7 @@ import QRCode from "qrcode";
 import jwt from "jsonwebtoken";
 
 const JWT_SECRET = process.env.JWT_SECRET || "secret";
-const EXPIRE_TIME = process.env.EXPIRE_TIME || 1000 * 60;
-
-export { EXPIRE_TIME };
+const EXPIRE_TIME = process.env.EXPIRE_TIME || 1000 * 60 * 2;
 
 export default async function (host) {
   const timestamp = Date.now();

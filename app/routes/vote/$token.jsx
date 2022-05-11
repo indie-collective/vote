@@ -8,25 +8,47 @@ import {
   Box,
   Button,
 } from "@chakra-ui/react";
+import { useLoaderData } from "@remix-run/react";
+import { json } from "@remix-run/node";
+const fs = require("fs");
+const path = require("path");
 
-// export const loader = async ({ params }) => {
-//   console.log(params.token);
-// };
+export function loader(context) {
+  const { params } = context.request;
+
+  const file = fs.readFileSync(path.join(__dirname, "../games.json"), "utf8");
+  const categories = JSON.parse(file);
+
+  console.log(params);
+
+  return json(categories);
+}
 
 export default function Vote() {
-  const [value, setValue] = useState("1");
+  const categories = useLoaderData();
+
+  const [value, setValue] = useState();
 
   return (
     <div>
       <Container as="main">
-        <Heading>Vote</Heading>
+        <Heading>Votez pour votre jeu préféré!</Heading>
         <Box p="5">
           <RadioGroup onChange={setValue} value={value}>
-            <Stack direction="row">
-              <Radio value="1">Game 1</Radio>
-              <Radio value="2">Game 2</Radio>
-              <Radio value="3">Game 3</Radio>
-            </Stack>
+            {categories.map((category) => (
+              <Box key={category.name} mb={5}>
+                <Heading as="h2" size="md" mb={3}>
+                  {category.displayName}
+                </Heading>
+                <Stack spacing={3}>
+                  {category.games.map((game) => (
+                    <Radio key={game.title} value={game.title}>
+                      {game.title} by {game.studio}
+                    </Radio>
+                  ))}
+                </Stack>
+              </Box>
+            ))}
           </RadioGroup>
           <Button variantColor="blue" mt={4} onClick={() => alert(value)}>
             Vote
