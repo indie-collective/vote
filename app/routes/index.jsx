@@ -9,8 +9,9 @@ import {
   StatNumber,
   StatHelpText,
   StatArrow,
-  Text,
   Link,
+  Alert,
+  AlertIcon,
 } from "@chakra-ui/react";
 import { useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/node";
@@ -19,7 +20,7 @@ const path = require("path");
 
 const REFRESH_TIME = 3;
 
-export function loader({ request }) {
+export function loader() {
   const file = fs.readFileSync(path.join(__dirname, "../games.json"), "utf8");
   const categories = JSON.parse(file);
   return json(categories);
@@ -40,12 +41,13 @@ export default function Results() {
     <Container as="main" mt="30px">
       <Heading>Results</Heading>
 
-      <Text fontSize="sm">
-        The results are updated every {REFRESH_TIME} seconds. You can{" "}
+      <Alert status="info" m="15px">
+        <AlertIcon />
+        Results updated every {REFRESH_TIME} seconds.
         <Link color="teal.500" href={`http://localhost:3000/host`}>
-          vote here
-        </Link>.
-      </Text>
+          Visit hosting page.
+        </Link>
+      </Alert>
 
       {categories.map((category) => (
         <Box key={category.name} mt={10}>
@@ -55,7 +57,7 @@ export default function Results() {
 
           <StatGroup key={category.name} mt={3}>
             {category.games.map((game) => (
-              <Stat key={game.title}>
+              <Stat key={game.title} m="15px">
                 <StatLabel>{game.title}</StatLabel>
                 <StatNumber>345,670</StatNumber>
                 <StatHelpText>

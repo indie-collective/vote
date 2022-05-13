@@ -15,7 +15,7 @@ import { ServerStyleContext, ClientStyleContext } from './context';
 
 export const meta = () => ({
   charset: 'utf-8',
-  title: 'IndieCo - Community',
+  title: 'Stunfest - Votes',
   viewport: 'width=device-width,initial-scale=1',
 });
 

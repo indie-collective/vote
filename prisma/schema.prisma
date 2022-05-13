@@ -9,3 +9,9 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model Vote {
+  id        String   @id @default(uuid())
+  game      String
+  createdAt DateTime @default(now())
+}
