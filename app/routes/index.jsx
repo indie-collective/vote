@@ -1,33 +1,72 @@
+import fs from "fs";
+import path from "path";
 import { useEffect } from "react";
 import {
   Container,
-  Box,
   Heading,
-  Stat,
-  StatGroup,
-  StatLabel,
-  StatNumber,
-  StatHelpText,
-  StatArrow,
+  TableContainer,
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
   Link as ChakraLink,
   Alert,
   AlertIcon,
 } from "@chakra-ui/react";
 import { Link, useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/node";
-const fs = require("fs");
-const path = require("path");
+
+import { db } from "../utils/db.server";
 
 const REFRESH_TIME = 3;
 
-export function loader() {
+export async function loader() {
+  // load categories
   const file = fs.readFileSync(path.join(__dirname, "../games.json"), "utf8");
   const categories = JSON.parse(file);
-  return json(categories);
+
+  // load votes
+  const topVotes = await db.vote.groupBy({
+    by: ["game"],
+    _count: {
+      game: true,
+    },
+    orderBy: {
+      _count: {
+        game: "desc",
+      },
+    },
+  });
+
+  // turns votes into a map
+  const votes = topVotes.reduce((acc, vote) => {
+    acc[vote.game] = vote._count.game;
+    return acc;
+  }, {});
+
+  // merge votes and games
+  const games = categories
+    .reduce(
+      (games, category) =>
+        games.concat(
+          category.games.map((game) => ({
+            ...game,
+            category: category.displayName,
+            votes: votes[game.title] || 0,
+          }))
+        ),
+      []
+    )
+    .sort((a, b) => b.votes - a.votes);
+
+  return json({ games });
 }
 
 export default function Results() {
-  const categories = useLoaderData();
+  const { games } = useLoaderData();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -49,26 +88,42 @@ export default function Results() {
         </ChakraLink>
       </Alert>
 
-      {categories.map((category) => (
-        <Box key={category.name} mt={10}>
-          <Heading as="h2" size="md">
-            {category.displayName}
-          </Heading>
+      <TableContainer mt="15px" mb="30px">
+        <Table variant="simple">
+          <Thead>
+            <Tr>
+              <Th>Game</Th>
+              <Th>Category</Th>
+              <Th isNumeric>Votes</Th>
+            </Tr>
+          </Thead>
 
-          <StatGroup key={category.name} mt={3}>
-            {category.games.map((game) => (
-              <Stat key={game.title} m="15px">
-                <StatLabel>{game.title}</StatLabel>
-                <StatNumber>345,670</StatNumber>
-                <StatHelpText>
-                  <StatArrow type="increase" />
-                  23.36%
-                </StatHelpText>
-              </Stat>
+          <Tbody>
+            {games.map((game) => (
+              <Tr key={game.title}>
+                <Td
+                  maxWidth="340px"
+                  overflow="hidden"
+                  textOverflow="ellipsis"
+                  whiteSpace="nowrap"
+                >
+                  {game.title}
+                </Td>
+                <Td>{game.category}</Td>
+                <Td isNumeric>{game.votes}</Td>
+              </Tr>
             ))}
-          </StatGroup>
-        </Box>
-      ))}
+          </Tbody>
+
+          <Tfoot>
+            <Tr>
+              <Th>Game</Th>
+              <Th>Category</Th>
+              <Th isNumeric>Votes</Th>
+            </Tr>
+          </Tfoot>
+        </Table>
+      </TableContainer>
     </Container>
   );
 }
