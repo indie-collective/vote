@@ -67,7 +67,12 @@ export async function action({ request, params }) {
     return json({ error: "voted" });
   }
 
-  // TODO: Store vote
+  // Store vote
+  await db.vote.create({
+    data: {
+      game: formData.get("game"),
+    },
+  });
 
   // Set cookie to voted
   cookie.voted = true;
