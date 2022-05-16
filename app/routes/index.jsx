@@ -9,11 +9,11 @@ import {
   StatNumber,
   StatHelpText,
   StatArrow,
-  Link,
+  Link as ChakraLink,
   Alert,
   AlertIcon,
 } from "@chakra-ui/react";
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/node";
 const fs = require("fs");
 const path = require("path");
@@ -44,9 +44,9 @@ export default function Results() {
       <Alert status="info" m="15px">
         <AlertIcon />
         Results updated every {REFRESH_TIME} seconds.
-        <Link color="teal.500" href={`http://localhost:3000/host`}>
+        <ChakraLink as={Link} color="teal.500" to="/host">
           Visit hosting page.
-        </Link>
+        </ChakraLink>
       </Alert>
 
       {categories.map((category) => (

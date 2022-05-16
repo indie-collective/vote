@@ -22,6 +22,7 @@
     "@remix-run/serve": "^1.4.1",
     "framer-motion": "^6.3.3",
     "jsonwebtoken": "^8.5.1",
+    "lodash.shuffle": "^4.2.0",
     "prisma": "^3.14.0",
     "qrcode": "^1.5.0",
     "react": "^17.0.2",

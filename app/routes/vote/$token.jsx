@@ -1,26 +1,28 @@
 import fs from "fs";
 import path from "path";
 
-import { useState } from "react";
 import {
   Container,
   Heading,
-  RadioGroup,
   Stack,
-  Radio,
   Box,
   Button,
   Alert,
   AlertIcon,
   AlertTitle,
   AlertDescription,
+  useRadioGroup,
+  Grid,
+  Image,
 } from "@chakra-ui/react";
-import { useLoaderData, Form } from "@remix-run/react";
+import { useLoaderData, Form, useActionData } from "@remix-run/react";
 import { json, redirect } from "@remix-run/node";
 
 import { checkCode } from "~/utils/qrcode.server";
 import { stunvote } from "~/cookies";
 import { db } from "~/utils/db.server";
+import CustomRadio from "~/components/CustomRadio";
+import shuffle from "lodash.shuffle";
 
 export async function loader({ params, request }) {
   const cookieHeader = request.headers.get("Cookie");
@@ -29,26 +31,45 @@ export async function loader({ params, request }) {
   const file = fs.readFileSync(path.join(__dirname, "../games.json"), "utf8");
   const categories = JSON.parse(file);
 
+  const games = shuffle(
+    categories.find((category) => category.name === "indieawards").games
+  );
+
   // Check if the code is valid
-  const { badToken, expiredToken } = checkCode(params.token);
+  const { error } = checkCode(params.token);
 
   // Check if already voted
   const cookie = (await stunvote.parse(cookieHeader)) || {};
   const alreadyVoted = cookie.voted || false;
 
-  return json({ categories, badToken, expiredToken, alreadyVoted });
+  return json({ games, error, alreadyVoted });
 }
 
-export async function action(request) {
+export async function action({ request, params }) {
   const cookieHeader = request.headers.get("Cookie");
   const formData = await request.formData();
 
-  // TODO: Check token
-  // TODO: Check if already voted
+  console.log("has voted for", formData.get("game"));
+
+  const check = checkCode(params.token);
+
+  if (check.error) {
+    // refresh the page and display the error
+    return json({ error: check.error });
+  }
+
+  // Check if already voted
+  const cookie = (await stunvote.parse(cookieHeader)) || {};
+  const alreadyVoted = cookie.voted || false;
+
+  if (alreadyVoted) {
+    // refresh the page and display the error
+    return json({ error: "voted" });
+  }
+
   // TODO: Store vote
 
   // Set cookie to voted
-  const cookie = await stunvote.parse(cookieHeader);
   cookie.voted = true;
 
   return redirect("/", {
@@ -59,9 +80,18 @@ export async function action(request) {
 }
 
 export default function Vote() {
-  const { categories, badToken, expiredToken, alreadyVoted } = useLoaderData();
+  const loaderData = useLoaderData();
+  const actionData = useActionData();
 
-  if (badToken) {
+  const error = loaderData.error || actionData?.error;
+
+  const { getRootProps, getRadioProps } = useRadioGroup({
+    name: "game",
+  });
+
+  const group = getRootProps();
+
+  if (error === "invalid") {
     return (
       <Alert status="error">
         <AlertIcon />
@@ -73,7 +103,7 @@ export default function Vote() {
     );
   }
 
-  if (expiredToken) {
+  if (error === "expired") {
     return (
       <Alert status="error">
         <AlertIcon />
@@ -85,7 +115,7 @@ export default function Vote() {
     );
   }
 
-  if (alreadyVoted) {
+  if (error === "voted") {
     return (
       <Alert status="error">
         <AlertIcon />
@@ -95,29 +125,33 @@ export default function Vote() {
     );
   }
 
+  const { games } = loaderData;
+
   return (
     <div>
       <Container as="main" mt="30px">
         <Heading mb="15px">Votez pour votre jeu préféré!</Heading>
         <Box p="5">
           <Form reloadDocument method="post">
-            <RadioGroup>
-              {categories.map((category) => (
-                <Box key={category.name} mb={5}>
-                  <Heading as="h2" size="md" mb={3}>
-                    {category.displayName}
-                  </Heading>
-                  <Stack spacing={3}>
-                    {category.games.map((game) => (
-                      <Radio key={game.title} value={game.title}>
-                        {game.title} by {game.studio}
-                      </Radio>
-                    ))}
-                  </Stack>
-                </Box>
-              ))}
-            </RadioGroup>
-            <Button type="submit" variantColor="blue" mt={4}>
+            <Stack spacing={3} {...group}>
+              {games.map((game) => {
+                const radio = getRadioProps({ value: game.title });
+                return (
+                  <CustomRadio key={game.title} {...radio}>
+                    <Grid
+                      gridTemplateColumns="auto 1fr"
+                      alignItems="center"
+                      columnGap={5}
+                    >
+                      <Image gridRow="1 / 3" width="75px" height="75px" />
+                      <Box gridColumn={2}>{game.title}</Box>
+                      <Box gridColumn={2}>{game.studio}</Box>
+                    </Grid>
+                  </CustomRadio>
+                );
+              })}
+            </Stack>
+            <Button type="submit" colorScheme="green" mt={4} isFullWidth>
               Vote
             </Button>
           </Form>

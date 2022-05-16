@@ -1,6 +1,14 @@
-# Welcome to Remix!
+# Vote
 
-- [Remix Docs](https://remix.run/docs)
+Voting webapp mainly used for the indie awards of the video game festival Stunfest based in Rennes, France.
+
+## Motivations and requirements
+
+Here's what is the need for the festival and what solutions we chose and can match yours:
+
+- People needs to vote easily during the festival for one game they liked (through a QR code)
+- We want to restrict voting on site, preventing sharing link on social networks and asking for votes.
+- We aim at preventing voting multiple times
 
 ## Development
 
@@ -36,18 +44,3 @@ Make sure to deploy the output of `remix build`
 
 - `build/`
 - `public/build/`
-
-### Using a Template
-
-When you ran `npx create-remix@latest` there were a few choices for hosting. You can run that again to create a new project, then copy over your `app/` folder to the new project that's pre-configured for your target server.
-
-```sh
-cd ..
-# create a new project, and pick a pre-configured host
-npx create-remix@latest
-cd my-new-remix-app
-# remove the new project's app (not the old one!)
-rm -rf app
-# copy your app over
-cp -R ../my-old-remix-app/app app
-```
