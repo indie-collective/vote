@@ -1,7 +1,13 @@
 import { useEffect } from "react";
 import { json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
-import { Box, Heading, Image, Link as ChakraLink, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  Image,
+  Link as ChakraLink,
+  Text,
+} from "@chakra-ui/react";
 
 import { generateQRCode } from "../utils/qrcode.server";
 
@@ -26,6 +32,11 @@ export const headers = () => ({
 
 export async function loader({ request }) {
   const host = new URL(request.url).host;
+
+  if (!isAuthorized(request)) {
+    return json({ authorized: false }, { status: 401 });
+  }
+
   return json(await generateQRCode(host));
 }
 
@@ -45,10 +56,7 @@ export default function Host() {
       <Box align="center" justify="center" mt={10}>
         <Heading>Votez pour votre jeu préféré!</Heading>
         <Image src={data.code} m="30px" />
-        <ChakraLink as={Link}
-          color="teal.500"
-          to={`/vote/${data.token}`}
-        >
+        <ChakraLink as={Link} color="teal.500" to={`/vote/${data.token}`}>
           vote link
         </ChakraLink>
         <Text fontSize="xs">Refreshes every {REFRESH_TIME} seconds.</Text>
