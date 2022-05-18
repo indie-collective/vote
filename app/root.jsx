@@ -8,14 +8,15 @@ import {
 } from '@remix-run/react';
 
 import React, { useContext, useEffect } from 'react';
-import { withEmotionCache } from '@emotion/react';
+import { Global, withEmotionCache } from '@emotion/react';
 import { ChakraProvider } from '@chakra-ui/react';
 
 import { ServerStyleContext, ClientStyleContext } from './context';
 
 export const meta = () => ({
   charset: 'utf-8',
-  title: 'Stunfest - Votes',
+  title: 'Indie Awards du Stunfest',
+  description: 'Votez pour votre jeu indé préféré du Stunfest.',
   viewport: 'width=device-width,initial-scale=1',
 });
 
@@ -53,16 +54,26 @@ const Document = withEmotionCache(({ children }, emotionCache) => {
         {serverStyleData?.map(({ key, ids, css }) => (
           <style
             key={key}
-            data-emotion={`${key} ${ids.join(' ')}`}
+            data-emotion={`${key} ${ids.join(" ")}`}
             dangerouslySetInnerHTML={{ __html: css }}
           />
         ))}
+        <Global
+          styles={`
+            @font-face {
+              font-family: "extenda";
+              src: url("/Extenda-40-Hecto-trial.woff") format("woff");
+              font-style: normal;
+              font-weight: normal;
+            }
+          `}
+        />
       </head>
       <body>
         {children}
         <ScrollRestoration />
         <Scripts />
-        {process.env.NODE_ENV === 'development' ? <LiveReload /> : null}
+        {process.env.NODE_ENV === "development" ? <LiveReload /> : null}
       </body>
     </html>
   );

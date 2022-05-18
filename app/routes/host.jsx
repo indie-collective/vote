@@ -2,12 +2,14 @@ import { useEffect } from "react";
 import { json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import {
+  chakra,
   Box,
   Heading,
   Image,
   Link as ChakraLink,
   Text,
 } from "@chakra-ui/react";
+import { css } from '@emotion/react'
 
 import { generateQRCode } from "../utils/qrcode.server";
 
@@ -23,7 +25,7 @@ const isAuthorized = (request) => {
     .toString()
     .split(":");
 
-  return username === process.env.USERNAME && password === process.env.PASSWORD;
+  return username === process.env.NAME && password === process.env.PASSWORD;
 };
 
 export const headers = () => ({
@@ -40,6 +42,12 @@ export async function loader({ request }) {
   return json(await generateQRCode(host));
 }
 
+const svgStyle = css`
+  svg {
+    max-width: 80vh;
+  }
+`
+
 export default function Host() {
   const data = useLoaderData();
 
@@ -54,8 +62,8 @@ export default function Host() {
   return (
     <main>
       <Box align="center" justify="center" mt={10}>
-        <Heading>Votez pour votre jeu préféré!</Heading>
-        <Image src={data.code} m="30px" />
+        <Heading fontFamily="extenda" textTransform="uppercase" fontSize="60px">Votez pour votre jeu préféré!</Heading>
+        <chakra.div css={svgStyle} dangerouslySetInnerHTML={{__html: data.code}} />
         <ChakraLink as={Link} color="teal.500" to={`/vote/${data.token}`}>
           vote link
         </ChakraLink>
