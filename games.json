@@ -4,386 +4,576 @@
     "displayName": "Indie Awards",
     "games": [
       {
-        "title": "Spellcaster university",
-        "visibleDate": "2020-03-06T09:00:00",
-        "studio": "Sneaky Yak Studio",
-        "summary": "Dans Spellcaster University, vous endossez le rôle du directeur d’une université de magie dans un monde d’heroic fantasy haut en couleur. Bâtissez votre école, gérez votre budget, recrutez des professeurs. \nEn ferez vous un haut lieu de la magie noire, avec les meilleurs professeurs de nécromancie et de démonologie ? Ou un lieu en harmonie avec la nature pour entraîner druides et shamans ? Ou pourquoi ne pas former des mages aventuriers, en leur proposant des options pour apprendre à se battre et à être discrets ? Il faudra pour cela survivre aux impitoyables attaques des tribus orcs et aux contrôles du rectorat.",
-        "platforms": [
+        "title": "Ninza",
+        "studio": "Klakmioch",
+        "summary": "Ninza est un platformer 2D brawler aux mécaniques inédites. Au lieu d'attaquer directement vos adversaires, vous les écrasez en leur jetant des morceaux du niveau sur la tronche. Le champ de bataille ainsi en perpétuel mouvement requiert d'excellents réflexes et une bonne dose d'anticipation pour être justemment exploité. L'environnement est votre arme, mais aussi votre pire ennemi.\nChaque personnage bénéfice de ses propres mouvements et compétences, exploiter judicieusement leurs forces et leurs faiblesses est la clé pour briller sur le champ de bataille. Cependant, devenir un vrai maître Ninza requiert beaucoup de détermination. Seul les joueurs les plus acharnés pourront prétendre à atteindre les plus hauts échelons de la compétition et espérer, peut-être, gagner le respect de la Lune.\"",
+        "platforms":  [
           "windows",
+          "linux",
+          "switch",
           "mac"
         ],
+        "keywords": [
+          "Platformer",
+          "Brawler"
+        ],
         "networks": {
-          "twitter": "https://twitter.com/SneakyYakStudio",
-          "facebook": "https://www.facebook.com/SneakyYakStudio",
-          "instagram": "https://www.instagram.com/sneakyyak_studio"
+          "twitter": "https://twitter.com/NinzaGame"
         },
-        "link": "https://sneakyyakstudio.com"
+        "award": null,
+        "visibleDate": null,
+        "link": "https://www.ninza-game.com/"
       },
       {
-        "title": "Block Chain battle",
-        "visibleDate": "2020-03-06T09:00:00",
+        "title": "Tavernacle!",
+        "studio": "Dama Dama Games",
+        "summary": "Tavernacle! est un jeu de coopération pour un à quatre joueurs, dans lequel vous incarnez un groupe de nains qui protègent leur brasserie contre des vagues d'ennemis. C'est un Tower Defense coloré et chaotique, à apprécier entre amis.",
+        "platforms": [
+          "windows"
+        ],
+        "keywords": [
+          "Action",
+          "Tower Defense"
+        ],
+        "networks": null,
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1937820/Tavernacle"
+      },
+      {
+        "title": "Dice Of Olympus",
+        "studio": "Bathysphère Studio",
+        "summary": "Dice Of Olympus est un jeu de stratégie qui utilise des dés personnalisables comme mécaniques de jeu afin de vaincre ses adversaires dans un mode multijoueur ou un mode narratif riche en aventure",
+        "platforms": [
+          "windows"
+        ],
+        "keywords": [
+          "Stratégie"
+        ],
+        "networks": {
+          "twitter": "https://twitter.com/DiceOfOlympus"
+        },
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1515580/Dice_Of_Olympus"
+      },
+      {
+        "title": "Swordship",
+        "studio": "Digital Kingdom",
+        "summary": "Dodge Them Up: un shmup auquel on a enlevé le tir. Un jeu d'action tactique à 1000 à l'heure.",
+        "platforms": [
+          "windows",
+          "switch"
+        ],
+        "keywords": ["Dodge'em Up"],
+        "networks": null,
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1804270/Swordship/"
+      },
+      {
+        "title": "Hypercore : Rhythm Bullet Hell",
+        "studio": "Gameinaframe",
+        "summary": "HyperCore est un « Rythm Bullet Hell », mélangeant l’action effrénée des « Shoot Them Up » classiques et la génération semi-procédurale d’épreuves basée sur la musique. Incarnez PRISS, survivez les assauts incessants en rythme avec la musique et sauvez ce qu’il reste de l’Humanité.",
+        "platforms": [
+          "windows"
+        ],
+        "keywords": ["Rythm Bullet Hell"],
+        "networks": null,
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1112390/HyperCore__Rhythm_Bullet_Hell/"
+      },
+      {
+        "title": "Helvetii",
+        "studio": "Team KwaKwa",
+        "summary": "Helvetii est un jeu 2D action roguelite, mélangeant une mythologie Gauloise et Celte avec des combats acrobatiques. Contrôlez trois personnages avec leurs personnalités et gameplay distinct, comme un jeune chef de guerre fougueux, un renard transformé en homme ou une druide aux pouvoirs terrifiants. Appropriez vous les pouvoirs primordiaux des dieux Gaulois pour sauver vos terres d'une malédiction qui corrompt tout sur son passage. Découvrez de nouveaux artefacts et améliorations à chaque partie, au sein de décors 2D soignés et une bande-son composé par Dale North et chanté par Emi Evans.",
+        "platforms": [
+          "windows",
+          "switch",
+          "ps4"
+        ],
+        "keywords": ["Action","Roguelite"],
+        "networks": {
+          "twitter": "https://twitter.com/helvetiigame"
+        },
+        "award": null,
+        "visibleDate": null,
+        "link": "https://helvetii-game.com/"
+      },
+      {
+        "title": "Crispr Crunch",
         "studio": "Play Curious",
-        "summary": "Percer les secrets de la blockchain !\nVous incarnez Draper, un hacker expert en cryptographie en cyber-sécurité.\nL’aventure commence lorsqu’un dénommé Smith vous propose de tester la sécurité d’une nouvelle cryptomonnaie, Octor.\nQui se cache derrière Octor ? Quel est son véritable but ?\n\nCe sera à vous de le découvrir, en perçant les failles d’un système qui devient de plus en plus sophistiqué.\nUtilisez de vraies notions de cryptographie telles que la fonction de hachage et la signature numérique afin de détecter des fraudes.\nUn jeu accessible gratuitement sur mobile, tablette ou desktop !",
-        "platforms": [
-          "web"
-        ],
-        "networks": {
-          "twitter": "https://twitter.com/PlayCuriousGame",
-          "facebook": "https://www.facebook.com/PlayCurious"
-        },
-        "link": "https://playcurious.games/fr"
-      },
-      {
-        "title": "Spliti",
-        "visibleDate": "2020-03-06T09:00:00",
-        "studio": "PHLEGMAGAMES",
-        "summary": "Spliti est un jeu de plateforme/puzzle contemplatif qui se déroule dans un monde poétique. L'atmosphère est magnifiée par l'utilisation de graphiques épurés.\nVous jouez au travers l'esprit d'un scientifique. Ce héro est bloqué dans un cube d'énergie à la suite d'une expérience ratée. Vous aurez besoin d'être malin et habile pour passer les obstacles et aider le héros à regagner son corps.",
+        "summary": "Marre des virus ? Il est temps de prendre votre revanche !\nDefends ta bactérie contre des vagues de virus assaillants en reproduisant leur séquence ADN.\nCRISPR Crunch est un jeu mobile gratuit qui vous plonge dans le monde nébuleux de la microbiologie.\nLe gameplay combine des mécaniques de \"matching\" enrobé de concepts innovants de science.\"",
         "platforms": [
           "windows",
-          "mac",
-          "linux"
-        ],
-        "networks": {
-          "twitter": "https://twitter.com/PhlegmaGames",
-          "facebook": "https://www.facebook.com/Phlegmagames"
-        },
-        "link": "https://splitigame.com"
-      },
-      {
-        "title": "Kairo's Light",
-        "visibleDate": "2020-03-11T09:00:00",
-        "studio": "Let's Develop Change",
-        "summary": "Dans un futur aux contours sombres et énigmatiques, un vieil homme triste, Edmond, appelle à l'aide dans un dernier espoir. Entendant son appel, le mage Kairos, dont les pouvoirs sont infinis, lui donne une chance de revivre sa jeunesse pour changer sa destinée\nAprès un voyage temporel vivifiant, vous incarnez Edmond dans son plus bel âge, celui des rencontres au bar et des choix de vie, dans l'agréable ville de Thésye. Dans ce jeu de gestion, vos choix auront un impact sur l'avenir d'Edmond et ses futurs alternatifs possibles.",
-        "platforms": [
-          "windows",
+          "web",
           "android"
         ],
+        "keywords": ["Tile-matching", "Puzzle Game"],
         "networks": {
-          "twitter": "https://twitter.com/KairosLight",
-          "facebook": "https://www.facebook.com/KairosLight",
-          "instagram": "https://www.instagram.com/jeukairoslight"
+          "facebook": "https://www.facebook.com/PlayCurious/"
         },
-        "link": "https://www.kairoslight.fr"
+        "award": null,
+        "visibleDate": null,
+        "link": "https://playcurious.games/crispr-crunch/"
       },
       {
-        "title": "Dice of Olympus ",
-        "visibleDate": "2020-03-11T09:00:00",
-        "studio": "Tessera Games",
-        "summary": "Dice Of Olympus est un jeu d'affrontement en 1 contre 1 à base de Dé. Le jeu est un mélange entre Magic/Hearthstone et le Yahtzee. Chaque joueur dispose de 5 dé (1 de mana et 4 de sorts personnalisés) qui compose son \"set\". Chaque joueurs peut relancer jusqu'a 2 fois autant de dé qu'il désire. A la fin de ces 2 relances les 2 joueurs lancent leur sorts dans le but de faire tomber les points de vie de l'adversaire",
-        "platforms": [
-          "windows",
-          "mac"
-        ],
-        "networks": {
-          "twitter": "https://twitter.com/DiceOfOlympus",
-          "facebook": "https://www.facebook.com/DiceOfOlympus"
-        },
-        "link": "https://diceofolympus.com/"
-      },
-      {
-        "title": "Horribunnies",
-        "visibleDate": "2020-03-11T09:00:00",
-        "studio": "Quasiphies",
-        "summary": "Dans Horribunnies, tu élèves et cajoles des lapinous trop choupis :3 \nNourris-les, joue avec eux et chéris-les autant que leurs futures familles !\nLes lapinous doivent être nourris, brossés, choyés, caressés et lavés T-O-U-S L-E-S J-O-U-R-S mais surtout... ils doivent se sentir aimés ! (灬♥ω♥灬)\nTout est aussi choupi et mignon que possible, entre graphismes tout chous et musiques charmantes, tu ne peux que fondre de bonheur <3",
-        "platforms": [
-          "windows"
-        ],
-        "networks": {
-          "twitter": "https://twitter.com/Horribunnies",
-          "facebook": "https://facebook.com/Horribunnies",
-          "instagram": "https://instagram.com/Horribunnies"
-        },
-        "link": "https://horribunnies.com"
-      },
-      {
-        "title": "Promenade, A farewell to August",
-        "visibleDate": "2020-03-13T09:00:00",
-        "studio": "Holy Cap",
-        "summary": "Promenade est un platformer 2D mêlant aventure, exploration, énigmes et action au sein d'un univers onirique et surprenant sorti de l'imaginaire fabulé d'un enfant. Vous incarnerez un petit personnage qui devra résoudre les énigmes au cours de votre épopée. Le contenu visuel est  composé de dessins/animations traditionnels.",
-        "platforms": [
-          "windows"
-        ],
-        "networks": {
-          "facebook": "https://www.facebook.com/holycapstudio"
-        },
-        "link": "https://www.facebook.com/holycapstudio"
-      },
-      {
-        "title": "Time Rift: Escape From Speedjail",
-        "visibleDate": "2020-03-13T09:00:00",
-        "studio": "Lightshards",
-        "summary": "Time Rift est un jeu de puzzle frénétique mettant en scène une mécanique de mouvement unique en plus de la manipulation du temps.\n\nRéparez vos erreurs et résolvez les puzzles grâce à votre capacité de rembobinage.\n\nL'objectif est simple : Être aussi rapide que possible pour survivre à la faille temporelle et inscrire votre score dans les classements en ligne !",
-        "platforms": [
-          "windows",
-          "mac"
-        ],
-        "link": "https://gamejolt.com/games/timerift/373757"
-      },
-      {
-        "title": "Nick Reckless In The Curse of the Lost Cause",
-        "visibleDate": "2020-03-13T09:00:00",
+        "title": "Nick Reckless In The Curse Of The Lost Cause",
         "studio": "Akedo Studio",
-        "summary": "Une terrible malédiction s'est abattue sur notre héro.\nPour s'en débarrasser, il lui faudra remettre certaines choses à leur place.\nNotre héro devra surmonter les obstacles qui se dressent sur son chemin.\nMais la malédiction lui laissera-t-il la chance de parvenir à ses fins?",
+        "summary": "Une terrible malédiction s'est abattue sur notre héros. Pour s'en débarrasser, il part en quête. Nick Reckless doit surmonter les obstacles qui se dressent sur son chemin. Puisse-t-il survivre à la malédiction. Sorti en octobre 2021, c'est un plateforme 2D en pixel art avec 4 environnements quasiment infinie avec une expérience de jeu différente à chaque fois. Soyez un anti-Indiana Jones !",
         "platforms": [
-          "windows",
-          "mac"
+          "windows"
         ],
+        "keywords": ["Platformer", "Aventure"],
         "networks": {
-          "twitter": "https://twitter.com/AkedoStudio",
-          "facebook": "https://www.facebook.com/akedostudio",
-          "instagram": "https://www.instagram.com/akedo_studio"
+          "facebook": "https://www.facebook.com/NickReckless.in/"
         },
-        "link": "https://www.akedostudio.com"
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1190190/Nick_Reckless_in_The_Curse_of_the_Lost_Cause/"
       },
       {
-        "title": "Haven",
-        "visibleDate": "2020-03-18T09:00:00",
-        "studio": "Game baker",
-        "summary": "Haven est un RPG d'aventure sur l'amour au quotidien et la rébellion contre les règles. Vous jouez le rôle de Yu et Kay, qui se sont échappées vers une planète oubliée. Incarnez les deux amoureux qui s'installent dans un monde inconnu. Survivez ensemble, glissez sur les plaines, campez, restaurez la planète, combattez s'il le faut. Tout ce qui compte, c'est de rester ensemble. Une aventure RPG sur l'amour et la liberté. Pour jouer en solo ou en coopération avec une personne spéciale.",
+        "title": "Aetheris",
+        "studio": "Wild Wits Games",
+        "summary": "Trouvez le pouvoir dont vous avez besoin pour venger votre tribu dans ce RPG d'aventure,\navec des combats en tour par tour et une expérience de coopération jusqu’à 4 joueurs.\"",
         "platforms": [
-          "windows",
-          "mac",
-          "switch"
+          "windows"
         ],
+        "keywords": ["RPG", "Aventure"],
         "networks": {
-          "twitter": "twitter.com/TheGameBakers",
-          "facebook": "facebook.com/TheGameBakers"
+          "twitter": "https://twitter.com/wildwitsgames"
         },
-        "link": "thegamebakers.com/haven"
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1786010/AETHERIS/"
       },
       {
-        "title": "Arisen",
-        "visibleDate": "2020-03-18T09:00:00",
-        "studio": "Maratus",
-        "summary": "Plongez dans le Var'Nagal, un monde rempli de mystères. Votre tribu nomade a été vaincue. L'armée de Maccialatt ne cherche pas à cacher la vérité : vous allez être vendu comme esclave. Malgré les chaînes autour de vos poignets, cette histoire est la vôtre. La liberté vous tend la main : vous élèverez vous ?\n\nARISEN est un jeu de cartes narratif où vos émotions vous guideront à travers l'histoire. Chaque carte représente une émotion. Explorez votre environnement et faites progresser vos relations pour débloquer de nouvelles cartes et élargir vos possibilités d'interactions.",
-        "platforms": [
-          "windows",
-          "mac"
-        ],
+        "title": "Zigglox",
+        "studio": "Giant Rabbit Games",
+        "summary": "Zigglox est un party game dans lequel il faut construire la tour la plus haute à l'aide de briques qu'on trouve dans le niveau. Certaines configurations de briques forment des combos qui permettent de prendre l'avantage sur son adversaire.",
+        "platforms": ["windows"],
+        "keywords": ["Action", "Party Game"],
         "networks": {
-          "twitter": "http://twitter.com/MaratusGames",
-          "facebook": "http://facebook.com/MaratusGames"
+          "twitter": "https://twitter.com/Zigglox",
+          "facebook": "https://www.facebook.com/zigglox/",
+          "instagram": "https://www.instagram.com/zigglox"
         },
-        "link": "http://www.maratusgames.com"
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1514880/Zigglox/"
       },
       {
-        "title": "Cyberhook",
-        "visibleDate": "2020-03-18T09:00:00",
-        "studio": "Blazing Stick",
-        "summary": "CyberHook est un jeu de parkour 3D qu'on pourrait qualifier de \"\"Spiderman dans l'univers de Tron\"\" ! \n\n\nAxé speedrun et performance dans un monde retrowave, les joueurs doivent utiliser un grappin et différentes techniques comme du wall-run, timewarp, etc pour finir les différents niveaux le plus vite possible. \nLes niveaux sont partiellement ouverts pour encourager les joueurs à péter le design, manipulez le temps et trouver des routes alternatives. Bonne chance à vous !",
+        "title": "Sclash",
+        "studio": "Bevel Bakery",
+        "summary": "Sclash est un jeu de combat de samouraïs rempli de tensions, où un coup = un mort. Incarnez un samouraï expérimenté et affrontez vos adversaires dans des combats épiques où chaque mouvement compte. Gérez votre endurance, respirez et prenez votre temps pour asséner un coup mortel.",
+        "platforms": ["windows"],
+        "keywords": ["Action"],
+        "networks": {
+          "twitter": "https://twitter.com/SclashTheGame",
+          "facebook": "https://www.facebook.com/SclashTheGame/"
+        },
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1284130/Sclash/?curator_clanid=39246230"
+      },
+      {
+        "title": "Racine",
+        "studio": "Dark Root Gardeners",
+        "summary": "Saisis tes cartes, vagabond. Les esprits dévastent les terres et tu dois trouver la source de leur colère. Hâte-toi, car le temps est compté. Tu devras allier rapidité et attention dans ce jeu de carte en temps réel qui te verra affronter des vagues d’ennemis féroces.",
+        "platforms": ["windows"],
+        "keywords": ["RPG", "Card Game"],
+        "networks": null,
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1793170/Racine/?l=french"
+      },
+      {
+        "title": "Time Rift",
+        "studio": "Lightshards",
+        "summary": "Unique, fast-paced action-puzzle gameplay that’s a pleasure to master\nBeat the roving firewall system: a deadly, auto-scrolling bar which can chase you from any direction\nMaster bombs, gates and nodes to execute perfect runs\nRewind time to avoid traps and grab that last collectible",
+        "platforms": ["windows"],
+        "keywords": ["Action", "Puzzle Game"],
+        "networks": null,
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1257660/Time_Rift/"
+      },
+      {
+        "title": "Paquerette Down The Bunburrows",
+        "studio": "Bunstack",
+        "summary": "The bunnies... You have to capture them!! But they won't let you corner them so easily! Prepare to get outsmarted by cute buns in this sweet and cozy retro puzzle game!",
+        "platforms": ["windows"],
+        "keywords": ["Puzzle Game"],
+        "networks": null,
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1628610/Paquerette_Down_the_Bunburrows/"
+      },
+      {
+        "title": "Inua : A Story In Ice And Time",
+        "studio": "The Pixel Hunt",
+        "summary": "Inua est un jeu narratif d'aventure où trois protagonistes voient leur destins s’entrelacer à des décennies d’intervalle dans les mêmes lieux du Grand Nord. Explorez chaque époque, récupérez des idées et manipulez leurs esprits afin de changer le cours de l’Histoire.",
+        "platforms": ["windows", "switch"],
+        "keywords": ["Aventure", "Fiction narrative"],
+        "networks": null,
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1479890/Inua__A_Story_in_Ice_and_Time/"
+      },
+      {
+        "title": "To Hell With The Ugly",
+        "studio": "La Poule Noire",
+        "summary": "To Hell With the Ugly est un jeu d’aventure en point & click adapté du roman éponyme de Boris Vian. Incarnez Rock Bailey, jeune homme aussi beau que superficiel, kidnappé à la sortie d’un club de jazz. Entre bagarres de bars et enquête policière, aidez Rocky à faire la lumière sur son enlèvement.",
+        "platforms": ["windows"],
+        "keywords": ["Aventure", "Enquête"],
+        "networks": null,
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1455450/To_Hell_With_The_Ugly/"
+      },
+      {
+        "title": "How To Say Goodbye",
+        "studio": "Florian Veltman",
+        "summary": "How to Say Goodbye est un puzzle game narratif inspiré des livres illustrés. Déplacez le décor et manipulez la réalité afin d’aider une bande de fantômes errant entre deux mondes à atteindre “l’autre côté”. Mais prenez garde aux esprits maléfiques qui voudront vous barrer la route...",
+        "platforms": ["windows", "mac"],
+        "keywords": ["Aventure", "Puzzle"],
+        "networks": null,
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1709700/How_to_Say_Goodbye/#:~:text=How%20to%20say%20Goodbye%20tells,in%20which%20they%20are%20trapped."
+      },
+      {
+        "title": "Cassiodora",
+        "studio": "Void Studios",
+        "summary": "Cassiodora est un jeu medieval fantasy inspiré des classiques du Shoot ‘em Up avec des mécaniques uniques et des combats de boss épiques. Sauvez la princesse Cassiodora seul ou avec 2 amis sur le même écran.",
+        "platforms": ["windows"],
+        "keywords": ["Shoot'em Up"],
+        "networks": null,
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1708550/Cassiodora/"
+      },
+      {
+        "title": "Saviorless",
+        "studio": "Empty Head Games",
+        "summary": "Saviorless est un jeu de plateforme de dark fantasy, avec de magnifiques animations et dessins à la main. Il suit deux personnages qui essaient de s'échapper d'un lieu maudit connu sous le nom d'Îles Souriantes.",
+        "platforms": ["windows"],
+        "keywords": ["Platformer"],
+        "networks": {
+          "twitter": "https://twitter.com/saviorlessgame"
+        },
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1438480/Saviorless/"
+      },
+      {
+        "title": "Bibots",
+        "studio": "Square Squid",
+        "summary": "Bibots est un jeu de tir roguelite qui se déroule dans un monde futuriste. Incarnez Tayar, un explorateur au contrôle d’un nerveux robot et nettoyez les pièces remplies de monstres, de pouvoirs et de secrets à découvrir. Mourez, et recommencez jusqu’à affronter la menace ultime de votre monde.",
+        "platforms": ["windows"],
+        "keywords": ["Action", "Roguelike", "Bullet Hell"],
+        "networks": {
+          "twitter": "https://twitter.com/_squaresquid"
+        },
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1610500/Bibots/?curator_clanid=40469584"
+      },
+      {
+        "title": "Ruggnar",
+        "studio": "Sword N' Wands",
+        "summary": "Ruggnar est un jeu de plates-formes sans ennemi, mais de nombreux pièges sont cachés dans l'obscurité. Aidez Ruggnar à explorer des lieux sombres avec pour seuls équipements son sac et quelques bougies.",
+        "platforms": ["windows"],
+        "keywords": ["Platformer"],
+        "networks":  {
+          "twitter": "https://twitter.com/ruggnar"
+        },
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1303050/Ruggnar/"
+      },
+      {
+        "title": "Mage Noir - Infinity",
+        "studio": "Double Combo Games",
+        "summary": "Mage Noir est un jeu de cartes stratégique et compétitif où les joueurs deviennent des Mages pour s'affronter. Créez vos propres sorts et lancez des boules de feu flamboyantes, soulevez des vagues monumentales, faites hurler des tornades dévastatrices et tenez une myriade de pouvoirs magiques dans la paume de vos mains.\nDans Mage Noir, vous utiliserez tout ce que vous avez à disposition pour mettre votre adversaire à 0HP. Pour ce faire, vous aurez vos sorts pour affaiblir vos ennemis, matérialiser des équipements, invoquer les forces de la nature ou vous préparer à lancer des sorts encore plus puissants. Cependant, vous devrez faire attention à vos choix. Utiliser vos sorts restitue une partie de leur énergie à votre adversaire, le rendant encore plus puissant.\nLes mécaniques novatrices principales de Mage Noir sont:\n- Le système de craft de sort\n- La mécanique de Mana partagée\n- La grande liberté apportée aux joueurs dans leur manière d'aborder leur stratégie\n- Le système de passage à Mage Noir.",
+        "platforms": ["windows"],
+        "keywords": ["Stratégie", "Card Game"],
+        "networks": {
+          "facebook": "https://www.facebook.com/MageNoirCardGame"
+        },
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1542140/Mage_Noir__Infinity"
+      },
+      {
+        "title": "Captain Velvet Meteor : The Jump + Dimensions",
+        "studio": "Momo-Pi Game Studio",
+        "summary": "Né dans une famille franco-japonaise, Damien est un adolescent créatif et imaginatif. Son monde s'écroule lorsque ses parents lui annoncent qu'ils ont décidé de quitter la France pour aller vivre au Japon, un pays qu'il connaît surtout grâce à tous les mangas qu'il lit. Damien va alors faire appel à son personnage de super-héros, le Capitaine Velvet Meteor, pour faire face à l'angoisse de son déménagement.",
+        "platforms": ["windows", "switch"],
+        "keywords": ["Action", "Stratégie"],
+        "networks": null,
+        "award": null,
+        "visibleDate": null,
+        "link": "https://gonintendo.com/contents/1369-shueisha-games-bringing-captain-velvet-meteor-the-jump-dimension-to-switch"
+      },
+      {
+        "title": "Fufufu",
+        "studio": "Potofu Studio",
+        "summary": "Avez vous déjà fait la course avec des béliers, mis des doigts dans le nez ou affronté des chats pirates ?\nBienvenue dans FUFUFU, un partygame roguelite déjanté en coopération de 1 à 4 joueurs.\nCercamon le grincheux a banni le rire, défiez-le et survivez aux situations délirantes en usant et abusant de votre rire comme arme principale.\nPréparez-vous, FU rires garantis !",
+        "platforms": ["windows"],
+        "keywords": ["Roguelike", "Coopératif", "Party Game"],
+        "networks": {
+          "twitter": "https://twitter.com/fufufu_the_game"
+        },
+        "award": null,
+        "visibleDate": null,
+        "link": "https://twitter.com/fufufu_the_game"
+      }
+    ]
+  },
+  {
+    "name": "indiegames",
+    "displayName": "Indie Games",
+    "games": [
+      {
+        "title": "Péril En Daiza",
+        "studio": "Activ Studio",
+        "summary": "Dans un monde en proie à la voracité des humains, vous incarnez un jeune panda qui doit parcourir le monde pour sauver sa communauté de la destruction.",
         "platforms": [
-          "windows",
-          "switch"
-        ],
-        "link": "https://www.graffitigames.com/cyberhook"
+          "linux"],
+        "keywords": ["Puzzle Game"],
+        "networks": {
+          "twitter": "https://mobile.twitter.com/peril_en_daiza"
+        },
+        "award": null,
+        "visibleDate": null,
+        "link": "https://activdesign.cc/articles/2021/peril-en-daiza.html"
       },
       {
-        "title": "dont_forget_me",
-        "visibleDate": "2020-03-20T09:00:00",
-        "studio": "The Moon Pirates",
-        "summary": "Dont Forget Me est un jeu d'enquête narrative dans un univers \"\"cyberpunk noir\"\".\nLe jeu se déroule dans un monde totalitaire, contrôlé par une méga-entreprise. Pour éviter de répéter les erreurs du passé, chaque individu a choisi d'avoir une puce qui enregistre tous ses souvenirs.\nVous jouez le rôle de Fran, une femme amnésique qui est prise en charge par Bernard qui mène une activité illégale de copie de mémoire. Un jour, l'arrivée d'un membre des \"\"oubliés\"\", vous entraînera dans un combat idéologique. Cette quête vous confrontera aux autres et à vous-même.\nComment choisirez-vous de mener ce combat ?",
+        "title": "Small Cell",
+        "studio": "Phlegmagames",
+        "summary": "Small Cell est un jeu de plateforme et d'aventure avec une bonne dose de réflexion. Le style graphique du jeu est le Pixel Art.\nIncarnez une petite cellule qui vient de prendre vie. Dotée d'une personnalité propre, ce mini-héro cherche à comprendre le but de son existence.\nVotre objectif est de l'aider dans cette tache et découvrir le sens de sa vie. Dans ce mini-environnement cellulaire, utilisez les multiples aptitudes de la petite cellule pour progresser et avancer dans l'aventure.",
         "platforms": [
           "windows",
           "mac",
           "linux"
         ],
+        "keywords": ["Platformer", "Aventure"],
         "networks": {
-          "twitter": "https://twitter.com/TheMoonPirates"
+          "twitter": "https://twitter.com/phlegmagames"
         },
-        "link": "https://gamejolt.com/games/dont-forget-me/441430"
+        "award": null,
+        "visibleDate": null,
+        "link": "https://phlegmagames.com/"
       },
       {
-        "title": "Puzzle Forge Dungeons",
-        "visibleDate": "2020-03-20T09:00:00",
-        "studio": "Tuesday Quest",
-        "summary": "Puzzle Forge Dungeon est un dungeon crawler original de la série des Puzzle Forge ou vous forgez des armes et affrontez vos adversaires avec vos créations. Chaque situation de combat est unique et demande une utilisation réfléchie de vos ressources et de votre talent de forgeron. Explorez le donjon et essayez d’atteindre le dernier étage où seuls les vrais forgeheroes ont posé l’enclume.",
-        "platforms": [
-          "windows"
-        ],
+        "title": "Toaster Ball",
+        "studio": "Les Crafteurs",
+        "summary": "Une balle, deux buts, et... des grille-pains. Bienvenue dans Toasterball. Affrontez-vous entre amis jusqu’à 4 joueurs dans ce tournoi un peu inhabituel, où les grille-pains sont des athlètes, et où les lois de la physique sont en option.",
+        "platforms": ["windows"],
+        "keywords": ["Sport"],
         "networks": {
-          "twitter": "https://twitter.com/TuesdayQuest",
-          "facebook": "https://www.facebook.com/tuesdayquest"
+          "twitter": "https://twitter.com/toasterball",
+          "facebook": "https://www.facebook.com/toasterball/"
         },
-        "link": "http://www.tuesdayquest.com"
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1142810/Toasterball/"
       },
       {
-        "title": "Save your nuts",
-        "visibleDate": "2020-03-25T09:00:00",
-        "studio": "Triple Scale Games",
-        "summary": "Devenez fou dans Save Your Nuts, un jeu multijoueur finement déguisé en sport de forêt loufoque. Mettez vos compétences de coopération à l'épreuve lors de batailles intenses basées sur la physique, âmes sensibles, préparez vous !",
-        "platforms": [
-          "windows"
-        ],
+        "title": "Fete De Famille",
+        "studio": "Atomic Raccoon",
+        "summary": "Fête de famille (Family gathering) tells the timeless story of the Family, the one we love, cherish, slander and despise. For his grandfather's birthday, 90 years old and living memory of his family's history, the player finds himself at the center of a generational conflict with unpredictable consequences. Underneath their typical and charming French family appearance, each member hides dark secrets and unfathomable motives.",
+        "platforms": ["ios", "android"],
+        "keywords": ["Fiction narrative"],
         "networks": {
-          "twitter": "https://twitter.com/TripleScale",
-          "facebook": "https://www.facebook.com/SaveYourNutsGame",
-          "instagram": "https://www.instagram.com/triplescalegames"
+          "twitter": "https://twitter.com/atomicraccoonfr"
         },
-        "link": "http://triplescalegames.com"
+        "award": null,
+        "visibleDate": null,
+        "link": "https://twitter.com/atomicraccoonfr"
       },
       {
-        "title": "Sbirz",
-        "visibleDate": "2020-03-25T09:00:00",
-        "studio": "Splashteam",
-        "summary": "Incarnez Angus, cadre moyen du département marketing, qui se retrouve un jour propulsé par mégarde dans une dimension parallèle. Dans ce monde hostile habité par le bizarre et l’inconnu, il va rencontrer le petit peuple des Sbirz, dont il devra solliciter les pouvoirs dans l'espoir de rentrer un jour à la maison.",
-        "platforms": [
-          "windows",
-          "mac"
-        ],
-        "link": "https://twitter.com/SplashteamDevs"
+        "title": "Shibanobi's Revenge",
+        "studio": "École de Design de Nantes Atlantique",
+        "summary": "The Gale sets in a feudal Japan where two rivals clans live : the Shibanobis and the Kunonekos. The player embodies Shiba-kun, a shiba whose master has been harmed by some Kunonekos when they attacked the clan to steal an ancient and powerful relic.",
+        "platforms": ["windows"],
+        "keywords": "Platformer",
+        "networks": null,
+        "award": null,
+        "visibleDate": null,
+        "link": "https://www.behance.net/gallery/99167619/Artistic-Direction-SHIBANOBIS-REVENGE"
       },
       {
-        "title": "The Mint Sword",
-        "visibleDate": "2020-03-25T09:00:00",
-        "studio": "Pixel Archipel",
-        "summary": "The Mind Sword est un jeu de combat avec des déplacements case par case.\nDans ce jeu, vous incarnerez des animaux samouraïs, inspirés par l'Usagi Yojimbo, pour la partie gameplay et Megaman Network pour son gameplay mêlant mouvement de grille et confrontation en temps réel.\nVoilà un jeu qui demande de la rapidité des réflexes et de l'esprit !\n\nMultijoueur local à 1 ou 2 joueurs, en mode versus et en mode coop story.",
-        "platforms": [
-          "windows",
-          "mac"
-        ],
+        "title": "Back Home",
+        "studio": "École de Design de Nantes Atlantique",
+        "summary": "Vous incarnez un robot, seul habitant de sa petite planète. Votre quotidien est de livrer des gemmes de votre planète à vos voisins, afin d’alimenter la communauté en énergie.\nChaque jour, vous recevez votre ordre de mission qui vous charge de livrer un certain nombre de cristaux aux planètes voisines.\nCependant, soyez prudent quant à la quantité de cristaux que vous prélevez sur votre planète, son écosystème peut en être affecté, et votre compagnon, Cali, est là pour vous avertir du danger.\nEt pour cause : cette planète est votre maison, mais aussi la sienne.",
+        "platforms": ["VR"],
+        "keywords": ["Réalité Virtuelle"],
         "networks": {
-          "twitter": "https://twitter.com/2Pblog1"
+          "facebook": "https://www.facebook.com/gamedsgn/"
         },
-        "link": "https://pixel-boy.itch.io/the-mind-sword"
+        "award": null,
+        "visibleDate": null,
+        "link": "https://www.facebook.com/gamedsgn/"
+      },
+      {
+        "title": "0 A.D. : Empires Ascendant",
+        "studio": "Wildfire Games",
+        "summary": "0 A.D. : Empires Ascendant est un jeu vidéo de stratégie en temps réel (RTS) historique en 3D développé par Wildfire Games. C’est un projet libre (code sous GPL v2, données sous CC BY‑SA 3.0), au développement ouvert, visant des standards de qualité artistique comparables à ceux de l’industrie, ainsi qu’un grand respect de la réalité historique. Le jeu permet d’incarner treize factions qui ont marqué leur histoire entre les rives de l’Atlantique et la chaîne de l’Himalaya, au cours de la période allant de −500 av. J.‑C. à −1 av. J.‑C.",
+        "platforms": ["windows", "mac", "linux"],
+        "keywords": ["Real Time Strategy"],
+        "networks": null,
+        "award": null,
+        "visibleDate": null,
+        "link": "https://play0ad.com/"
+      },
+      {
+        "title": "Le Voyage De Salto Et Drogo",
+        "studio": "Nightlight Studio",
+        "summary": "Le voyage de Salto et Drogo raconte le périple de Salto, un jeune renardeau à la recherche d’un nouveau territoire et Drogo, un loup voulant retrouver sa meute dont il a été séparé. Après leur rencontre, ils vont devoir s’entraider pour rejoindre le haut de la falaise, une destination symbole de leurs objectifs respectifs. Ce voyage va les amener à faire évoluer leur regard sur l'autre et sur eux-même.\nDans ce jeu d’aventure solo 3D à la 3ᵉ personne, le joueur va alterner entre les deux personnages et leurs capacités pour surmonter les obstacles sur leur route. À destination des adolescents, cette aventure introspective prend place dans un environnement naturel et crépusculaire.\nEt vous, serez-vous plutôt Salto ou Drogo ?",
+        "platforms": ["windows"],
+        "keywords": ["Aventure"],
+        "networks": null,
+        "award": null,
+        "visibleDate": null,
+        "link": "https://proquin.itch.io/le-voyage-de-salto-et-drogo"
+      },
+      {
+        "title": "Essence Of The Tjikko",
+        "studio": "La Revria Studio",
+        "summary": "Dans un monde où végétal et technologie ne font qu’un, un hybride enfant plante se réveille au fond d’un laboratoire de botanique abandonné.\nAnimé par l’instinct de retrouver la lumière du soleil, il entame le périple qui le fera grandir, et va découvrir les secrets qui se cachent sous les racines du grand Tjikko. \nC'est un jeu d'aventure puzzle dans un style retro 3D, inspiré par la série Zelda et les jeux des années 2000",
+        "platforms": ["windows"],
+        "keywords": ["Aventure"],
+        "networks": null,
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1783740/Essence_Of_The_Tjikko__Prologue"
+      },
+      {
+        "title": "Cesspool",
+        "studio": "Radio Cloaque",
+        "summary": "Dans ce JRPG minimaliste et bienveillant, vous voyagerai à travers une Bretagne post-apocalyptique à la recherche de votre petit singe que vous avez perdu de vu.",
+        "platforms": ["windows"],
+        "keywords": ["RPG"],
+        "networks": null,
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1394030/CESSPOOL/"
+      },
+      {
+        "title": "Path Of Ra",
+        "studio": "Oneiric Tales",
+        "summary": "Accompagnez le pharaon dans son dernier voyage. Son âme est prise au piège des hiéroglyphes de son tombeau. Aidez le en réorganisant les tuiles des fresque et résolvez les nombreuses énigmes dressées sur son chemin vers Ra. Revivez les souvenirs passés, et découvrez la vérité sur la mort mystérieuse du roi d’Egypte.",
+        "platforms": ["windows", "android"],
+        "keywords": ["Puzzle Game", "Fiction narrative"],
+        "networks": {
+          "twitter": "https://twitter.com/Path_of_Ra"
+        },
+        "award": null,
+        "visibleDate": null,
+        "link": "https://oneiric-tales.fr/path-of-ra/"
+      },
+      {
+        "title": "Warm Monkey",
+        "studio": "Evprod",
+        "summary": "Dans l’architecture moderne d’une ville exotique, un singe se multiplie et son besoin d’eau grandit. Il doit rejoindre l’océan. Vous incarnez un singe qui doit trouver de l’eau dans une ville moderne  (fusion de Brasilia et Saint-Nazaire).",
+        "platforms": ["windows", "android", "mac", "ios"],
+        "keywords": ["Survie", "Fable narrative"],
+        "networks": null,
+        "award": null,
+        "visibleDate": null,
+        "link": "https://www.evprod.world/warm_monkey/"
+      },
+      {
+        "title": "Hungry Lizard",
+        "studio": "Evprod",
+        "summary": "Incarnez un lézard qui essaye de survivre dans un monde naturel dangereux. Consacrez-vous entièrement à sacrifier le passage du temps pour le bon moment.",
+        "platforms": ["windows", "android", "mac", "ios"],
+        "keywords": null,
+        "networks": null,
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1713880/Rising__Hungry_Lizard/"
+      },
+      {
+        "title": "Zone",
+        "studio": "Evprod",
+        "summary": "A new-genre urban parkour video game.",
+        "platforms": ["windows", "android", "mac", "ios"],
+        "keywords": ["Action", "Plateformer"],
+        "networks": null,
+        "award": null,
+        "visibleDate": null,
+        "link": "https://www.evprod.world/wp-content/uploads/2022/04/Plan_de_construction_zone_03.pdf"
+      },
+      {
+        "title": "Overhaul",
+        "studio": "Bread Panda",
+        "summary": "Overhaul est un puzzle rogue-lite dungeon crawler qui combine action effrénée et réflexion. Aventurez-vous dans les profondeurs désolées de la Power Plant et résolvez des puzzles pour monter en puissance. Réagissez vite pour défaire des créatures impitoyables et découvrez les mystères d'un monde en 2D dessiné à la main.",
+        "platforms": ["windows"],
+        "keywords": ["Roguelite", "Puzzle", "Dungeon Crawler"],
+        "networks": {
+          "twitter": "https://twitter.com/BreadPandaGames"
+        },
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1542140/Mage_Noir__Infinity"
+      },
+      {
+        "title": "Necroboy : Path To Evilship",
+        "studio": "Chillin' Wolf",
+        "summary": "NecroBoy : Path to Evilship est un jeu de puzzle racontant l'histoire d'un jeune nécromancien voulant devenir le plus grand Seigneur du Mal ! Avec ses sombres pouvoirs, il ramène ses NecroMinions à la vie pour le servir et résoudre des puzzles afin de conquérir la crypte de son héros NecroMan !",
+        "platforms": ["windows"],
+        "keywords": ["Aventure","Puzzle Game"],
+        "networks": null,
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1628890/NecroBoy__Path_to_Evilship"
+      },
+      {
+        "title": "Herezh - Generations Of Heroes",
+        "studio": "Buzuuk Software",
+        "summary": "Herezh est un RPG/Survival multijoueur inspiré par la culture celtique et développé sur Unreal Engine 5. L'objectif du gameplay est donc de survivre et d'explorer ce vaste univers fantastique, mais aussi de s'y installer, d'y créer son clan et de prospérer sur le territoire en intéragissant avec ses ressources et espèces mais surtout en faisant face à ses dangers PvP comme PvE, avec son personnage initial puis ses descendantes",
+        "platforms": ["windows"],
+        "keywords": ["Action", "RPG",  "Survie"],
+        "networks": {
+          "twitter": "https://mobile.twitter.com/herezhgame",
+          "instagram": "https://www.instagram.com/herezhgame/",
+          "facebook": "https://www.facebook.com/HerezhGame/"
+        },
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1927130/Herezh__Generations_of_Heroes/"
+      },
+      {
+        "title": "Myshmup",
+        "studio": "Marxtek",
+        "summary": "Myshmup.com est une plateforme web permettant de créer des jeux retros en utilisant son browser internet. La création comme l’accès aux jeux est gratuit. L'objectif est de constituer une communauté de joueurs et de créateurs permettant de développer une bibliothèque de jeux et d'élements artistiques (sprite , sound fx, etc..) dans le style 8 bit /16 bit.",
+        "platforms": ["windows", "mac", "android", "ios"],
+        "keywords": ["Plateforme créative", "Shoot'em Up"],
+        "networks": {
+          "twitter": "https://twitter.com/myshmup",
+          "facebook": "https://www.facebook.com/myshmup"
+        },
+        "award": null,
+        "visibleDate": null,
+        "link": "https://myshmup.com/"
+      },
+      {
+        "title": "Suhoshin",
+        "studio": "No More 500",
+        "summary": "Suhoshin est un Roman Visuel en 2D qui se déroule pendant la Corée médiévale. Alors que vous investiguez des meurtres mystérieux, vous devrez faire des choix interactifs qui vous mèneront vers des histoires et fins différentes.",
+        "platforms": ["windows"],
+        "keywords": ["Visual Novel"],
+        "networks": {
+          "twitter": "https://twitter.com/suhoshin_game"
+        },
+        "award": null,
+        "visibleDate": null,
+        "link": "https://store.steampowered.com/app/1679700/Suhoshin"
       }
     ]
-  },
-  {
-    "name": "village",
-    "displayName": "Village",
-    "games": [
-      {
-        "title": "Dunst",
-        "visibleDate": "2020-05-01T09:00:00",
-        "studio": "Marble oak",
-        "summary": "",
-        "platforms": [
-          "windows"
-        ],
-        "networks": {
-          "twitter": "https://twitter.com/Dunst_game",
-          "facebook": "https://www.facebook.com/dunstgame",
-          "instagram": "https://www.instagram.com/dunstgame"
-        },
-        "link": "https://dunst-game.com/home"
-      },
-      {
-        "title": "Abiding Bridge",
-        "visibleDate": "2020-05-01T09:00:00",
-        "summary": "",
-        "platforms": [
-          "windows"
-        ],
-        "networks": {
-          "twitter": "https://twitter.com/AbidingBridge",
-          "facebook": "https://www.facebook.com/AbidingBridge"
-        },
-        "link": "https://abidingbridge.com"
-      },
-      {
-        "title": "Plaine Images",
-        "visibleDate": "2020-05-01T09:00:00",
-        "summary": "",
-        "platforms": [
-          "windows"
-        ],
-        "networks": {
-          "twitter": "https://twitter.com/plaineimages",
-          "facebook": "https://www.facebook.com/plaine.images",
-          "instagram": "https://www.instagram.com/plaineimages"
-        },
-        "link": "https://www.plaine-images.fr"
-      },
-      {
-        "title": "WALGA",
-        "visibleDate": "2020-05-01T09:00:00",
-        "summary": "",
-        "platforms": [
-          "windows"
-        ],
-        "networks": {
-          "twitter": "https://twitter.com/WALGAbe",
-          "facebook": "https://www.facebook.com/walga.be"
-        },
-        "link": "http://www.walga.be"
-      },
-      {
-        "title": "SwissGames",
-        "visibleDate": "2020-05-01T09:00:00",
-        "summary": "",
-        "platforms": [
-          "windows"
-        ],
-        "networks": {
-          "twitter": "https://twitter.com/gameculture_ch"
-        },
-        "link": "https://swissgames.ch"
-      }
-    ]
-  },
-  {
-    "name": "prototypes",
-    "displayName": "Prototypes",
-    "games": [
-      {
-        "title": "Perfect Teams",
-        "visibleDate": "2020-05-01T09:00:00",
-        "studio": "Lys games",
-        "summary": "",
-        "platforms": [
-          "windows"
-        ],
-        "link": "http://www.perfectteams.sitew.com"
-      },
-      {
-        "title": "Square Nose Color",
-        "visibleDate": "2020-05-01T09:00:00",
-        "studio": "Juice Lizard",
-        "summary": "",
-        "platforms": [
-          "gamebuino"
-        ],
-        "link": "www.juicelizard.com"
-      },
-      {
-        "title": "Projet Folklore",
-        "visibleDate": "2020-05-01T09:00:00",
-        "studio": "Radio Clock",
-        "summary": "",
-        "platforms": [
-          "windows"
-        ],
-        "link": ""
-      },
-      {
-        "title": "Six months too late",
-        "visibleDate": "2020-05-01T09:00:00",
-        "studio": "Furious Pixel",
-        "summary": "",
-        "platforms": [
-          "windows"
-        ],
-        "link": "http://furiouspixel.com"
-      },
-      {
-        "title": "Unmaze",
-        "visibleDate": "2020-05-01T09:00:00",
-        "studio": "Upian",
-        "summary": "",
-        "platforms": [
-          "mobile"
-        ],
-        "networks": {
-          "twitter": "https://twitter.com/upian",
-          "facebook": "https://www.facebook.com/upian"
-        },
-        "link": "https://www.upian.com/en/project/unmaze"
-      }
-    ]
-  },
-  {
-    "name": "gamejam",
-    "displayName": "Gamejam",
-    "games": []
   }
 ]
