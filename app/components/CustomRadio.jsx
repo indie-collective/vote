@@ -14,14 +14,14 @@ export default function RadioCard(props) {
         cursor="pointer"
         borderWidth="1px"
         borderRadius="md"
-        boxShadow="md"
+        borderColor="gray.700"
         _checked={{
           bg: "green.500",
-          color: "white",
+          color: "black",
           borderColor: "green.500",
         }}
         _focus={{
-          boxShadow: "outline",
+          boxShadow: "0 0 0 3px white",
         }}
         px={5}
         py={3}

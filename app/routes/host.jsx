@@ -5,7 +5,6 @@ import {
   chakra,
   Box,
   Heading,
-  Image,
   Link as ChakraLink,
   Text,
 } from "@chakra-ui/react";
@@ -62,12 +61,26 @@ export default function Host() {
   return (
     <main>
       <Box align="center" justify="center" mt={10}>
-        <Heading fontFamily="extenda" textTransform="uppercase" fontSize="60px">Votez pour votre jeu préféré!</Heading>
-        <chakra.div css={svgStyle} dangerouslySetInnerHTML={{__html: data.code}} />
-        <ChakraLink as={Link} color="teal.500" to={`/vote/${data.token}`}>
-          vote link
-        </ChakraLink>
-        <Text fontSize="xs">Refreshes every {REFRESH_TIME} seconds.</Text>
+        <Heading
+          fontFamily="extenda"
+          fontWeight="normal"
+          textTransform="uppercase"
+          fontSize="60px"
+        >
+          Votez pour votre jeu préféré !
+        </Heading>
+        <chakra.div
+          css={svgStyle}
+          dangerouslySetInnerHTML={{ __html: data.code }}
+        />
+        {process.env.NODE_ENV === "development" && (
+          <>
+            <ChakraLink as={Link} color="teal.500" to={`/vote/${data.token}`}>
+              vote link
+            </ChakraLink>
+            <Text fontSize="xs">Refreshes every {REFRESH_TIME} seconds.</Text>
+          </>
+        )}
       </Box>
     </main>
   );

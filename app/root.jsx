@@ -39,7 +39,7 @@ const Document = withEmotionCache(({ children }, emotionCache) => {
   }, []);
 
   return (
-    <html lang="en">
+    <html lang="fr" style={{ height: "100%" }}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -69,7 +69,7 @@ const Document = withEmotionCache(({ children }, emotionCache) => {
           `}
         />
       </head>
-      <body>
+      <body style={{ height: "100%" }}>
         {children}
         <ScrollRestoration />
         <Scripts />
