@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { json } from "@remix-run/node";
-import { Link, useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData, useFetcher } from "@remix-run/react";
 import {
   chakra,
   Box,
@@ -49,10 +49,14 @@ const svgStyle = css`
 
 export default function Host() {
   const data = useLoaderData();
+  const fetcher = useFetcher();
+
+  const { code, token } = fetcher.data ? fetcher.data : data;
 
   useEffect(() => {
     const interval = setInterval(() => {
-      window.location.reload();
+      // window.location.reload();
+      fetcher.submit();
     }, REFRESH_TIME * 1000);
 
     return () => clearInterval(interval);
@@ -71,11 +75,11 @@ export default function Host() {
         </Heading>
         <chakra.div
           css={svgStyle}
-          dangerouslySetInnerHTML={{ __html: data.code }}
+          dangerouslySetInnerHTML={{ __html: code }}
         />
         {process.env.NODE_ENV === "development" && (
           <>
-            <ChakraLink as={Link} color="teal.500" to={`/vote/${data.token}`}>
+            <ChakraLink as={Link} color="teal.500" to={`/vote/${token}`}>
               vote link
             </ChakraLink>
             <Text fontSize="xs">Refreshes every {REFRESH_TIME} seconds.</Text>

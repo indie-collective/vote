@@ -16,7 +16,7 @@ import {
   Alert,
   AlertIcon,
 } from "@chakra-ui/react";
-import { Link, useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData, useFetcher } from "@remix-run/react";
 import { json } from "@remix-run/node";
 
 import { db } from "../utils/db.server";
@@ -66,11 +66,15 @@ export async function loader() {
 }
 
 export default function Results() {
-  const { games } = useLoaderData();
+  const data = useLoaderData();
+  const fetcher = useFetcher();
+
+  const { games } = fetcher.data ? fetcher.data : data;
 
   useEffect(() => {
     const interval = setInterval(() => {
-      window.location.reload();
+      // window.location.reload();
+      fetcher.submit();
     }, REFRESH_TIME * 1000);
 
     return () => clearInterval(interval);
