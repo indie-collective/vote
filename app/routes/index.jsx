@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { useEffect } from "react";
 import {
+  Box,
   Container,
   Heading,
   TableContainer,
@@ -26,7 +27,9 @@ const REFRESH_TIME = 3;
 export async function loader() {
   // load categories
   const file = fs.readFileSync(path.join(__dirname, "../games.json"), "utf8");
-  const categories = JSON.parse(file);
+  const categories = JSON.parse(file).filter(
+    (category) => category.name === "indieawards"
+  );
 
   // load votes
   const topVotes = await db.vote.groupBy({
@@ -81,53 +84,66 @@ export default function Results() {
   });
 
   return (
-    <Container as="main" mt="30px">
-      <Heading>Results</Heading>
+    <Box bg="black">
+      <Container as="main" pt="30px">
+        <Heading
+          mb="30px"
+          fontFamily="extenda"
+          color="white"
+          fontWeight="normal"
+          fontSize="80px"
+        >
+          Résultats
+        </Heading>
 
-      <Alert status="info" m="15px">
-        <AlertIcon />
-        Results updated every {REFRESH_TIME} seconds.
-        <ChakraLink as={Link} color="teal.500" to="/host">
-          Visit hosting page.
-        </ChakraLink>
-      </Alert>
-
-      <TableContainer mt="15px" mb="30px">
-        <Table variant="simple">
-          <Thead>
-            <Tr>
-              <Th>Game</Th>
-              <Th>Category</Th>
-              <Th isNumeric>Votes</Th>
-            </Tr>
-          </Thead>
-
-          <Tbody>
-            {games.map((game) => (
-              <Tr key={game.title}>
-                <Td
-                  maxWidth="340px"
-                  overflow="hidden"
-                  textOverflow="ellipsis"
-                  whiteSpace="nowrap"
-                >
-                  {game.title}
-                </Td>
-                <Td>{game.category}</Td>
-                <Td isNumeric>{game.votes}</Td>
+        <TableContainer mt="15px" pb="50px" color="white">
+          <Table variant="simple">
+            <Thead>
+              <Tr>
+                <Th>Game</Th>
+                <Th isNumeric>Votes</Th>
               </Tr>
-            ))}
-          </Tbody>
+            </Thead>
 
-          <Tfoot>
-            <Tr>
-              <Th>Game</Th>
-              <Th>Category</Th>
-              <Th isNumeric>Votes</Th>
-            </Tr>
-          </Tfoot>
-        </Table>
-      </TableContainer>
-    </Container>
+            <Tbody>
+              {games.map((game) => (
+                <Tr key={game.title}>
+                  <Td
+                    maxWidth="340px"
+                    overflow="hidden"
+                    textOverflow="ellipsis"
+                    whiteSpace="nowrap"
+                    fontFamily="extenda"
+                    color="white"
+                    fontWeight="normal"
+                    fontSize="40px"
+                  >
+                    {game.title}
+                  </Td>
+                  <Td isNumeric>{game.votes}</Td>
+                </Tr>
+              ))}
+            </Tbody>
+
+            <Tfoot>
+              <Tr>
+                <Th>Game</Th>
+                <Th isNumeric>Votes</Th>
+              </Tr>
+            </Tfoot>
+          </Table>
+        </TableContainer>
+
+        <Box mt="10px" pb="30px">
+          <Alert status="info">
+            <AlertIcon />
+            Results updated every {REFRESH_TIME} seconds.
+            <ChakraLink as={Link} color="teal.500" to="/host">
+              Visit hosting page.
+            </ChakraLink>
+          </Alert>
+        </Box>
+      </Container>
+    </Box>
   );
 }
