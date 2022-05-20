@@ -16,6 +16,7 @@ import {
   Link as ChakraLink,
   Alert,
   AlertIcon,
+  Image,
 } from "@chakra-ui/react";
 import { Link, useLoaderData, useFetcher } from "@remix-run/react";
 import { json } from "@remix-run/node";
@@ -106,7 +107,7 @@ export default function Results() {
             </Thead>
 
             <Tbody>
-              {games.map((game) => (
+              {games.map((game, index) => (
                 <Tr key={game.title}>
                   <Td
                     maxWidth="340px"
@@ -116,11 +117,22 @@ export default function Results() {
                     fontFamily="extenda"
                     color="white"
                     fontWeight="normal"
-                    fontSize="40px"
+                    fontSize={index === 0 ? "60px" : "40px"}
                   >
+                    <Image
+                      src={`/2022/${game.title
+                        .toLowerCase()
+                        .replace(/[^a-zA-Z0-9]|-|\s/gim, "")}.jpg`}
+                      alt={game.title}
+                      width={index === 0 ? "120px" : "80px"}
+                      height={index === 0 ? "120px" : "80px"}
+                    />
                     {game.title}
+                    {index === 0 && "🌟"}
                   </Td>
-                  <Td isNumeric>{game.votes}</Td>
+                  <Td fontSize="30px" isNumeric>
+                    {game.votes}
+                  </Td>
                 </Tr>
               ))}
             </Tbody>
