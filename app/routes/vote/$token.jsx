@@ -226,7 +226,6 @@ export default function Vote() {
                     fontFamily="extenda"
                     color="white"
                   >
-                    {console.log(game.title)}
                     <Image
                       gridRow="1 / 3"
                       width="80px"
