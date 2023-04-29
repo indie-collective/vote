@@ -43,9 +43,9 @@ export async function loader({ request }) {
 
 const svgStyle = css`
   svg {
-    max-width: 80vh;
+    max-width: 75vh;
   }
-`
+`;
 
 export default function Host() {
   const data = useLoaderData();
@@ -64,19 +64,29 @@ export default function Host() {
 
   return (
     <main>
-      <Box align="center" justify="center" mt={10}>
+      <Box align="center" justify="center" bg="#46bee7">
         <Heading
-          fontFamily="extenda"
+          fontFamily="stunfest"
           fontWeight="normal"
           textTransform="uppercase"
-          fontSize="60px"
+          fontSize="100px"
+          bg="-webkit-linear-gradient(top, #e8db22 0%,#e8db22 33%,#fff 33%, #fff 66%, #e8db22 66%,#e8db22 100%)"
+          bgClip="text"
+          p={1}
         >
-          Votez pour votre jeu préféré !
+          Votez pour votre
         </Heading>
-        <chakra.div
-          css={svgStyle}
-          dangerouslySetInnerHTML={{ __html: code }}
-        />
+        <Heading
+          fontFamily="stunfest"
+          fontWeight="normal"
+          textTransform="uppercase"
+          fontSize="100px"
+          bg="-webkit-linear-gradient(top, #e8db22 0%,#e8db22 33%,#fff 33%, #fff 66%, #e8db22 66%,#e8db22 100%)"
+          bgClip="text"
+          p={1}
+        >
+          jeu préféré !
+        </Heading>
         {process.env.NODE_ENV === "development" && (
           <>
             <ChakraLink as={Link} color="teal.500" to={`/vote/${token}`}>

@@ -8,7 +8,12 @@ export async function generateQRCode(host) {
   const timestamp = Date.now();
   const token = jwt.sign({ expires: timestamp + EXPIRE_TIME }, JWT_SECRET);
   const code = await QRCode.toString(`http://${host}/vote/${token}`, {
-    type: 'svg'
+    type: "svg",
+    color: {
+      dark: "#000000ff",
+      light: "#ffffff00",
+    },
+    margin: 0,
   });
 
   return { code, token };

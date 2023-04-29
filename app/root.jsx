@@ -66,6 +66,13 @@ const Document = withEmotionCache(({ children }, emotionCache) => {
               font-style: normal;
               font-weight: normal;
             }
+
+            @font-face {
+              font-family: "stunfest";
+              src: url("/stunfest.otf");
+              font-style: normal;
+              font-weight: normal;
+            }
           `}
         />
       </head>
