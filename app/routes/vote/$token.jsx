@@ -7,10 +7,6 @@ import {
   Stack,
   Box,
   Button,
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
   useRadioGroup,
   Grid,
   Image,
@@ -27,6 +23,7 @@ import { stunvote } from "~/cookies";
 import { db } from "~/utils/db.server";
 import CustomRadio from "~/components/CustomRadio";
 import Logo from "~/components/Logo";
+import AlertPage from "~/components/AlertPage";
 
 export async function loader({ params, request }) {
   const cookieHeader = request.headers.get("Cookie");
@@ -90,43 +87,6 @@ export async function action({ request, params }) {
     }
   );
 }
-
-const AlertPage = ({ title, description, status = "error" }) => (
-  <Box bg="black" minH="100%" fontFamily="extenda">
-    <Container as="main" pt="30px">
-      <Logo />
-
-      <Alert
-        status={status}
-        flexDirection="column"
-        alignItems="center"
-        justifyContent="center"
-        textAlign="center"
-        p="30px"
-      >
-        <AlertIcon boxSize="70px" mr={0} mb={5} />
-        <AlertTitle
-          mt={4}
-          mb={5}
-          fontSize="50px"
-          textTransform="uppercase"
-          lineHeight={1}
-          fontWeight="normal"
-        >
-          {title}
-        </AlertTitle>
-        <AlertDescription
-          maxWidth="sm"
-          fontSize="30px"
-          lineHeight={1}
-          fontWeight="normal"
-        >
-          {description}
-        </AlertDescription>
-      </Alert>
-    </Container>
-  </Box>
-);
 
 const CountdownProgress = ({ to }) => {
   const [, update] = useState(0);
