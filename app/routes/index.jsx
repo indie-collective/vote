@@ -17,6 +17,7 @@ import {
   Alert,
   AlertIcon,
   Image,
+  Text,
 } from "@chakra-ui/react";
 import { Link, useLoaderData, useFetcher } from "@remix-run/react";
 import { json } from "@remix-run/node";
@@ -77,22 +78,23 @@ export default function Results() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // window.location.reload();
-      fetcher.submit();
+      fetcher.load("/");
     }, REFRESH_TIME * 1000);
 
     return () => clearInterval(interval);
-  });
+  }, [fetcher]);
 
   return (
-    <Box bg="black">
-      <Container as="main" pt="30px">
+    <Box bg="#46bee7" fontFamily="stunfest">
+      <Container as="main" pt="30px" maxW="90ch">
         <Heading
           mb="30px"
-          fontFamily="extenda"
+          fontFamily="stunfest"
           color="white"
           fontWeight="normal"
           fontSize="80px"
+          bg="-webkit-linear-gradient(top, #e8db22 0%,#e8db22 33%,#fff 33%, #fff 66%, #e8db22 66%,#e8db22 100%)"
+          bgClip="text"
         >
           Résultats
         </Heading>
@@ -114,10 +116,10 @@ export default function Results() {
                     overflow="hidden"
                     textOverflow="ellipsis"
                     whiteSpace="nowrap"
-                    fontFamily="extenda"
                     color="white"
                     fontWeight="normal"
                     fontSize={index === 0 ? "60px" : "40px"}
+                    position="relative"
                   >
                     <Image
                       src={`/2022/${game.title
@@ -127,10 +129,20 @@ export default function Results() {
                       width={index === 0 ? "120px" : "80px"}
                       height={index === 0 ? "120px" : "80px"}
                     />
-                    {game.title}
-                    {index === 0 && "🌟"}
+                    {index === 0 && (
+                      <Text as="span" position="absolute" left={0} top="5px" lineHeight={1}>
+                        🌟
+                      </Text>
+                    )}
+                    <Text
+                      as="span"
+                      bg="-webkit-linear-gradient(top, #e8db22 0%,#e8db22 33%,#fff 33%, #fff 66%, #e8db22 66%,#e8db22 100%)"
+                      bgClip="text"
+                    >
+                      {game.title}
+                    </Text>
                   </Td>
-                  <Td fontSize="30px" isNumeric>
+                  <Td fontSize="40px" isNumeric>
                     {game.votes}
                   </Td>
                 </Tr>
