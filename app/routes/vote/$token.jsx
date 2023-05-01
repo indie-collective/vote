@@ -107,7 +107,7 @@ const CountdownProgress = ({ to }) => {
 
   return (
     <CircularProgress value={(timeLeft / (2 * 60)) * 100} color="green.400">
-      <CircularProgressLabel color="white">
+      <CircularProgressLabel color="black">
         {timeLeft > 60 ? Math.ceil(timeLeft / 60) + "m" : timeLeft}
       </CircularProgressLabel>
     </CircularProgress>
@@ -159,17 +159,18 @@ export default function Vote() {
   const { games, expiresIn } = loaderData;
 
   return (
-    <Box bg="black">
+    <Box bg="#46bee7" fontFamily="stunfest">
       <Container as="main" pt="30px">
         <Logo />
 
         <Heading
-          fontFamily="extenda"
+          fontFamily="stunfest"
           fontWeight="normal"
           textTransform="uppercase"
           fontSize="40px"
           textAlign="center"
           color="white"
+          mb={5}
         >
           Votez pour votre jeu préféré !
         </Heading>
@@ -183,8 +184,6 @@ export default function Vote() {
                     gridTemplateColumns="auto 1fr"
                     alignItems="center"
                     columnGap={5}
-                    fontFamily="extenda"
-                    color="white"
                   >
                     <Image
                       gridRow="1 / 3"
@@ -198,6 +197,7 @@ export default function Vote() {
                     <Box
                       gridColumn={2}
                       fontSize="28px"
+                      lineHeight={0.8}
                       fontWeight="normal"
                       textTransform="uppercase"
                     >
@@ -222,7 +222,7 @@ export default function Vote() {
             right={0}
             margin="auto"
             padding="15px"
-            bg="black"
+            bg="#fff"
             boxShadow="0 -4px 6px -1px rgba(255, 255, 255, 0.1),0 -2px 4px -1px rgba(255, 255, 255, 0.06)"
             alignItems="center"
           >
@@ -232,7 +232,6 @@ export default function Vote() {
               colorScheme="green"
               mt={4}
               isFullWidth
-              fontFamily="extenda"
               textTransform="uppercase"
               fontSize="30px"
               m={0}

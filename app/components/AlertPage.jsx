@@ -1,9 +1,16 @@
-import { Alert, AlertDescription, AlertIcon, AlertTitle, Box, Container } from "@chakra-ui/react";
+import {
+  Alert,
+  AlertDescription,
+  AlertIcon,
+  AlertTitle,
+  Box,
+  Container,
+} from "@chakra-ui/react";
 
-import Logo from './Logo';
+import Logo from "./Logo";
 
 const AlertPage = ({ title, description, status = "error" }) => (
-  <Box bg="black" minH="100%" fontFamily="extenda">
+  <Box bg="#46bee7" minH="100%" fontFamily="stunfest">
     <Container as="main" pt="30px">
       <Logo />
 
@@ -14,12 +21,13 @@ const AlertPage = ({ title, description, status = "error" }) => (
         justifyContent="center"
         textAlign="center"
         p="30px"
+        variant="solid"
       >
         <AlertIcon boxSize="70px" mr={0} mb={5} />
         <AlertTitle
           mt={4}
           mb={5}
-          fontSize="50px"
+          fontSize="38px"
           textTransform="uppercase"
           lineHeight={1}
           fontWeight="normal"
@@ -28,7 +36,7 @@ const AlertPage = ({ title, description, status = "error" }) => (
         </AlertTitle>
         <AlertDescription
           maxWidth="sm"
-          fontSize="30px"
+          fontSize="20px"
           lineHeight={1}
           fontWeight="normal"
         >
