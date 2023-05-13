@@ -28,9 +28,9 @@ const REFRESH_TIME = 3;
 
 export async function loader() {
   // load categories
-  const file = fs.readFileSync(path.join(__dirname, "../games.json"), "utf8");
+  const file = fs.readFileSync(path.join(__dirname, "../games-2023.json"), "utf8");
   const categories = JSON.parse(file).filter(
-    (category) => category.name === "indieawards"
+    (category) => category.name === "competition"
   );
 
   // load votes
@@ -122,7 +122,7 @@ export default function Results() {
                     position="relative"
                   >
                     <Image
-                      src={`/2022/${game.title
+                      src={`/2023/${game.title
                         .toLowerCase()
                         .replace(/[^a-zA-Z0-9]|-|\s/gim, "")}.jpg`}
                       alt={game.title}

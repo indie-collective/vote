@@ -29,11 +29,11 @@ export async function loader({ params, request }) {
   const cookieHeader = request.headers.get("Cookie");
 
   // Load games
-  const file = fs.readFileSync(path.join(__dirname, "../games.json"), "utf8");
+  const file = fs.readFileSync(path.join(__dirname, "../games-2023.json"), "utf8");
   const categories = JSON.parse(file);
 
   const games = shuffle(
-    categories.find((category) => category.name === "indieawards").games
+    categories.find((category) => category.name === "competition").games
   );
 
   // Check if the code is valid
@@ -190,7 +190,7 @@ export default function Vote() {
                       width="80px"
                       height="80px"
                       objectFit="cover"
-                      src={`/2022/${game.title
+                      src={`/2023/${game.title
                         .toLowerCase()
                         .replace(/[^a-zA-Z0-9]|-|\s/gim, "")}.jpg`}
                     />

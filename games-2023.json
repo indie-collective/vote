@@ -1,0 +1,520 @@
+[
+  {
+    "name": "competition",
+    "displayName": "Compétition",
+    "games": [
+      {
+        "title": "Abiding Bridge",
+        "summary": "Abiding Bridge est une maison d'édition de jeux vidéo indépendants. Cette année, ils reviennent au Stunfest pour vous présenter sur leur stand les nouveautés et pépites vidéoludiques de demain !",
+        "networks": {
+          "twitter": "https://twitter.com/AbidingBridge",
+          "facebook": "https://www.facebook.com/AbidingBridge"
+        },
+        "link": "https://abidingbridge.com/"
+      },
+      {
+        "title": "Jumalien",
+        "studio": "Kevin Pedatte",
+        "summary": "Le grand tournoi du Jumalien entre dans sa phase finale, seul le dieu des dieux en sortira vainqueur. Incarnez une divinité et traquez vos adversaires pour recevoir le sacrement suprême dans ce hack & slash multijoueur local !",
+        "platforms": ["Windows"],
+        "keywords": ["Action", "Hack'n'slash"],
+        "networks": {
+          "twitter": "https://twitter.com/pedatte?lang=fr"
+        },
+        "link": "https://store.steampowered.com/app/2086840/Jumalien/"
+      },
+      {
+        "title": "Draw Your Game Infinite",
+        "studio": "Zero One",
+        "summary": "Thanks to the Draw Your Game Infinite with its exclusive box, turn your drawings into video games! Are you ready for the adventure?",
+        "platforms": ["Windows"],
+        "keywords": ["Action", "Platformer"],
+        "networks": {
+          "instagram": "https://www.instagram.com/zeroonegames/",
+          "twitter": "https://twitter.com/DrawYourGame?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+        },
+        "link": "https://www.draw-your-game.com/"
+      },
+      {
+        "title": "Kairo's Light Remake",
+        "studio": "Let's Develop Change",
+        "summary": "Changez l'avenir d'Edmond, un type paumé qui a raté sa vie. Dans cette simulation, améliorez la ville de Thésye, gagnez du pognon, achetez un château, et ramassez des quenouilles.",
+        "platforms": ["Windows"],
+        "keywords": ["Simulation"],
+        "networks": {
+          "twitter": "https://twitter.com/KairosLight",
+          "facebook": "https://www.facebook.com/KairosLight/"
+        },
+        "link": "https://www.kairoslight.fr/"
+      },
+      {
+        "title": "Project Operator",
+        "studio": "Bastien Giafferi",
+        "summary": "Incarnez un opérateur du ███ et assistez les agents sur le terrain en analysant les preuves et en faisant des déductions via votre ordinateur. Vous allez ainsi résoudre plusieurs enquêtes sans lien les unes avec les autres. À moins que…",
+        "platforms": ["Windows"],
+        "networks": {
+          "twitter": "https://twitter.com/Bastienre4",
+          "facebook": "https://m.facebook.com/ClusterEastGames/photos/a.1610310165941751/2900700096902745/?type=3&eid=ARDqKqf_kK1sEdrJ2zJTCEGlP35K3wky5qJiJB0Sk-i41tYFkLarno29tidRLyt-b9Stou_Vw4NmXz0l"
+        },
+        "link": "https://store.steampowered.com/app/1771980/Project_OPERATOR/"
+      },
+      {
+        "title": "Spook Bowl",
+        "studio": "Kalank Studio",
+        "summary": "Dans Spook Bowl, dirigez votre équipe d'athlètes universitaires monstrueux dans un jeu de ballon au tour par tour pas comme les autres. Assemblez une équipe gagnante grâce aux capacités et aux histoires uniques de chaque personnage. Trouvez votre propre façon de marquer des points et percez les secrets énigmatiques de ce tournoi universitaire.",
+        "platforms": ["Windows", "Switch", "PS4", "Xbox"],
+        "keywords": ["Tactical", "Sports"],
+        "link": "https://store.steampowered.com/app/2383300/Spook_Bowl/"
+      },
+      {
+        "title": "RUN : World In-Between",
+        "studio": "Team Run",
+        "summary": "RUN: The World In-Between est un nouveau plateformer \"Die and Retry\" dont le parcours à effectuer se génère de manière procédurale. Sois rapide, saute, cours pour débloquer du nouveau contenu.",
+        "platforms": ["Windows"],
+        "keywords": ["Platformer"],
+        "networks": {
+          "twitter": "https://twitter.com/LaTeamRun"
+        },
+        "link": "https://store.steampowered.com/app/1548940/RUN_The_world_inbetween/"
+      },
+      {
+        "title": "Shogun Showdown",
+        "studio": "Roboatino",
+        "summary": "Shogun Showdown is a turn-based combat game with rogue-like and deck-building elements. Position yourself and attack at the right time, upgrade your tiles and combo them to get ready to face the Shogun!",
+        "platforms": ["Windows"],
+        "keywords": ["Strategy Rogue"],
+        "networks": {
+        },
+        "link": "https://store.steampowered.com/app/2084000/Shogun_Showdown/"
+      },
+      {
+        "title": "Sandwalkers",
+        "studio": "Goblinz Studio",
+        "summary": "Sandwalkers est un jeu d'exploration au tour par tour de type roguelike. Constituez votre équipe, traversez des environnements hostiles variés, affrontez d'innombrables dangers et acquérez des connaissances qui vous aideront à trouver et à ressusciter l'arbre-mère Umama.",
+        "platforms": ["Windows"],
+        "keywords": ["Rogue"],
+        "networks": {
+        },
+        "link": "https://store.steampowered.com/app/1639080/Sandwalkers/?l=french"
+      },
+      {
+        "title": "Magical Drop VI",
+        "studio": "Highball Games / TA Publishing / Storm Trident / Forever Entertainment",
+        "summary": "Plongez dans l'histoire, affrontez des personnages fantasques, établissez de nouveaux records, résolvez des casse-tête ou mesurez-vous à vos amis/votre famille en mode multijoueur local comme aux joueurs du monde entier via la fonction en ligne.",
+        "platforms": ["Windows"],
+        "keywords": ["Arcade", "Puzzle"],
+        "networks": {
+          "twitter": "https://twitter.com/Magical_Drop_DB?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+        },
+        "link": "https://store.steampowered.com/app/2176320/Magical_Drop_VI/"
+      },
+      {
+        "title": "Saga of Sins",
+        "studio": "Bonus Level Entertainment",
+        "summary": "Saga of Sins est un jeu d'action-aventure expiatoire avec un scénario mystique et un gameplay arcade gratifiant ! Plongez dans un monde de vitraux imprégné par le péché, et venez à bout des sept pêchés capitaux.",
+        "platforms": ["Windows"],
+        "keywords": ["Action Adventure"],
+        "networks": {
+        },
+        "link": "https://store.steampowered.com/app/2094550/Saga_of_Sins/"
+      },
+      {
+        "title": "Crime O'Clock",
+        "studio": "Bad Seed",
+        "summary": "Crime O'Clock est un jeu d'enquête et d'exploration du temps à travers les époques et les univers. Enquêtez sur des affaires à travers le temps et des cartes évolutives qui dévoileront une histoire aux liens multiples. Serez-vous assez observateur pour résoudre tous les mystères ?",
+        "platforms": ["Windows"],
+        "keywords": ["Puzzle"],
+        "networks": {
+          "twitter": "https://twitter.com/NintendoFrance/status/1648724739026714636"
+        },
+        "link": "https://store.steampowered.com/app/1736290/Crime_OClock/"
+      },
+      {
+        "title": "Super reaKtor",
+        "studio": "SuperSaZ Studio",
+        "summary": "Super reaKtor is a survival / scoring game, created during the OctoJam 2022.",
+        "platforms": ["Windows"],
+        "keywords": ["Arcade", "Bullet Hell"],
+        "link": "https://sushift5.itch.io/super-reaktor"
+      },
+      {
+        "title": "Last Moon",
+        "studio": "Sköll Studio",
+        "summary": "La Lune s’effondre, de viles créatures apparaissent, le monde sombre dans le chaos! Last Moon est un Action-RPG qui s'inspire des RPGs mythiques des années 90 ! Pourrez-vous libérer les racines d'If de la corruption et rétablir l'ordre ?",
+        "platforms": ["Windows"],
+        "keywords": ["RPG"],
+        "networks": {
+          "instagram": "https://www.instagram.com/last_moon_game/?hl=fr",
+          "twitter": "https://twitter.com/LastMoonGame"
+        },
+        "link": "https://store.steampowered.com/app/1108600/Last_Moon/?l=french"
+      },
+      {
+        "title": "Island of Winds",
+        "studio": "Parity Creative House",
+        "summary": "Island of Winds is an adventure game set in the awe-inspiring environment inspired by 17th century Iceland, drawing upon nature, folklore and history. The core gameplay involves a rich story, intriguing puzzles, spellcasting, and a special focus on empathy encounters.",
+        "platforms": ["Windows"],
+        "keywords": ["Action Aventure"],
+        "networks": {
+          "twitter": "https://twitter.com/Island_of_Winds"
+        },
+        "link": "https://islandofwinds.com/"
+      },
+      {
+        "title": "Danghost",
+        "studio": "Umeshu Lovers",
+        "summary": "Danghost est un jeu puzzle-arcade inspiré des jeux de combats. Vous incarnez un exorciste qui doit aspirer des danghosts. Vous réaliserez un maximum de combos et utiliserez des sorts uniques pour battre vos adversaires. Jouable en solo, c'est avec le mode multi que le jeu révèlera tout son piquant !",
+        "platforms": ["Windows"],
+        "keywords": ["Puzzle Arcade"],
+        "networks": {
+          "instagram": "https://www.instagram.com/umeshulovers/?hl=fr"
+        },
+        "link": "https://store.steampowered.com/app/1812170/Danghost/?l=french"
+      },
+      {
+        "title": "They're Not Monsters",
+        "studio": "Belette Team Studio",
+        "summary": "Let's micro chip some peasants and overthrow the king ! TNM is a roguelike where you control an army of micro chipped warriors during a half autobattle, half action phase. After the fights, manage your resources into a secret laboratory !",
+        "platforms": ["Windows"],
+        "keywords": ["Roguelike"],
+        "networks": {
+          "instagram": "https://www.instagram.com/theyrenotmonsters/",
+          "twitter": "https://twitter.com/Azgoum",
+          "facebook": "https://www.facebook.com/TheyreNotMonsters"
+        },
+        "link": "https://www.beletteteam.com/"
+      },
+      {
+        "title": "Esperia ~Uprising of the Scarlet Witch~",
+        "studio": "Prismalice",
+        "summary": "Dive into the world of Esperia, a fantasy tactical RPG with visual novel elements! Lead Diana and her allies into grid-based tactical battles to uncover the secrets of the Kingdom and the world.",
+        "platforms": ["Windows"],
+        "keywords": ["RPG"],
+        "networks": {
+          "twitter": "https://twitter.com/prismalice?lang=fr"
+        },
+        "link": "https://store.steampowered.com/app/1138210/Esperia__Uprising_of_the_Scarlet_Witch/"
+      },
+      {
+        "title": "Number 99",
+        "studio": "Tuesday Quest",
+        "summary": "Each galactic cycle, the best pilots of the galaxy compete in an extreme championship of races where all the tricks are allowed. You are the first representative of the earth, the 99th planet to have reached the technology level necessary to be granted to run.",
+        "networks": {
+          "twitter": "https://twitter.com/TuesdayQuest",
+          "facebook": "http://www.facebook.com/tuesdayquest"
+        },
+        "link": "https://www.tuesdayquest.com/games/number99/",
+        "keywords": ["Racing", "Roguelike"],
+        "platforms": ["Windows"]
+      }
+    ]
+  },
+  {
+    "name": "indiegames",
+    "displayName": "Indie Games",
+    "games": [
+      {
+        "title": "Paquerette down the Bunburrows",
+        "studio": "Bunstack",
+        "summary": "Pense en dehors du terrier ou fais-toi duper par l'IA de lapins trop kawaii dans Pâquerette Down the Bunburrows, un jeu de puzzle mignon et profond où tu dois attraper tous les petits lapinous!",
+        "platforms": ["Windows"],
+        "keywords": ["Aventure", "Puzzle"],
+        "networks": {
+          "twitter": "https://twitter.com/AbidingBridge",
+          "facebook": "https://www.facebook.com/AbidingBridge"
+        },
+        "link": "https://store.steampowered.com/app/1628610/Paquerette_Down_the_Bunburrows/?l=french"
+      },
+      {
+        "title": "Aetheris",
+        "studio": "Wild Wits Games",
+        "summary": "Trouvez le pouvoir dont vous avez besoin pour venger votre tribu dans ce RPG d'aventure, avec des combats en tour par tour et une expérience de coopération jusqu’à 4 joueurs.",
+        "networks": {
+          "instagram": "https://www.instagram.com/wildwitsgames/",
+          "twitter": "https://twitter.com/wildwitsgames"
+        },
+        "link": "https://wildwits.games/",
+        "keywords": ["RPG", "Aventure", "Roguelike"],
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "DarkTimes: Wrath of the Raven",
+        "studio": "Salvagers Studio",
+        "summary": "DarkTimes est un jeu de tir en vue de dessus d'horreur où vous pouvez tirer avec deux armes dans deux directions différentes, simultanément. Accompagné de votre corbeau occulte, défendez la Louisiane: Tirez, esquivez, ralentissez le temps pour défaire les hordes de monstres. Mode Coop...",
+        "networks": {
+          "twitter": "https://twitter.com/darktimesgame?lang=fr"
+        },
+        "link": "https://store.steampowered.com/app/1737530/DarkTimes_Wrath_of_the_Raven/",
+        "keywords": ["Aventure", "Shooter"],
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "Marmota",
+        "studio": "École de Design Nantes Atlantique",
+        "summary": "Marmota est un jeu d’adresse et de rapidité qui a pour but d’aider Marmota à faire ses réserves de vivres pour l’hiver. Muni d’une petite perche vous devrez apporter le plus vite possible un fruit au terrier.",
+        "networks": {
+          "facebook": "https://www.youtube.com/watch?v=dNQwzWMF8Z8"
+        },
+        "link": "https://lecolededesign.com/fr",
+        "keywords": ["Arcade"],
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "Patine",
+        "studio": "École de Design Nantes Atlantique",
+        "summary": "Patine est un jeu de coopération à 2 sur des planches de skate. Les niveaux s’enchaînent en coordonnant les mouvements le plus rapidement possible.",
+        "networks": {
+          "facebook": "https://www.youtube.com/watch?v=fRgWi46wj98"
+        },
+        "link": "https://lecolededesign.com/fr",
+        "keywords": ["Arcade"],
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "To Hell With The Ugly",
+        "studio": "La Poule Noire",
+        "summary": "\"To Hell With the Ugly\" est un jeu d’aventure adapté du roman éponyme de Boris Vian. Incarnez Rock Bailey, jeune homme aussi beau que superficiel, kidnappé à la sortie d’un club de jazz. Entre bagarres de bars et enquête policière, aidez Rocky à faire la lumière sur son enlèvement.",
+        "networks": {
+          "twitter": "https://twitter.com/LaPouleNoireJV?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1451194059045826562%7Ctwgr%5Ebeb8431494397d24bf5c1c2513b8292f9ce77b84%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.arte.tv%2Fdigitalproductions%2Ffr%2Fto-hell-with-the-ugly"
+        },
+        "link": "https://www.arte.tv/digitalproductions/fr/to-hell-with-the-ugly",
+        "keywords": ["Aventure", "Enquête"],
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "Dust Riser",
+        "studio": "Ronan de Castel",
+        "summary": "Dust Riser is an RPG/Exploration game that heavily focuses on atmosphere. The game boasts fully pre-rendered 3D graphics for its characters and environments, featuring unique camera angles and cutscenes to make you feel closer to its world.",
+        "networks": {
+          "twitter": "https://twitter.com/dust__riser"
+        },
+        "link": "https://mr-sauceman.neocities.org/dustriser",
+        "keywords": ["RPG"],
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "Toaster Ball",
+        "studio": "Les Crafteurs",
+        "summary": "Une balle, deux buts, et... des grille-pains. Bienvenue dans Toasterball. Affrontez-vous entre amis jusqu’à 4 joueurs dans ce tournoi un peu inhabituel, où les grille-pains sont des athlètes, et où les lois de la physique sont en option.",
+        "networks": {
+          "twitter": "https://twitter.com/toasterball",
+          "facebook": "https://www.facebook.com/toasterball/"
+        },
+        "link": "https://store.steampowered.com/app/1142810/Toasterball/",
+        "keywords": ["Arcade", "Multi", "Sport"],
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "Sclash",
+        "studio": "Bevel Bakery",
+        "summary": "Sclash est un jeu de combat de samouraïs remplit de tension où un coup = un mort. Incarnez un samouraï expérimenté et affrontez vos adversaires dans des combats épiques où chaque mouvement compte. Gérez votre endurance, respirez et prenez votre temps pour asséner un coup mortel.",
+        "networks": {
+          "twitter": "https://twitter.com/SclashTheGame",
+          "facebook": "https://www.facebook.com/SclashTheGame/"
+        },
+        "link": "https://store.steampowered.com/app/1284130/Sclash/",
+        "keywords": ["Action"],
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "Zigglox",
+        "studio": "Giant Rabbit Games",
+        "summary": "Zigglox est un party game dans lequel il faut construire la tour la plus haute à l'aide de briques qu'on trouve dans le niveau. Certaines configurations de briques forment des combos qui permettent de prendre l'avantage sur son adversaire.",
+        "networks": {
+          "instagram": "https://www.instagram.com/zigglox",
+          "twitter": "https://twitter.com/Zigglox",
+          "facebook": "https://www.facebook.com/zigglox/"
+        },
+        "link": "https://store.steampowered.com/app/1514880/Zigglox/",
+        "keywords": ["Action Party Game"],
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "Each Other",
+        "studio": "Smeeki",
+        "summary": "Dans ce nouveau puzzle game, guidez Edwin et Judy à travers une histoire originale et de nombreux niveaux. Et aidez les à échapper à l'œil des surveillants et à s'enfuir de leur orphelinat pour le moins des plus étrange...",
+        "networks": {
+          "instagram": "https://instagram.com/eachothergame",
+          "twitter": "https://twitter.com/eachothergame",
+          "facebook": "https://www.facebook.com/EachOtherTheGame/"
+        },
+        "link": "https://thegdwc.com/games/eachothergame",
+        "keywords": ["Puzzle"],
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "Ninza",
+        "studio": "Klakmioch",
+        "summary": "Ninza est un platformer 2D brawler aux mécaniques inédites. Au lieu d'attaquer directement vos adversaires, vous les écrasez en leur jetant des morceaux du niveau sur la tronche. Le champ de bataille ainsi en perpétuel mouvement requiert d'excellents réflexes et une bonne dose d'anticipation pour être justemment exploité. L'environnement est votre arme, mais aussi votre pire ennemi.",
+        "networks": {
+          "twitter": "https://twitter.com/NinzaGame"
+        },
+        "link": "https://www.ninza-game.com/",
+        "keywords": ["Platformer Brawler"],
+        "platforms": ["Windows, Linux, Switch, MacOS"]
+      },
+      {
+        "title": "Shuffle Tactics",
+        "studio": "Club Sandwich",
+        "summary": "Shuffle Tactics is a roguelite deckbuilding tactical RPG. Strategize to survive tough battles, pick the right cards to create powerful synergies and bond with your sidekicks to get an edge in battle! Every run is different, who knows what you will encounter on your quest to become Asteria's ruler...",
+        "link": "https://store.steampowered.com/app/2186580/Shuffle_Tactics/",
+        "keywords": ["RPG"],
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "Chyss",
+        "studio": "Shaman Forest",
+        "summary": "Chyss is a turnbased, tactical 1vs1 game inspired from chess. You can move, attack, and consume your mana to summon new units, cast spells and use items when it's your turn. Your characters both have a move type and range and an attack type and range. Overcome your opponent's team!",
+        "networks": {
+          "twitter": "https://twitter.com/Play_Chyss"
+        },
+        "link": "https://store.steampowered.com/app/2072730/Chyss/",
+        "keywords": ["Strategie"],
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "Snacman",
+        "studio": "Shred Eagle",
+        "summary": "Snacman est un pacman multijoueur local. Incarné un donuts prêt a tout pour manger plus de burger que vos adversaire. Avec l'aide du meilleur compagnon du donuts triompher des autres donuts pour devenir le plus gros mangeur de burger !",
+        "link": "http://www.shredeagle.fr/sheet.php?p=snacman",
+        "keywords": ["Party game"],
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "Warm Monkey",
+        "studio": "Evprod",
+        "summary": "Dans l’architecture moderne d’une ville exotique, un singe se multiplie et son besoin d’eau grandit. Il doit rejoindre l’océan. Vous incarnez un singe qui doit trouver de l’eau dans une ville moderne  (fusion de Brasilia et Saint-Nazaire).",
+        "link": "https://www.evprod.world/warm_monkey/",
+        "keywords": ["Aventure"],
+        "platforms": ["Windows, Android, Mac, iOS"]
+      },
+      {
+        "title": "Cordialement",
+        "studio": "Play-Fool",
+        "summary": "Jeu de petite frappe administrative. l'objectif : taper cordialement le plus vite possible",
+        "link": "http://www.play-fool.net/cordialement",
+        "keywords": ["Humour"],
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "Golf Fight",
+        "studio": "Play-Fool",
+        "summary": "Golf Fight, est un jeu de mini-golf retro pixel inspiré par la GameBoy. Sa particularité ? Deux balles, pas de trou !",
+        "link": "https://projet.jeremypicard.fr/GolfFight/",
+        "networks": {
+          "instagram": "https://www.instagram.com/z00keep/"
+        },
+        "keywords": ["Versus", "Golf"],
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "Blooming Business: Casino",
+        "studio": "Homo Ludens",
+        "summary": "Blooming Business : Casino est un jeu de gestion avec un vrai aspect narratif. Construisez et gérez votre casino dans un monde plein d'animaux & de drames.",
+        "link": "https://store.steampowered.com/app/1388580/Blooming_Business_Casino/",
+        "networks": {
+          "facebook": "https://www.facebook.com/BloomingBusinessCasino/"
+        },
+        "keywords": ["Simulation"],
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "Cesspool",
+        "studio": "Radio Cloaque",
+        "summary": "Dans ce JRPG minimaliste et bienveillant, vous voyagerai à travers une Bretagne post-apocalyptique à la recherche de votre petit singe que vous avez perdu de vu.",
+        "platforms": ["windows"],
+        "keywords": ["RPG"],
+        "link": "https://store.steampowered.com/app/1394030/CESSPOOL/"
+      },
+      {
+        "title": "How to Say Goodbye",
+        "studio": "Florian Veltman / Baptiste Portefaix",
+        "summary": "How to Say Goodbye est un puzzle game narratif inspiré des livres illustrés. Ce jeu raconte les aventures d'une bande de fantômes tout juste décédés, ayant pour objectif de quitter l'espace liminal dans lequel ils se trouvent piégés.",
+        "platforms": ["Windows", "PS4", "Xbox", "Switch"],
+        "keywords": ["Puzzle", "Fiction"],
+        "link": "https://www.arte.tv/digitalproductions/fr/how-to-say-goodbye/"
+      },
+      {
+        "title": "Family Bash",
+        "studio": "Atomic Raccoon / Kilosaurus",
+        "summary": "Family Bash place le joueur dans la peau d’un jeune adulte coincé dans une réunion de famille cauchemardesque, et sommé d’enquêter sur l’héritage de son grand-père. Après un interminable trajet en train, c’est la salle des fêtes d’un petit village de Normandie qui accueille le joueur. Entre réflexions avinées et secrets honteux, l’image de la famille parfaite n’en ressort pas sans égratignures.",
+        "platforms": ["Android", "iOS"],
+        "networks": {
+          "twitter": "https://twitter.com/family_bash"
+        },
+        "keywords": ["Aventure", "Fiction"],
+        "link": "https://www.arte.tv/digitalproductions/fr/fete-de-famille-1/"
+      },
+      {
+        "title": "Inua : A Story In Ice And Time",
+        "studio": "The Pixel Hunt",
+        "summary": "Inua est un jeu narratif d'aventure où trois protagonistes voient leur destins s’entrelacer à des décennies d’intervalle dans les mêmes lieux du Grand Nord. Explorez chaque époque, récupérez des idées et manipulez leurs esprits afin de changer le cours de l’Histoire.",
+        "platforms": ["Windows", "Switch", "Android", "iOS"],
+        "networks": {
+          "twitter": "https://twitter.com/inuagame"
+        },
+        "keywords": ["Aventure", "Fiction narrative"],
+        "link": "https://store.steampowered.com/app/1479890/Inua__A_Story_in_Ice_and_Time/"
+      },
+      {
+        "title": "Vectronom",
+        "studio": "Ludopium",
+        "summary": "Les joueurs devront observer les évolutions de l’environnement au gré de la musique pour déplacer un cube en rythme, et résoudre les énigmes auxquelles ils seront confrontés. Les obstacles évoluent avec la musique et deviennent de plus en plus difficile en fonction de la progression des joueurs, mettant à l’épreuve leurs capacités de réflexion dans l’espace.",
+        "platforms": [
+          "windows",
+          "mac",
+          "switch"
+        ],
+        "keywords": [
+          "Puzzle",
+          "Multi"
+        ],
+        "link": "https://www.arte.tv/sites/webproductions/vectronom/"
+      },
+      {
+        "title": "Type:Rider",
+        "studio": "Cosmografik",
+        "summary": "Dans ce jeu de plateforme vous incarnerez « : » prêt à tout pour parcourir l’Histoire de la typographie, de la préhistoire jusqu’à aujourdhui ! Surmontez les obstacles, échappez à vos ennemis et collectionnez les astérisques, mais attention, le tout sans tomber ! Sortirez-vous indemne de ce voyage ?",
+        "platforms": [
+          "windows",
+          "mac",
+          "switch"
+        ],
+        "networks": {
+          "twitter": "https://twitter.com/Type_Rider"
+        },
+        "keywords": [
+          "Platformer"
+        ],
+        "link": "https://www.arte.tv/digitalproductions/fr/typerider/"
+      },
+      {
+        "title": "How 2 Escape",
+        "studio": "Breakfirst Games",
+        "summary": "How 2 Escape est un jeu de simulation d'évasion où deux joueurs devront coopérer via des supports différents et un gameplay asymétrique. Entraide & Coopération seront les mots d'ordre pour survivre dans How 2 Escape !",
+        "platforms": ["Windows"],
+        "keywords": ["Simulation"],
+        "networks": {
+          "twitter": "https://twitter.com/how2escape_Game"
+        },
+        "link": "https://store.steampowered.com/app/2264140/How_2_Escape/"
+      },
+      {
+        "title": "Prune & Milo",
+        "studio": "Flocons Studio",
+        "summary": "Contrôlez Prune et Milo, un frère et une sœur, perdus dans une grotte, et aidez-les à retrouver leur maman, et, pourquoi pas, empêcher la fin du monde. 4 univers, 100 niveaux, les amèneront à acquérir de mystérieux artefacts et se retrouver au cœur d’une aventure rocambolesque qui fera chauffer vos neurones..",
+        "platforms": ["Windows"],
+        "keywords": ["Puzzle", "Narration"],
+        "networks": {
+          "twitter": "https://twitter.com/flocons_studio"
+        },
+        "link": "https://twitter.com/flocons_studio"
+      }
+    ]
+  },
+  {
+    "name": "gamejam",
+    "displayName": "Gamejam",
+    "games": []
+  }
+]
