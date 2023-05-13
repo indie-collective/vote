@@ -1,14 +1,15 @@
-import { Image } from "@chakra-ui/react";
+import { Flex, Image } from "@chakra-ui/react";
 
 export default function Logo() {
   return (
-    <Image
-      src="/logo.png"
-      alt="Indie Stunfest"
-      width="100%"
-      maxWidth="100%"
-      objectFit="contain"
-      mb={5}
-    />
+    <Flex justifyContent="center">
+      <Image
+        src="/logo-2023.png"
+        alt="Indie Stunfest"
+        maxWidth="75%"
+        objectFit="contain"
+        mb={5}
+      />
+    </Flex>
   );
 }
