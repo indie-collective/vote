@@ -18,10 +18,12 @@ import { css } from "@emotion/react";
 import isAuthorized from "../utils/auth.server";
 import { generateQRCode } from "../utils/qrcode.server";
 
+require('dotenv').config();
+
 const REFRESH_TIME = 3;
 
 export async function loader({ request }) {
-  const host = new URL(request.url).host;
+  const host = process.env.VOTE_HOST || new URL(request.url).host;
 
   if (await isAuthorized(request)) {
     return json(await generateQRCode(host));
