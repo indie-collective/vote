@@ -4,15 +4,6 @@
     "displayName": "Compétition",
     "games": [
       {
-        "title": "Abiding Bridge",
-        "summary": "Abiding Bridge est une maison d'édition de jeux vidéo indépendants. Cette année, ils reviennent au Stunfest pour vous présenter sur leur stand les nouveautés et pépites vidéoludiques de demain !",
-        "networks": {
-          "twitter": "https://twitter.com/AbidingBridge",
-          "facebook": "https://www.facebook.com/AbidingBridge"
-        },
-        "link": "https://abidingbridge.com/"
-      },
-      {
         "title": "Jumalien",
         "studio": "Kevin Pedatte",
         "summary": "Le grand tournoi du Jumalien entre dans sa phase finale, seul le dieu des dieux en sortira vainqueur. Incarnez une divinité et traquez vos adversaires pour recevoir le sacrement suprême dans ce hack & slash multijoueur local !",
@@ -36,7 +27,7 @@
         "link": "https://www.draw-your-game.com/"
       },
       {
-        "title": "Kairo's Light Remake",
+        "title": "Kairos'Light Remake",
         "studio": "Let's Develop Change",
         "summary": "Changez l'avenir d'Edmond, un type paumé qui a raté sa vie. Dans cette simulation, améliorez la ville de Thésye, gagnez du pognon, achetez un château, et ramassez des quenouilles.",
         "platforms": ["Windows"],
@@ -132,7 +123,7 @@
       {
         "title": "Super reaKtor",
         "studio": "SuperSaZ Studio",
-        "summary": "Super reaKtor is a survival / scoring game, created during the OctoJam 2022.",
+        "summary": "Au croisement entre Ikaruga et Kuru Kuru Kururin, Super reaKtor est un Bullet Hell aux controles atypiques où l'on va devoir survivre en déplaçant, en tournant, ou en agrandissant/rétrécissant le Noyau (joueur) du réacteur pour esquiver les différents patterns de boulettes.",
         "platforms": ["Windows"],
         "keywords": ["Arcade", "Bullet Hell"],
         "link": "https://sushift5.itch.io/super-reaktor"
@@ -204,7 +195,88 @@
           "facebook": "http://www.facebook.com/tuesdayquest"
         },
         "link": "https://www.tuesdayquest.com/games/number99/",
-        "keywords": ["Racing", "Roguelike"],
+        "keywords": [
+          "Racing",
+          "Roguelike"
+        ],
+        "platforms": [
+          "Windows"
+        ]
+      },
+      {
+        "title": "Prevail",
+        "studio": "Obstenatis",
+        "summary": "Survie et épouvante atteignent des sommets dans Prevail, perdu dans un immense Manoir, vous ne pourrez compter que sur vous-même. Graphismes détaillés, action intense à la 3e personne et exploration palpitante : Redécouvrez le genre du Survival Horror dans cette nouvelle formule.",
+        "link": "https://gg.deals/games/?publisher=49840",
+        "keywords": ["Survie", "Horreur"],
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "Shuffle Tactics",
+        "studio": "Club Sandwich",
+        "summary": "Shuffle Tactics is a roguelite deckbuilding tactical RPG. Strategize to survive tough battles, pick the right cards to create powerful synergies and bond with your sidekicks to get an edge in battle! Every run is different, who knows what you will encounter on your quest to become Asteria's ruler...",
+        "link": "https://store.steampowered.com/app/2186580/Shuffle_Tactics/",
+        "keywords": ["RPG"],
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "Each Other",
+        "studio": "Smeeki",
+        "summary": "Dans ce nouveau puzzle game, guidez Edwin et Judy à travers une histoire originale et de nombreux niveaux. Et aidez les à échapper à l'œil des surveillants et à s'enfuir de leur orphelinat pour le moins des plus étrange...",
+        "networks": {
+          "instagram": "https://instagram.com/eachothergame",
+          "twitter": "https://twitter.com/eachothergame",
+          "facebook": "https://www.facebook.com/EachOtherTheGame/"
+        },
+        "link": "https://thegdwc.com/games/eachothergame",
+        "keywords": ["Puzzle"],
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "DarkTimes: Wrath of the Raven",
+        "studio": "Salvagers Studio",
+        "summary": "DarkTimes est un jeu de tir en vue de dessus d'horreur où vous pouvez tirer avec deux armes dans deux directions différentes, simultanément. Accompagné de votre corbeau occulte, défendez la Louisiane: Tirez, esquivez, ralentissez le temps pour défaire les hordes de monstres. Mode Coop...",
+        "networks": {
+          "twitter": "https://twitter.com/darktimesgame?lang=fr"
+        },
+        "link": "https://store.steampowered.com/app/1737530/DarkTimes_Wrath_of_the_Raven/",
+        "keywords": ["Aventure", "Shooter"],
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "Toasterball",
+        "studio": "Les Crafteurs",
+        "summary": "Une balle, deux buts, et... des grille-pains. Bienvenue dans Toasterball. Affrontez-vous entre amis jusqu’à 4 joueurs dans ce tournoi un peu inhabituel, où les grille-pains sont des athlètes, et où les lois de la physique sont en option.",
+        "networks": {
+          "twitter": "https://twitter.com/toasterball",
+          "facebook": "https://www.facebook.com/toasterball/"
+        },
+        "link": "https://store.steampowered.com/app/1142810/Toasterball/",
+        "keywords": ["Arcade", "Multi", "Sport"],
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "Dolos",
+        "studio": "Playing Paradigms",
+        "summary": "Infiltrez-vous dans Dolos, un système de régulation sociale à grande échelle. Parviendrez-vous à contrecarrer les destins pré-déterminés d'un bon nombre d'individus discriminés par l'algorithme de Dolos ?",
+        "networks": {
+          "twitter": "https://twitter.com/AbidingBridge",
+          "facebook": "https://www.facebook.com/AbidingBridge"
+        },
+        "link": "https://store.steampowered.com/app/2371240/DOLOS/",
+        "keywords": ["Gestion", "Narration"],
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "Satanislas",
+        "studio": "Operating Dwarves",
+        "summary": "Un jeu de plateforme atypique où les vies sont votre monnaie d'échange: dépensez-les pour acheter des pouvoirs, ou surmontez des défis supplémentaires pour en gagner davantage !",
+        "networks": {
+          "twitter": "https://twitter.com/AbidingBridge",
+          "facebook": "https://www.facebook.com/AbidingBridge"
+        },
+        "link": "https://store.steampowered.com/app/2171680/Satanislas/",
+        "keywords": ["RPG", "Aventure"],
         "platforms": ["Windows"]
       }
     ]
@@ -235,17 +307,6 @@
         },
         "link": "https://wildwits.games/",
         "keywords": ["RPG", "Aventure", "Roguelike"],
-        "platforms": ["Windows"]
-      },
-      {
-        "title": "DarkTimes: Wrath of the Raven",
-        "studio": "Salvagers Studio",
-        "summary": "DarkTimes est un jeu de tir en vue de dessus d'horreur où vous pouvez tirer avec deux armes dans deux directions différentes, simultanément. Accompagné de votre corbeau occulte, défendez la Louisiane: Tirez, esquivez, ralentissez le temps pour défaire les hordes de monstres. Mode Coop...",
-        "networks": {
-          "twitter": "https://twitter.com/darktimesgame?lang=fr"
-        },
-        "link": "https://store.steampowered.com/app/1737530/DarkTimes_Wrath_of_the_Raven/",
-        "keywords": ["Aventure", "Shooter"],
         "platforms": ["Windows"]
       },
       {
@@ -293,18 +354,6 @@
         "platforms": ["Windows"]
       },
       {
-        "title": "Toaster Ball",
-        "studio": "Les Crafteurs",
-        "summary": "Une balle, deux buts, et... des grille-pains. Bienvenue dans Toasterball. Affrontez-vous entre amis jusqu’à 4 joueurs dans ce tournoi un peu inhabituel, où les grille-pains sont des athlètes, et où les lois de la physique sont en option.",
-        "networks": {
-          "twitter": "https://twitter.com/toasterball",
-          "facebook": "https://www.facebook.com/toasterball/"
-        },
-        "link": "https://store.steampowered.com/app/1142810/Toasterball/",
-        "keywords": ["Arcade", "Multi", "Sport"],
-        "platforms": ["Windows"]
-      },
-      {
         "title": "Sclash",
         "studio": "Bevel Bakery",
         "summary": "Sclash est un jeu de combat de samouraïs remplit de tension où un coup = un mort. Incarnez un samouraï expérimenté et affrontez vos adversaires dans des combats épiques où chaque mouvement compte. Gérez votre endurance, respirez et prenez votre temps pour asséner un coup mortel.",
@@ -330,19 +379,6 @@
         "platforms": ["Windows"]
       },
       {
-        "title": "Each Other",
-        "studio": "Smeeki",
-        "summary": "Dans ce nouveau puzzle game, guidez Edwin et Judy à travers une histoire originale et de nombreux niveaux. Et aidez les à échapper à l'œil des surveillants et à s'enfuir de leur orphelinat pour le moins des plus étrange...",
-        "networks": {
-          "instagram": "https://instagram.com/eachothergame",
-          "twitter": "https://twitter.com/eachothergame",
-          "facebook": "https://www.facebook.com/EachOtherTheGame/"
-        },
-        "link": "https://thegdwc.com/games/eachothergame",
-        "keywords": ["Puzzle"],
-        "platforms": ["Windows"]
-      },
-      {
         "title": "Ninza",
         "studio": "Klakmioch",
         "summary": "Ninza est un platformer 2D brawler aux mécaniques inédites. Au lieu d'attaquer directement vos adversaires, vous les écrasez en leur jetant des morceaux du niveau sur la tronche. Le champ de bataille ainsi en perpétuel mouvement requiert d'excellents réflexes et une bonne dose d'anticipation pour être justemment exploité. L'environnement est votre arme, mais aussi votre pire ennemi.",
@@ -352,14 +388,6 @@
         "link": "https://www.ninza-game.com/",
         "keywords": ["Platformer Brawler"],
         "platforms": ["Windows, Linux, Switch, MacOS"]
-      },
-      {
-        "title": "Shuffle Tactics",
-        "studio": "Club Sandwich",
-        "summary": "Shuffle Tactics is a roguelite deckbuilding tactical RPG. Strategize to survive tough battles, pick the right cards to create powerful synergies and bond with your sidekicks to get an edge in battle! Every run is different, who knows what you will encounter on your quest to become Asteria's ruler...",
-        "link": "https://store.steampowered.com/app/2186580/Shuffle_Tactics/",
-        "keywords": ["RPG"],
-        "platforms": ["Windows"]
       },
       {
         "title": "Chyss",
@@ -509,12 +537,82 @@
           "twitter": "https://twitter.com/flocons_studio"
         },
         "link": "https://twitter.com/flocons_studio"
+      },
+      {
+        "title": "Vole les Nuages de Jupiter",
+        "studio": "Fleeting Being",
+        "summary": "Vole dans une géante gazeuse, brave des tempêtes de la taille de la terre, explore les ruines volantes de l'humanité.",
+        "platforms": ["Windows"],
+        "keywords": ["Combat"],
+        "link": "http://fleetingbeing.com"
+      },
+      {
+        "title": "0 A.D : Empires Ascendant",
+        "studio": "ActivDesign",
+        "summary": "0 A.D. : Empires Ascendant est un jeu vidéo de stratégie en temps réel (RTS) historique en 3D développé par Wildfire Games. Ici, Active Design vous présente un mod Sci-fi de 0 A.D.",
+        "platforms": ["Windows", "Linux", "MacOS"],
+        "keywords": ["Stratégie", "Temps réel"],
+        "link": "http://fleetingbeing.com"
+      },
+      {
+        "title": "This is No Cave",
+        "studio": "Monome Studio",
+        "summary": "You got lost in space. Crashed your spaceship on an uncharted planet. Got captured by aliens. They threw you in some hole. Now you get out.",
+        "link": "https://abidingbridge.com/jeux/",
+        "networks": {
+          "twitter": "https://twitter.com/AbidingBridge",
+          "facebook": "https://www.facebook.com/AbidingBridge"
+        },
+        "platforms": ["Windows"]
       }
     ]
   },
   {
     "name": "gamejam",
     "displayName": "Gamejam",
-    "games": []
+    "games": [
+      {
+        "title": "Seré Pastora",
+        "studio": "Naji Mammeri, Midahaine",
+        "summary": "Jeu de pâturage avec un patou, des brebis et des lamas.",
+        "link": "https://njmmmr.itch.io/sere-pastora",
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "Improbus",
+        "studio": "Le Moine Victoria",
+        "summary": "IMPROBUS est un jeu de GameJam réalisée en 48H avec une équipe de 3 personnes. Le jeu peut contenir de nombreux bugs ou peut sembler non fini dans sa version actuelle, nous travaillerons dessus pour améliorer votre expérience.",
+        "link": "https://le-moine-victoria.itch.io/improbus",
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "Chat GéParLé",
+        "studio": "Ascreb_CreaJeu",
+        "summary": "spriteSVG demo for cluige minimalist terminal-based-games engine",
+        "link": "https://ascreb-creajeu.itch.io/chat-geparle",
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "Bag Horn",
+        "studio": "Archer01",
+        "summary": "Pour qu'ils repartent à l'aventure, remplissez le sac de Olaf et Nathan et découvrez les 3 endings possibles !",
+        "link": "https://archer01.itch.io/bag-horn",
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "The Discorder - agent 49.3",
+        "studio": "Maaarty",
+        "summary": "Il n'a qu'une seule mission. Raconter les pires saloperies sur le représentant de l'opposition.",
+        "link": "https://maaarty.itch.io/the-discorder",
+        "platforms": ["Windows"]
+      },
+      {
+        "title": "My Turn!",
+        "studio": "Dreca",
+        "summary": "4 enfants se disputent pour jouer à la tablette. Utilisez ballons, nerfs, briques de LEGO ou autres pistolets à eau pour empêcher les autres de l'utiliser. Le 1er qui remplit la barre gagne. Attention à ne pas réveiller les parents !",
+        "link": "https://dreca.itch.io/my-turn",
+        "platforms": ["Windows"]
+      }
+    ]
   }
 ]
