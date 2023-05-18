@@ -1,8 +1,10 @@
 import QRCode from "qrcode";
 import jwt from "jsonwebtoken";
 
+require('dotenv').config();
+
 const JWT_SECRET = process.env.JWT_SECRET || "secret";
-const EXPIRE_TIME = process.env.EXPIRE_TIME || 1000 * 60 * 2;
+const EXPIRE_TIME = Number.parseInt(process.env.EXPIRE_TIME) || 1000 * 60 * 2;
 
 export async function generateQRCode(host) {
   const timestamp = Date.now();
