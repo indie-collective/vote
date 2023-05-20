@@ -126,9 +126,19 @@ export default function Vote() {
     onChange: () => setSelected(true),
   });
 
+  const voteLocalStorage =
+    typeof window !== "undefined"
+      ? parseInt(window.localStorage.getItem("stunvote"))
+      : null;
+
   const group = getRootProps();
 
-  if (loaderData.alreadyVoted || actionData?.success) {
+  if (
+    loaderData.alreadyVoted ||
+    actionData?.success ||
+    (voteLocalStorage &&
+      new Date() - voteLocalStorage < 7 * 24 * 60 * 60 * 1000)
+  ) {
     return (
       <AlertPage
         title="Merci pour votre vote ! 🎉"
@@ -237,6 +247,10 @@ export default function Vote() {
               m={0}
               ml="10px"
               disabled={!selected}
+              onClick={() => {
+                if (selected)
+                  window.localStorage.setItem("stunvote", +new Date());
+              }}
             >
               Vote
             </Button>
