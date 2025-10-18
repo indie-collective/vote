@@ -10,7 +10,7 @@ import {
 import Logo from "./Logo";
 
 const AlertPage = ({ title, description, status = "error" }) => (
-  <Box bg="#46bee7" minH="100%" fontFamily="stunfest">
+  <Box bg="linear-gradient(180deg, #543926, #ffb7d7, #ed7129);" minH="100%" fontFamily="Jersey 10">
     <Container as="main" pt="30px">
       <Logo />
 

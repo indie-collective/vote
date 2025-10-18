@@ -169,12 +169,12 @@ export default function Vote() {
   const { games, expiresIn } = loaderData;
 
   return (
-    <Box bg="#46bee7" fontFamily="stunfest">
+    <Box bg="linear-gradient(180deg, #543926, #ffb7d7, #ed7129);" fontFamily="Jersey10">
       <Container as="main" pt="30px">
         <Logo />
 
         <Heading
-          fontFamily="stunfest"
+          fontFamily="Jersey 10"
           fontWeight="normal"
           textTransform="uppercase"
           fontSize="40px"

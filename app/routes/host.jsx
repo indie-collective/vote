@@ -60,17 +60,17 @@ export default function Host() {
       direction="column"
       alignItems="stretch"
       textAlign="center"
-      bg="#46bee7"
+      bg="linear-gradient(180deg, #543926, #ffb7d7, #ed7129);"
       minH="100%"
       shouldWrapChildren
     >
       <Heading
-        fontFamily="stunfest"
+        fontFamily="Jersey10"
         fontWeight="normal"
         textTransform="uppercase"
         fontSize="100px"
-        bg="-webkit-linear-gradient(top, #e8db22 0%,#e8db22 33%,#fff 33%, #fff 66%, #e8db22 66%,#e8db22 100%)"
         bgClip="text"
+        color="white"
         p={1}
       >
         Votez pour votre
@@ -94,12 +94,12 @@ export default function Host() {
         </FormControl>
       )}
       <Heading
-        fontFamily="stunfest"
+        fontFamily="Jersey10"
         fontWeight="normal"
         textTransform="uppercase"
         fontSize="100px"
-        bg="-webkit-linear-gradient(top, #e8db22 0%,#e8db22 33%,#fff 33%, #fff 66%, #e8db22 66%,#e8db22 100%)"
         bgClip="text"
+        color="white"
         p={1}
       >
         jeu préféré !

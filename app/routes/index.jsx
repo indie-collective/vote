@@ -28,7 +28,10 @@ const REFRESH_TIME = 3;
 
 export async function loader() {
   // load categories
-  const file = fs.readFileSync(path.join(__dirname, "../games-2023.json"), "utf8");
+  const file = fs.readFileSync(
+    path.join(__dirname, "../games-2025.json"),
+    "utf8"
+  );
   const categories = JSON.parse(file).filter(
     (category) => category.name === "competition"
   );
@@ -85,15 +88,14 @@ export default function Results() {
   }, [fetcher]);
 
   return (
-    <Box bg="#46bee7" fontFamily="stunfest">
-      <Container as="main" pt="30px" maxW="90ch">
+    <Box bg="linear-gradient(180deg, #543926, #ffb7d7, #ed7129);" fontFamily="Jersey10">
+      <Container as="main" pt="30px" maxW="90ch" color="white">
         <Heading
           mb="30px"
-          fontFamily="stunfest"
-          color="white"
+          fontFamily="Jersey10"
+          background="white"
           fontWeight="normal"
           fontSize="80px"
-          bg="-webkit-linear-gradient(top, #e8db22 0%,#e8db22 33%,#fff 33%, #fff 66%, #e8db22 66%,#e8db22 100%)"
           bgClip="text"
         >
           Résultats
@@ -122,7 +124,7 @@ export default function Results() {
                     position="relative"
                   >
                     <Image
-                      src={`/2023/${game.title
+                      src={`/2025/${game.title
                         .toLowerCase()
                         .replace(/[^a-zA-Z0-9]|-|\s/gim, "")}.jpg`}
                       alt={game.title}
@@ -130,15 +132,17 @@ export default function Results() {
                       height={index === 0 ? "120px" : "80px"}
                     />
                     {index === 0 && (
-                      <Text as="span" position="absolute" left={0} top="5px" lineHeight={1}>
+                      <Text
+                        as="span"
+                        position="absolute"
+                        left={0}
+                        top="5px"
+                        lineHeight={1}
+                      >
                         🌟
                       </Text>
                     )}
-                    <Text
-                      as="span"
-                      bg="-webkit-linear-gradient(top, #e8db22 0%,#e8db22 33%,#fff 33%, #fff 66%, #e8db22 66%,#e8db22 100%)"
-                      bgClip="text"
-                    >
+                    <Text as="span" bgClip="text" color="white">
                       {game.title}
                     </Text>
                   </Td>

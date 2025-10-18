@@ -1,0 +1,272 @@
+[
+  {
+    "name": "competition",
+    "displayName": "Compétition",
+    "games": [
+      {
+        "studio": "Doot Tiny Games",
+        "title": "Kabuto Park",
+        "keywords": ["collection de créature", "cozy"],
+        "link": "https://store.steampowered.com/app/3376990/Kabuto_Park/",
+        "summary": "Kabuto Park est un petit jeu mignon de collection d'insectes. Améliore ton matériel, attrape les meilleurs scarabées et entraîne les à la bagarre. Choisis ton équipe et défie les autres enfants pour devenir le champion du Tournoi Scarabée Sumo de l'été !\n\nProfite de 2 à 4 heures de capture tranquille, de petits combats frénétiques et d'ambiance estivale."
+      },
+      {
+        "studio": "MechBird",
+        "title": "Keyball Olympics",
+        "keywords": ["Imaginary Sports Party Game"],
+        "link": "https://mechbird.itch.io/keyball-olympics",
+        "summary": "Keyball Olympics fait sortir le jeu de l’écran pour ramener la baston sur le clavier.\nUn party game chaotique où chaque touche devient un personnage — et chaque joueur un adversaire de proximité.\n\nIci, pas d’avatar à l’écran : chaque touche devient un personnage, chaque lettre une action. Le clavier devient un terrain de jeu commun, partagé par jusqu’à 3 joueurs. On se bouscule, on se gêne, on rit — la baston quitte l’écran pour envahir l’espace physique."
+      },
+      {
+        "studio": "Tohu Bohu Games",
+        "title": "Beware of the Cartographer!",
+        "keywords": ["Puzzle", "aventure"],
+        "link": "https://store.steampowered.com/app/3905500/Beware_of_the_Cartographer/",
+        "summary": "Cartographiez une terre mystérieuse au temps des Lumières. Tracez une frontière entre deux royaumes en guerre. Rencontrez la population locale. Arbitrez entre les requêtes du peuple et les impératifs de votre mission. Dilemmes, complots, phénomènes étranges… Saurez-vous ramener la paix ?"
+      },
+      {
+        "studio": "NaejDoree Studio",
+        "title": "Contenir",
+        "keywords": ["Platformer", "narratif"],
+        "link": "https://store.steampowered.com/app/4037190/Contenir/",
+        "summary": "Parcourez le journal d'une femme trans de son enface à l'age adulte sous une forme unique immergeant le joueur émotionellement via le gameplay."
+      },
+      {
+        "studio": "PUNKCAKE Délicieux",
+        "title": "If Letters Had Pants...",
+        "keywords": ["Puzzle", "word game", "roguelite"],
+        "link": "https://store.steampowered.com/app/3659750/If_Letters_Had_Pants_Would_They_Wear_Them_Like_This_What_About_Numbers_What_If_They_Had_Small_Shovels_And_They_Dug_Stuff_Up_To_Put_In_A_Museum/",
+        "summary": "Un jeu de lettres où l'on cherche à trouver des mots dans une grille de lettres aléatoires, et à obtenir des pantalons pour donner à certaines lettres des bonus uniques, comme multiplier les points ou faire pousser des champignons. Jouable avec les mots français."
+      },
+      {
+        "studio": "NEVERMIND",
+        "title": "Val Fortuna",
+        "keywords": ["Roguelite tour par tour"],
+        "link": "",
+        "summary": "🎲 Lancez les dés, déplacez votre pion et misez votre destin face aux écarlates dans Val Fortuna !\n\nVal Fortuna est un roguelite au tour par tour avec des éléments RPG, inspiré par l’univers des casinos."
+      },
+      {
+        "studio": "Super SAZ Studio",
+        "title": "Super reaKtor",
+        "keywords": ["Bullet-Hell Arcade"],
+        "link": "https://store.steampowered.com/app/3077190/Super_reaKtor/",
+        "summary": "Super reaKtor est un bullet hell axé sur la difficulté avec un twist : des contrôles originaux et 2 points faibles à gérer. Collectez les particules énergétiques vertes et esquivez ou absorbez les différentes menaces."
+      },
+      {
+        "studio": "Pixelnest Studio",
+        "title": "CTHULOOT",
+        "keywords": ["1-4 player Couch coop"],
+        "link": "https://store.steampowered.com/app/2283410/CTHULOOT/",
+        "summary": "CTHULOOT est un jeu arcade coopératif dans lequel vous explorez des lieux étranges remplis de trésors à collectionner. Coopération, agilité et chants cthoniques seront requis pour résoudre les mystères qui vous attendent. Mais gare aux tentacules !"
+      },
+      {
+        "studio": "Dale Coop Studio",
+        "title": "Chibi Monster Brawl",
+        "keywords": ["Petit jeu de combat à plusieurs"],
+        "link": "https://dale-coop.itch.io/chibi-monster-br4wl-nes",
+        "summary": "Chibi Monster Brawl est un jeu NES multijoueur frénétique dans lequel jusqu’à quatre joueurs s’affrontent dans des arènes hantées. Incarnez des monstres mignons comme un vampire, un zombie, un fantôme ou une banshee, collectez des objets pour marquer des points et lancez des projectiles magiques pour surprendre vos adversaires. Rapide, fun et parfait pour des parties entre amis !"
+      },
+      {
+        "studio": "SJ Games & Dale Coop Studio",
+        "title": "SkateCat",
+        "keywords": ["Plateformes mignon"],
+        "link": "https://store.steampowered.com/app/2708010/SkateCat/",
+        "summary": "SkateCat est un jeu de plateformes rétro où vous incarnez un chat intrépide sur son skateboard. Sautez par-dessus les obstacles, évitez les dangers et filez à toute vitesse à travers des niveaux colorés inspirés des classiques 8‑bits. Un hommage fun et dynamique aux jeux NES d’autrefois !"
+      },
+      {
+        "studio": "Choc Abyss",
+        "title": "Spikair Volleyball",
+        "keywords": ["sport"],
+        "link": "https://store.steampowered.com/app/1769270/Spikair_Volleyball/",
+        "summary": "Jeu de volley arcade/simulation pouvant se jouer de 1 à 8 joueurs en local."
+      },
+      {
+        "studio": "5 Bits Games",
+        "title": "DeadCore Redux",
+        "keywords": ["FPS", "3D Platformer", "Parkour"],
+        "link": "https://store.steampowered.com/app/3484260/DeadCore_Redux/",
+        "summary": "DeadCore Redux est un remaster du Platformer-FPS DeadCore sorti en 2014 figurant notamment une refonte graphique et audio, le support des manettes ainsi qu’un nouveau niveau gigantesque. Embarquez pour une aventure futuriste et onirique qui vous fera gravir une Tour mystérieuse née du néant."
+      },
+      {
+        "studio": "Pantopie",
+        "title": "Trigger of Time",
+        "keywords": ["FPS", "Aventure", "Puzzle"],
+        "link": "https://store.steampowered.com/app/3209760",
+        "summary": "Trigger of Time est une courte aventure atmosphérique en vue à la première personne, mêlant énigmes et manipulation temporelle, inspirée par Portal et Outer Wilds. Explorez les ruines d’une civilisation qui a tenté de maîtriser le temps. Découvrez ce qui est arrivé à une expédition disparue… et à la femme que vous recherchez."
+      },
+      {
+        "studio": "Yliader",
+        "title": "Brumes",
+        "keywords": ["Exploration", "strategie"],
+        "link": "https://yliader.itch.io/brumes",
+        "summary": "Brumes est un jeu d'exploration au tour par tour en pixel art. L'objectif principal est de survivre à des vagues de brumes qui s'abattent sur les territoires que vous explorez, tout en récoltant suffisamment de ressources pour améliorer votre navire. Une mécanique de rencontre et de choix permettent de débloquer plusieurs arcs narratifs au long de la partie."
+      },
+      {
+        "studio": "SalmonellaSalami",
+        "title": "CrackSword",
+        "keywords": ["Combat 2D", "Duel", "Prototype"],
+        "link": "https://salmonellasalami.itch.io/cracksword",
+        "summary": "Cracksword est un prototype en évolution : un jeu de duel à l’épée en 2D dans un univers fantasy dessiné au crayon de couleur. Combat directionnel libre, animations physiques et magie surréaliste accompagnent des marionnettes désarticulées s’affrontant pour se libérer de leur maître."
+      },
+      {
+        "studio": "Le Rado",
+        "title": "Appulse",
+        "keywords": ["Pinball", "Top Down Shooter", "Roguelite"],
+        "link": "https://store.steampowered.com/app/3498700/Appulse/",
+        "summary": "Appulse est un jeu de flipper spatial qui réunit l'intensité des jeux de tir, la dextérité du flipper et la profondeur du roguelite. Améliorez votre bille, votre arme et partez à la conquête de vaisseaux spatiaux pour gagner la guerre !"
+      },
+      {
+        "studio": "ObenStudios",
+        "title": "My Death as a Duchess",
+        "keywords": ["Visual Novel", "Roguelike"],
+        "link": "",
+        "summary": "My Death as a Duchess est un jeu de survie où le joueur incarne une duchesse prenant le contrôle d'un duché maudit. Ce jeu mêle à la fois intrigue narrative et stratégie, où l’on vit des événements sous forme de Visual Novel, organise le quotidien de la duchesse via une interface de gestion de planning, et explore librement le château dans lequel évoluent les personnages."
+      },
+      {
+        "studio": "Vincent Ogloblinsky",
+        "title": "Le palet - le jeu vidéo",
+        "keywords": ["Jeu de simulation"],
+        "link": "https://www.lepalet-lejeuvideo.fr",
+        "summary": "Découvrez \"Le Palet - le jeu vidéo\", une immersion captivante dans le jeu de palet traditionnel, où finesse, précision et stratégie sont à l'honneur."
+      },
+      {
+        "studio": "Potofu Studio",
+        "title": "FUFUFU",
+        "keywords": ["Couch Game", "Roguelite"],
+        "link": "https://store.steampowered.com/app/2025050/FUFUFU/",
+        "summary": "Avez vous déjà fait la course avec des béliers, mis un doigt dans le nez ou affronté des chats pirates ? Bienvenue dans FUFUFU, un concentré de situations loufoques dans une absurde aventure roguelite en coopération. Préparez-vous, Fu-rires garantis !"
+      },
+      {
+        "studio": "Studio Fadingues",
+        "title": "Fading Echoes",
+        "keywords": ["Immersive exploration"],
+        "link": "https://cloudcastleaudio.itch.io/fading-echoes",
+        "summary": "Fading Echoes is an exploration game and an immersive installation, inviting you to sail a boat through a strange, dreamlike sea by physically manipulating ropes and a helm.\n\nYou take on the role of an unnamed castaway, left stranded on a water disk where old memories seem to have taken physical shape. Search and chase the echoes of those memories, in order to dwell on the past, and unravel the reasons behind this exile."
+      },
+      {
+        "studio": "P21-ENJMIN",
+        "title": "Iridescent",
+        "keywords": ["Puzzle", "Narration", "Ambiance"],
+        "link": "https://felixve.itch.io/iridescent",
+        "summary": "Iridescent est un jeu de puzzle d’ambiance sur la mémoire, la perte et l’acceptation, réalisé en moins de 3 mois par 7 étudiant.e.s en M1 de l'ENJMIN.\n\nExplorez des espaces abstraits et émotionnels où sons et couleurs évoluent à chaque énigme, révélant des souvenirs flous et fragmentés.\n\nChaque niveau incarne une émotion distincte, offrant une expérience contemplative à l’atmosphère singulière."
+      },
+      {
+        "studio": "Bastinus Rex",
+        "title": "CARIMARA - Beneath the forlorn limbs",
+        "keywords": ["Short", "Investigation", "Mystère", "Première personne"],
+        "link": "https://store.steampowered.com/app/3570370",
+        "summary": "Vous êtes le Carimara, et votre mission est d'exorciser un fantôme en répondant à ses questions grâce à vos cartes. Un jeu court et étrange, remplit de surprises et de mystères, en partie inspiré du folklore normand."
+      },
+      {
+        "studio": "Albatar Studio",
+        "title": "Kimz VS Les Ragogo",
+        "keywords": ["Visual Novel", "Arcade"],
+        "link": "https://albatar-studio.itch.io/kimz-vs-les-ragogo",
+        "summary": "Kimz VS Les Ragogo est un jeu de rap battle solo.\n\nIncarne KIMZ, un rappeur en quête de vengeance.\n\nParviendras-tu à détrôner RAGO, ton frère, et à revendiquer le titre de roi du rap de la ville ?\nPrépare-toi à lâcher tes punchlines les plus percutantes, dans un rap battle en 3 rounds !\n\nLe jeu combine des mécaniques de deckbuilding, des éléments de visual novel, le tout enveloppé dans une forte identité visuelle et une ambiance immersive."
+      },
+      {
+        "studio": "Red Rabbit",
+        "title": "Lifelong",
+        "keywords": ["Aventure", "exploration", "réflexion"],
+        "link": "https://store.steampowered.com/app/2414990/Lifelong/",
+        "summary": "Lifelong est un jeu d’aventure, exploration et de résolution d’énigme à la première personne qui traite de l’empire bureaucratique et de l’absence de sens dans certains emplois. Lifelong offre une réflexion intimiste sur la question du travail, plus particulièrement sur l’aliénation et toutes les dérives qui y sont associées avec une point d’humour."
+      },
+      {
+        "studio": "Frog Collective",
+        "title": "Die for a Die",
+        "keywords": ["turn based strategy", "roguelike"],
+        "link": "",
+        "summary": "A dice-building roguelite game taking the form of a choose-your-own-adventure book from our childhood."
+      },
+      {
+        "studio": "Furious Pixel",
+        "title": "La Litière: Trigo",
+        "keywords": ["Pédagogique"],
+        "link": "https://store.steampowered.com/app/3288520/La_Litire_Trigo/",
+        "summary": "La Litière: Trigo est un jeu éducatif plein d’humour qui vulgarise les Mathématiques pour rendre la trigonométrie accessible à tous !"
+      },
+      {
+        "studio": "Team KwaKwa",
+        "title": "Beach Slap",
+        "keywords": ["Party game", "compétitif"],
+        "link": "https://store.steampowered.com/app/3170110/Beach_Slap/",
+        "summary": "Il est temps de se détendre pour des vacances, et vous avez enfin trouvé l'endroit idéal. Hélas, vous n'êtes pas seul...\n\nIl n'y a qu'une seule plage et vous êtes un pingouin mécontent et égoïste. Foncez, piétinez et frappez pour la suprématie de vos vacances dans ce combat multijoueur chaotique."
+      },
+      {
+        "studio": "Little Combo",
+        "title": "Versus in the Dark",
+        "keywords": ["Plateform", "fighter"],
+        "link": "https://store.steampowered.com/app/3064240/Versus_in_the_Dark/",
+        "summary": "Versus in the Dark est un jeu de combat plateforme jouable jusqu’à 4 où tout le monde est invisible !\nOBSERVEZ, ATTAQUEZ ET DISPARAISSEZ.\nNe perdez pas de vue les autres joueurs et traquez les en utilisant l'environnement à votre avantage sans que cela ne se retourne contre vous…\nVous tuez en 1 coup. Pas de barre de vie ou de combos compliqués ! Le jeu est simple et facile à prendre en main."
+      }
+    ]
+  },
+  {
+    "name": "indiegames",
+    "displayName": "Jeux indés / amateurs",
+    "games": [
+      {
+        "studio": "Playing Paradigms",
+        "title": "DOLOS: Your Best Future",
+        "keywords": ["Narratif", "Gestion", "Strategie"],
+        "link": "https://store.steampowered.com/app/2371240/DOLOS_Your_Best_Future/",
+        "summary": "Un thriller politique de science-fiction. Incarnez un opérateur de DOLOS, un système de régulation sociale qui prédit l'avenir de tous. Analysez les profils des candidats et décidez de leur métier à vie. Appliquez le système DOLOS ou combattez-le de l'intérieur... mais ne vous faites pas virer !"
+      },
+
+      {
+        "studio": "Vladirien",
+        "title": "Frontline Survivors",
+        "keywords": ["Bullet Heaven"],
+        "link": "https://store.steampowered.com/app/2275220/Frontline_Survivors/",
+        "summary": "Frontline Survivors est un jeu de tir intense avec des éléments de roguelite qui vous met dans la peau d'un soldat luttant pour sa survie sur le champ de bataille. Avec d'innombrables ennemis qui vous attaquent de toutes parts, vous devrez utiliser toutes vos compétences pour rester en vie."
+      },
+      {
+        "studio": "Vladirien",
+        "title": "Frontline Command",
+        "keywords": ["Auto Battler", "Roguelite"],
+        "link": "https://store.steampowered.com/app/3349060/Frontline_Command",
+        "summary": "Frontline Command est un jeu de auto battler tactique dans lequel vous contrôlez une escouade de soldats au cours de missions intenses dans un cadre militaire moderne. Faites preuve de stratégie et d'habileté au combat pour déjouer les tactiques de vos adversaires tout en naviguant dans des scénarios de champ de bataille difficiles."
+      },
+      {
+        "studio": "Charles Torris",
+        "title": "Blêktre 2081",
+        "keywords": ["MMORPG sandbox"],
+        "link": "https://store.steampowered.com/app/3045400/Blktre_2081/",
+        "summary": "Dans les vestiges d'un monde réduit en bouillie par le capitalisme, vous incarnez un migrant qui va tenter de survivre en investissant et en écrasant les autres."
+      },
+      {
+        "studio": "Radio Cloaque",
+        "title": "Leak",
+        "keywords": ["RPG tour par tour", "Rogue like", "ARG"],
+        "link": "https://tryton.itch.io/leak",
+        "summary": "Mon jeu est un roguelite où l’on explore un donjon à la manière de Binding of Isaac, avec des combats au tour par tour inspirés de Mario & Luigi. Les personnages gagnent en puissance en s’équipant de stickers, obtenus au hasard dans des boosters, des coffres, en boutique ou à la fin des combats."
+      },
+      {
+        "studio": "(Pas encore de studio)",
+        "title": "Don't Miss Hue",
+        "keywords": ["Rythme", "Adresse"],
+        "link": "https://xoltann.itch.io/dont-miss-hue",
+        "summary": "Des balles se dirigent dans un rythme vers un cercle, le joueur doit ensuite tirer ces balles de  couleur sur des formes de couleurs correspondante avant que les balles n'entrent en collisions, plusieurs mécaniques viendront pimenter la partie."
+      },
+      {
+        "studio": "(Pas de studio)",
+        "title": "Chrono Daedalus",
+        "keywords": ["Jeu de labyrinthe procéduraux", "exploration"],
+        "link": "https://xoltann.itch.io/chrono-daedalus",
+        "summary": "Un jeu d'exploration de labyrinthe."
+      },
+      {
+        "studio": "ObenStudios",
+        "title": "Keep Crafting",
+        "keywords": ["Co-op", "crafting", "asymétrique"],
+        "link": "https://sygmei.itch.io/keep-crafting",
+        "summary": "Keep Crafting est un party game coopératif pour 4 joueurs. Trois Crafters gèrent l’atelier et ses nombreuses machines tandis que le Workshop Manager, privé d’écran, lit le manuel et guide l’équipe. Objectif : collecter les ressources, opérer finement chaque machine, gérer pannes et imprévus, puis assembler des objets exigeants pour des clients pressés. Communication précise, synchronisation stricte et gestion des erreurs font la différence."
+      }
+    ]
+  },
+  {
+    "name": "gamejam",
+    "displayName": "Game Jam",
+    "games": []
+  }
+]
