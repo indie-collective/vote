@@ -29,7 +29,7 @@ export async function loader({ params, request }) {
   const cookieHeader = request.headers.get("Cookie");
 
   // Load games
-  const file = fs.readFileSync(path.join(__dirname, "../games-2023.json"), "utf8");
+  const file = fs.readFileSync(path.join(__dirname, "../games-2025.json"), "utf8");
   const categories = JSON.parse(file);
 
   const games = shuffle(
