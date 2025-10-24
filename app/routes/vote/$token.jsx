@@ -174,7 +174,7 @@ export default function Vote() {
         <Logo />
 
         <Heading
-          fontFamily="Jersey 10"
+          fontFamily="Jersey10"
           fontWeight="normal"
           textTransform="uppercase"
           fontSize="40px"
@@ -200,7 +200,7 @@ export default function Vote() {
                       width="80px"
                       height="80px"
                       objectFit="cover"
-                      src={`/2023/${game.title
+                      src={`/2025/${game.title
                         .toLowerCase()
                         .replace(/[^a-zA-Z0-9]|-|\s/gim, "")}.jpg`}
                     />
