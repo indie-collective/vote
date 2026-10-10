@@ -1,9 +1,11 @@
 import { describe, expect, it } from "vitest";
 import {
   BALLOT_TTL_MS,
+  checkPicks,
   checkQrToken,
   issueBallot,
   issueQrToken,
+  MAX_PICKS,
   QR_SCAN_WINDOW_MS,
   readBallot,
 } from "../src/lib/voting";
@@ -64,5 +66,24 @@ describe("Ballots", () => {
   it("belong to one Edition", async () => {
     const { cookie } = await issueBallot("2026", KEY, NOW);
     expect(await readBallot(cookie, "2027", KEY, NOW)).toBeNull();
+  });
+});
+
+describe("Picks", () => {
+  const competition = ["a", "b", "c", "d", "e", "f"];
+
+  it("accepts one to five distinct Competition Games", () => {
+    expect(checkPicks(["a"], competition)).toEqual({ ok: true, gameIds: ["a"] });
+    expect(checkPicks(["a", "b", "c", "d", "e"], competition)).toEqual({
+      ok: true,
+      gameIds: ["a", "b", "c", "d", "e"],
+    });
+  });
+
+  it("rejects no Picks, more than five, duplicates or Games outside the Competition", () => {
+    expect(MAX_PICKS).toBe(5);
+    for (const submitted of [[], ["a", "b", "c", "d", "e", "f"], ["a", "a"], ["a", "zzz"]]) {
+      expect(checkPicks(submitted, competition)).toEqual({ ok: false });
+    }
   });
 });

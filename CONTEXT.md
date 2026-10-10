@@ -24,8 +24,12 @@ _Avoid_: Entry, project
 ### Voting
 
 **Vote**:
-One visitor's choice of one Game in the Competition. Never edited or deleted once cast.
+One visitor's submission: between one and five Picks, cast with a single Ballot. Never edited or deleted once cast.
 _Avoid_: Ballot (a Ballot is the permission to vote, not the vote)
+
+**Pick**:
+One Game a visitor approves of within their Vote. A Vote holds at most one Pick per Game; Picks are not ranked.
+_Avoid_: Choice, selection, point, like
 
 **Host Screen**:
 The organiser-controlled display at the stand that shows the rotating QR code. Being in front of it is what proves on-site presence.
@@ -45,7 +49,7 @@ _Avoid_: Admin, host
 ### Results
 
 **Results**:
-The vote tally per Game for the active Edition. Organisers can always see them; the public sees them only after the Reveal.
+The number of Picks per Game for the active Edition, also shown as a share of all Votes ("picked by 40% of voters"). Organisers can always see them; the public sees them only after the Reveal.
 _Avoid_: Leaderboard, scores
 
 **Reveal**:

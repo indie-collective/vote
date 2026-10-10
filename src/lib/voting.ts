@@ -9,6 +9,8 @@ export const QR_REFRESH_MS = 10_000;
 export const QR_SCAN_WINDOW_MS = 20_000;
 /** How long a Ballot stays usable. */
 export const BALLOT_TTL_MS = 3 * 60_000;
+/** Most Picks a Vote may hold (approval voting, see docs/adr/0003-approval-voting-capped-at-five.md). */
+export const MAX_PICKS = 5;
 
 type QrPayload = { kind: "qr"; edition: string; issuedAt: number };
 
@@ -58,4 +60,17 @@ export async function readBallot(
   const ballot = await verify<Ballot>(cookie, key);
   if (!ballot || ballot.kind !== "ballot" || ballot.edition !== edition) return null;
   return ballot.expiresAt > now ? ballot : null;
+}
+
+export type PicksCheck = { ok: true; gameIds: string[] } | { ok: false };
+
+/** Validates submitted Picks: one to MAX_PICKS distinct Games, all from the Competition. */
+export function checkPicks(submitted: unknown[], competitionGameIds: string[]): PicksCheck {
+  const gameIds = [...new Set(submitted.map(String))];
+  const valid =
+    gameIds.length >= 1 &&
+    gameIds.length <= MAX_PICKS &&
+    gameIds.length === submitted.length &&
+    gameIds.every((id) => competitionGameIds.includes(id));
+  return valid ? { ok: true, gameIds } : { ok: false };
 }

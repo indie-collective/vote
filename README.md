@@ -1,8 +1,9 @@
 # Vote
 
-Audience vote for the Indie Awards of [Stunfest](https://stunfest.com), the video game festival in Rennes, France. Visitors at the stand scan a QR code on a big screen and vote for their favourite game in the competition.
+Audience vote for the Indie Awards of [Stunfest](https://stunfest.com), the video game festival in Rennes, France. Visitors at the stand scan a QR code on a big screen and vote for their favourite games in the competition.
 
 - Voting needs physical presence: the QR code on the Host Screen changes every 10 s and only works for 20 s after it is shown. Opening it grants a Ballot good for one Vote within 3 minutes ([why](docs/adr/0001-two-step-qr-and-ballot.md)).
+- Approval voting: each Vote picks up to 5 games the visitor liked; Results count Picks per game ([why](docs/adr/0003-approval-voting-capped-at-five.md)).
 - Organisers open and close voting, follow live Results, and Reveal them publicly at the ceremony.
 - Interface in French and English (from the phone's language, with a FR/EN switch).
 

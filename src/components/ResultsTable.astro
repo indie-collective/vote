@@ -6,9 +6,12 @@ import type { RankedGame } from "../lib/results";
 interface Props {
   edition: Edition;
   games: RankedGame[];
+  /** Number of Votes, to show each Game's Picks as a share of voters. */
+  voters: number;
 }
 
-const { edition, games } = Astro.props;
+const { edition, games, voters } = Astro.props;
+const share = (picks: number) => (voters ? Math.round((picks / voters) * 100) : 0);
 const m = t(Astro.locals.locale);
 ---
 
@@ -34,7 +37,10 @@ const m = t(Astro.locals.locale);
               </span>
             </div>
           </td>
-          <td class="num">{game.votes}</td>
+          <td class="num">
+            {game.votes}
+            <small class="share">{share(game.votes)}%</small>
+          </td>
         </tr>
       ))
     }
@@ -71,6 +77,13 @@ const m = t(Astro.locals.locale);
     font-family: var(--display);
     font-weight: 700;
     font-size: 20px;
+  }
+  .share {
+    display: block;
+    font-family: var(--body);
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--muted);
   }
   th.num {
     width: 5.5em;

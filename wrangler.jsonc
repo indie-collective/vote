@@ -18,6 +18,10 @@
   "observability": {
     "enabled": true
   },
+  // Set with `wrangler secret put` (production) or .dev.vars (local).
+  "secrets": {
+    "required": ["ORGANISER_SECRET", "SIGNING_KEY"]
+  },
   "vars": {
     // Must match a file in src/data/editions/
     "ACTIVE_EDITION": "2026"
