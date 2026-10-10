@@ -60,6 +60,6 @@ npm run db:migrate:remote
 npm run deploy
 ```
 
-The app is served at https://stunfest-vote.indiecollective.workers.dev. A custom domain such as `vote.indieco.xyz` needs the domain on Cloudflare; until then, the workers.dev address works because visitors only reach it through the QR code.
+The app is served at https://vote.indieco.xyz (a Cloudflare Custom Domain on the Worker), with https://stunfest-vote.indiecollective.workers.dev kept as a fallback address.
 
 Changing `SIGNING_KEY` logs out all organisers and invalidates open Ballots.
