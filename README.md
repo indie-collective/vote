@@ -53,7 +53,17 @@ npx wrangler secret put ORGANISER_SECRET
 npx wrangler secret put SIGNING_KEY    # long random string, e.g. `openssl rand -base64 48`
 ```
 
-Every deploy:
+Every push to `master` is built and deployed by Cloudflare Workers Builds (configured in the Cloudflare dashboard, not in this repo). Its settings should be:
+
+| Setting | Value |
+| --- | --- |
+| Build command | `npm run build` |
+| Deploy command | `npx wrangler d1 migrations apply DB --remote && npx wrangler deploy` |
+| Root directory | `/` |
+
+The deploy command applies any new files in `migrations/` before the new code goes live. Migrations must stay backwards compatible with the version still running (add columns or tables, don't rename or drop them in the same release).
+
+To deploy by hand instead (e.g. a hotfix):
 
 ```sh
 npm run db:migrate:remote
