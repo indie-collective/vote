@@ -10,6 +10,11 @@
     "directory": "./dist",
     "binding": "ASSETS"
   },
+  "routes": [{ "pattern": "vote.indieco.xyz", "custom_domain": true }],
+  // Keep workers.dev as a fallback address alongside the custom domain
+  // (Wrangler disables it by default once routes are set).
+  "workers_dev": true,
+  "preview_urls": false,
   "observability": {
     "enabled": true
   },
