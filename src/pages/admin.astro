@@ -28,7 +28,8 @@ const total = Object.values(counts).reduce((sum, votes) => sum + votes, 0);
 
 <Base title={m.adminTitle}>
   <main class="admin">
-    <h1>{m.adminTitle} · {edition.name}</h1>
+    <h1 class="outlined">{m.adminTitle}</h1>
+    <p class="edition">{edition.name}</p>
 
     <nav>
       <a href="/host">{m.hostLink}</a>
@@ -37,15 +38,15 @@ const total = Object.values(counts).reduce((sum, votes) => sum + votes, 0);
     </nav>
 
     <section class="controls">
-      <form method="post">
+      <form method="post" class="card">
         <p class:list={["badge", status.votingOpen ? "on" : "off"]}>
           {status.votingOpen ? m.votingOpen : m.votingClosed}
         </p>
-        <button name="action" value={status.votingOpen ? "close" : "open"}>
+        <button name="action" value={status.votingOpen ? "close" : "open"} class:list={{ primary: !status.votingOpen }}>
           {status.votingOpen ? m.closeVoting : m.openVoting}
         </button>
       </form>
-      <form method="post">
+      <form method="post" class="card">
         <p class:list={["badge", status.revealed ? "on" : "off"]}>
           {status.revealed ? m.revealed : m.notRevealed}
         </p>
@@ -93,65 +94,76 @@ const total = Object.values(counts).reduce((sum, votes) => sum + votes, 0);
     max-width: 90ch;
   }
   h1 {
-    font-size: 48px;
-    margin: 0 0 16px;
+    margin: 8px 0 4px;
+    font-size: 40px;
+  }
+  .edition {
+    margin: 0 0 20px;
+    text-align: center;
+    font-family: var(--display);
+    font-weight: 600;
   }
   nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 20px;
-    font-size: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
   }
   nav a,
   .link {
-    color: white;
-    background: none;
     padding: 0;
-    font-size: inherit;
-    text-transform: none;
+    color: var(--ink);
+    background: none;
+    border: 0;
+    box-shadow: none;
+    font-family: var(--body);
+    font-weight: 700;
     text-decoration: underline;
   }
   .controls {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
+    gap: 20px;
   }
   .controls form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 16px;
-    border-radius: 6px;
-    background: rgb(0 0 0 / 0.25);
-  }
-  .controls button {
-    font-size: 26px;
-    background: white;
-    color: var(--brown);
+    gap: 14px;
+    padding: 18px;
   }
   .badge {
     margin: 0;
-    font-size: 28px;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 18px;
     text-transform: uppercase;
   }
   .badge::before {
-    content: "● ";
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+    border: 1px solid #000;
+    border-radius: 50%;
   }
   .on::before {
-    color: #68d391;
+    background: var(--sage);
   }
   .off::before {
-    color: #a0aec0;
+    background: var(--paper);
   }
   .hint {
-    font-family: system-ui, sans-serif;
     font-size: 14px;
     text-align: center;
+    color: var(--muted);
   }
   .total {
-    font-size: 28px;
-    margin: 24px 0 8px;
+    margin: 28px 0 12px;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 20px;
   }
 </style>

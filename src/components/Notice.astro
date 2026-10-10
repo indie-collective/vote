@@ -14,8 +14,7 @@ const icon = { success: "✔", error: "!", info: "i" }[status];
 
 <Base title={title}>
   <main>
-    <img class="logo" src="/logo-2023.png" alt="Indie Stunfest" />
-    <section class:list={["notice", status]} role={status === "error" ? "alert" : "status"}>
+    <section class:list={["notice", "card", status]} role={status === "error" ? "alert" : "status"}>
       <span class="icon" aria-hidden="true">{icon}</span>
       <h1>{title}</h1>
       <p>{text}</p>
@@ -28,36 +27,39 @@ const icon = { success: "✔", error: "!", info: "i" }[status];
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px;
-    border-radius: 6px;
+    margin-top: 24px;
+    padding: 32px 24px;
     text-align: center;
-  }
-  .success {
-    background: var(--green);
-  }
-  .error {
-    background: var(--red);
-  }
-  .info {
-    background: var(--blue);
   }
   .icon {
     display: grid;
     place-items: center;
-    width: 70px;
-    height: 70px;
+    width: 72px;
+    height: 72px;
+    border: 1px solid #000;
     border-radius: 50%;
-    background: white;
-    color: var(--brown);
-    font-size: 44px;
+    box-shadow: var(--shadow);
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 36px;
+  }
+  .success .icon {
+    background: var(--sage);
+  }
+  .error .icon {
+    background: var(--orange);
+    color: white;
+  }
+  .info .icon {
+    background: var(--lavender);
   }
   h1 {
-    margin: 20px 0;
-    font-size: 38px;
+    margin: 24px 0 12px;
+    font-size: 26px;
   }
   p {
     margin: 0;
-    font-size: 22px;
-    line-height: 1;
+    font-size: 18px;
+    color: var(--muted);
   }
 </style>

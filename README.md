@@ -6,7 +6,7 @@ Audience vote for the Indie Awards of [Stunfest](https://stunfest.com), the vide
 - Organisers open and close voting, follow live Results, and Reveal them publicly at the ceremony.
 - Interface in French and English (from the phone's language, with a FR/EN switch).
 
-Domain vocabulary is in [CONTEXT.md](CONTEXT.md). Built with Astro on Cloudflare Workers and D1 ([why](docs/adr/0002-astro-on-cloudflare-workers.md)).
+The look follows the festival's 2026 identity on [stunfest.com](https://www.stunfest.com); colours and fonts are defined once in `src/layouts/Base.astro`. Domain vocabulary is in [CONTEXT.md](CONTEXT.md). Built with Astro on Cloudflare Workers and D1 ([why](docs/adr/0002-astro-on-cloudflare-workers.md)).
 
 ## Pages
 

@@ -12,10 +12,10 @@ const { edition, games } = Astro.props;
 const m = t(Astro.locals.locale);
 ---
 
-<table class="results">
+<table class="results card">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col" class="rank">#</th>
       <th scope="col">{m.game}</th>
       <th scope="col" class="num">{m.votes}</th>
     </tr>
@@ -24,10 +24,15 @@ const m = t(Astro.locals.locale);
     {
       games.map((game) => (
         <tr class:list={{ winner: game.rank === 1 }}>
-          <td class="rank">{game.rank === 1 ? "🌟" : game.rank}</td>
-          <td class="game">
-            <img src={gameImage(edition, game)} alt="" width="80" height="80" loading="lazy" />
-            <span>{game.title}</span>
+          <td class="rank">{game.rank}</td>
+          <td>
+            <div class="game">
+              <img src={gameImage(edition, game)} alt="" width="56" height="56" loading="lazy" />
+              <span>
+                <strong>{game.title}</strong>
+                <small>{game.studio}</small>
+              </span>
+            </div>
           </td>
           <td class="num">{game.votes}</td>
         </tr>
@@ -39,61 +44,106 @@ const m = t(Astro.locals.locale);
 <style>
   .results {
     width: 100%;
-    border-collapse: collapse;
-    font-size: 32px;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
   }
   th {
-    font-weight: normal;
-    font-size: 18px;
+    padding: 12px;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 13px;
     text-transform: uppercase;
     text-align: left;
-    padding: 8px;
-    border-bottom: 1px solid rgb(255 255 255 / 0.4);
+    background: var(--lavender);
+    border-bottom: 1px solid #000;
   }
   td {
-    padding: 8px;
-    border-bottom: 1px solid rgb(255 255 255 / 0.2);
+    padding: 10px 12px;
+    border-bottom: 1px solid rgb(0 0 0 / 0.12);
+  }
+  tr:last-child td {
+    border-bottom: 0;
   }
   .num {
     text-align: right;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 20px;
+  }
+  th.num {
+    width: 5.5em;
+    font-size: 13px;
   }
   .rank {
-    width: 2ch;
+    width: 4.5em;
+    white-space: nowrap;
+    font-family: var(--display);
+    font-weight: 700;
   }
   .game {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
     min-width: 0;
-  }
-  .game span {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
   .game img {
     flex: none;
     object-fit: cover;
-    border-radius: 4px;
+    border: 1px solid #000;
+    border-radius: 6px;
   }
-  .winner {
-    font-size: 48px;
+  .game span {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
   }
-  .winner img {
-    width: 120px;
-    height: 120px;
+  .game strong {
+    font-family: var(--display);
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .game small {
+    color: var(--muted);
+  }
+  .winner td {
+    background: var(--yellow);
+  }
+  .winner .game img {
+    width: 80px;
+    height: 80px;
+  }
+  .winner .game strong,
+  .winner .num {
+    font-size: 24px;
   }
   @media (max-width: 600px) {
-    .results {
-      font-size: 22px;
+    th,
+    td {
+      padding: 8px;
     }
-    .winner {
-      font-size: 30px;
+    .rank {
+      width: 3.5em;
     }
-    .game img,
-    .winner img {
-      width: 48px;
-      height: 48px;
+    th.num {
+      width: 5.2em;
     }
+    .game {
+      gap: 8px;
+    }
+    .winner .game img {
+      width: 56px;
+      height: 56px;
+    }
+    .winner .game strong,
+    .winner .num {
+      font-size: 18px;
+    }
+  }
+  .winner .rank::before {
+    content: "🏆 ";
   }
 </style>
