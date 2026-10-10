@@ -8,7 +8,8 @@ export function app() {
   return {
     db: env.DB,
     key: env.SIGNING_KEY,
-    organiserSecret: env.ORGANISER_SECRET,
+    // Missing secret means nobody can log in (secretMatches rejects an empty secret).
+    organiserSecret: env.ORGANISER_SECRET ?? "",
     edition,
     competition: getCompetition(edition),
   };
