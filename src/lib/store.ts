@@ -96,3 +96,28 @@ export async function tally(db: D1Database, edition: string, category: string): 
     ),
   };
 }
+
+/** Every Vote of a Category with its Picks, in the order they were cast. */
+export async function timeline(
+  db: D1Database,
+  edition: string,
+  category: string
+): Promise<{ castAt: string; gameIds: string[] }[]> {
+  const { results } = await db
+    .prepare(
+      `SELECT votes.id, votes.created_at, picks.game_id
+       FROM votes JOIN picks ON picks.vote_id = votes.id
+       WHERE votes.edition = ? AND votes.category = ?
+       ORDER BY votes.created_at, votes.id`
+    )
+    .bind(edition, category)
+    .all<{ id: string; created_at: string; game_id: string }>();
+
+  const votes: { id: string; castAt: string; gameIds: string[] }[] = [];
+  for (const row of results) {
+    const last = votes[votes.length - 1];
+    if (last?.id === row.id) last.gameIds.push(row.game_id);
+    else votes.push({ id: row.id, castAt: row.created_at, gameIds: [row.game_id] });
+  }
+  return votes.map(({ castAt, gameIds }) => ({ castAt, gameIds }));
+}

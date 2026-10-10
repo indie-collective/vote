@@ -52,6 +52,15 @@ const fr = {
   adminLink: "Organisation",
   hostClosed: "Votes clos",
   refreshing: "Mise à jour automatique",
+  raceLink: "Course des résultats",
+  raceTitle: "Le Grand Prix des Indie Awards",
+  raceStart: "Espace : départ",
+  racePodium: "Espace : podium",
+  raceNext: "Espace : suivant",
+  raceRestart: "R : recommencer · F : plein écran",
+  raceDemo: "Démo : votes fictifs",
+  raceEmpty: "Aucun vote pour l'instant.",
+  podiumPlaces: ["1er", "2e", "3e"],
 };
 
 const en: typeof fr = {
@@ -101,6 +110,15 @@ const en: typeof fr = {
   adminLink: "Organisation",
   hostClosed: "Voting closed",
   refreshing: "Updates automatically",
+  raceLink: "Results race",
+  raceTitle: "The Indie Awards Grand Prix",
+  raceStart: "Space: start",
+  racePodium: "Space: podium",
+  raceNext: "Space: next",
+  raceRestart: "R: restart · F: fullscreen",
+  raceDemo: "Demo: made-up votes",
+  raceEmpty: "No votes yet.",
+  podiumPlaces: ["1st", "2nd", "3rd"],
 };
 
 export type Messages = typeof fr;

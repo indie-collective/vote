@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { castVote, getStatus, setRevealed, setVotingOpen, tally } from "../src/lib/store";
+import { castVote, getStatus, setRevealed, setVotingOpen, tally, timeline } from "../src/lib/store";
 import { fakeD1 } from "./d1";
 
 const vote = (ballotId: string, gameIds: string[]) => ({
@@ -43,6 +43,22 @@ describe("casting Votes", () => {
     await castVote(db, vote("b1", ["a"]));
     await castVote(db, { ...vote("b2", ["a"]), edition: "2027" });
     expect(await tally(db, "2026", "competition")).toEqual({ voters: 1, picks: { a: 1 } });
+  });
+});
+
+describe("timeline", () => {
+  it("lists each Vote once with all its Picks, oldest first", async () => {
+    const { db, sqlite } = await openEdition();
+    await castVote(db, vote("b1", ["a", "b"]));
+    await castVote(db, vote("b2", ["c"]));
+    // Pin timestamps so ordering doesn't depend on how fast the test runs.
+    sqlite.exec(`UPDATE votes SET created_at = CASE ballot_id
+                   WHEN 'b1' THEN '2026-10-24T10:00:00Z' ELSE '2026-10-23T10:00:00Z' END`);
+    const votes = await timeline(db, "2026", "competition");
+    expect(votes.map((v) => [v.castAt, v.gameIds.sort()])).toEqual([
+      ["2026-10-23T10:00:00Z", ["c"]],
+      ["2026-10-24T10:00:00Z", ["a", "b"]],
+    ]);
   });
 });
 
