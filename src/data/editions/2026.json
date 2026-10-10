@@ -1,0 +1,402 @@
+{
+  "id": "2026",
+  "name": "Stunfest 2026",
+  "categories": [
+    {
+      "id": "competition",
+      "name": "Compétition",
+      "voting": true,
+      "games": [
+        {
+          "id": "ambroise-niflette-la-cloche-pommee",
+          "title": "Ambroise Niflette & la Cloche Pommée",
+          "studio": "Topotes Studio",
+          "keywords": [
+            "aventure",
+            "cozy",
+            "enquete"
+          ],
+          "link": "https://www.stunfest.com/indiegame/ambroise-niflette-la-cloche-pommee/"
+        },
+        {
+          "id": "dagadas-story",
+          "title": "Dagada’s Story",
+          "studio": "Matthieu Lu",
+          "keywords": [
+            "aventure",
+            "cozy",
+            "plateform",
+            "puzzle"
+          ],
+          "link": "https://www.stunfest.com/indiegame/dagadas-story/"
+        },
+        {
+          "id": "after-the-wane",
+          "title": "After the Wane",
+          "studio": "Nova-box",
+          "keywords": [
+            "cozy",
+            "visual-novel"
+          ],
+          "link": "https://www.stunfest.com/indiegame/after-the-wane/"
+        },
+        {
+          "id": "knick-knack-stack",
+          "title": "Knick Knack Stack",
+          "studio": "Soft Reverie Studio",
+          "keywords": [
+            "cozy",
+            "puzzle",
+            "visual-novel"
+          ],
+          "link": "https://www.stunfest.com/indiegame/knick-knack-stack/"
+        },
+        {
+          "id": "xion-leak",
+          "title": "Xion Leak",
+          "studio": "Gentle Beasts Studio",
+          "keywords": [
+            "coop",
+            "platformer"
+          ],
+          "link": "https://www.stunfest.com/indiegame/xion-leak/"
+        },
+        {
+          "id": "gate-of-chaos",
+          "title": "Gate of Chaos",
+          "studio": "OCTAMAZE",
+          "keywords": [
+            "narratif",
+            "pointnclick",
+            "puzzle"
+          ],
+          "link": "https://www.stunfest.com/indiegame/gate-of-chaos/"
+        },
+        {
+          "id": "kaz",
+          "title": "KAZ",
+          "studio": "Kimeria Games",
+          "keywords": [
+            "arcade",
+            "roguelike"
+          ],
+          "link": "https://www.stunfest.com/indiegame/kaz/"
+        },
+        {
+          "id": "yurei",
+          "title": "Yūrei",
+          "studio": "Team Yūrei",
+          "keywords": [
+            "horreur",
+            "narratif"
+          ],
+          "link": "https://www.stunfest.com/indiegame/yurei/"
+        },
+        {
+          "id": "project-pitt",
+          "title": "Project P.I.T.T.",
+          "studio": "Froke",
+          "keywords": [
+            "bac-a-sable",
+            "fps"
+          ],
+          "link": "https://www.stunfest.com/indiegame/project-p-i-t-t/"
+        },
+        {
+          "id": "stardream",
+          "title": "Stardream",
+          "studio": "Rebel Pixel",
+          "keywords": [
+            "aventure",
+            "enquete"
+          ],
+          "link": "https://www.stunfest.com/indiegame/stardream/"
+        },
+        {
+          "id": "12-abroad-st",
+          "title": "12 Abroad St.",
+          "studio": "Studio Ronpoingue",
+          "keywords": [
+            "aventure",
+            "visual-novel"
+          ],
+          "link": "https://www.stunfest.com/indiegame/12-abroad-st/"
+        },
+        {
+          "id": "pardon-my-french-toast",
+          "title": "Pardon My French Toast",
+          "studio": "ReRolled Studio",
+          "keywords": [
+            "3d-platformer"
+          ],
+          "link": "https://www.stunfest.com/indiegame/pardon-my-french-toast/"
+        },
+        {
+          "id": "knight-george",
+          "title": "Knight George",
+          "studio": "Funky Rhino Games",
+          "keywords": [
+            "action-adventure"
+          ],
+          "link": "https://www.stunfest.com/indiegame/knight-george/"
+        },
+        {
+          "id": "sonkis-lagoon",
+          "title": "Sonki’s Lagoon",
+          "studio": "CocoDev",
+          "keywords": [
+            "3d-platformer",
+            "exploration"
+          ],
+          "link": "https://www.stunfest.com/indiegame/sonkis-lagoon-2/"
+        },
+        {
+          "id": "alula",
+          "title": "Al’ulA",
+          "studio": "Astrolabs",
+          "keywords": [
+            "fps",
+            "puzzle"
+          ],
+          "link": "https://www.stunfest.com/indiegame/alula/"
+        },
+        {
+          "id": "randomice",
+          "title": "Randomice",
+          "studio": "Videoludid",
+          "keywords": [
+            "platformer",
+            "puzzle",
+            "randomizer"
+          ],
+          "link": "https://www.stunfest.com/indiegame/randomice/"
+        },
+        {
+          "id": "soverain-an-eternal-legend",
+          "title": "Soverain: An Eternal Legend",
+          "studio": "Jonathan BRASSAUD",
+          "keywords": [
+            "tactical"
+          ],
+          "link": "https://www.stunfest.com/indiegame/soverain-an-eternal-legend/"
+        },
+        {
+          "id": "the-american-dream-of-gunther-aims",
+          "title": "The american dream of Gunther Aims",
+          "studio": "Soppybase",
+          "keywords": [
+            "puzzle"
+          ],
+          "link": "https://www.stunfest.com/indiegame/the-american-dream-of-gunther-aims/"
+        },
+        {
+          "id": "billion-citizens",
+          "title": "Billion Citizens",
+          "studio": "Sucre Discret",
+          "keywords": [
+            "city-builder",
+            "deckbuilder",
+            "roguelike"
+          ],
+          "link": "https://www.stunfest.com/indiegame/billion-citizens/"
+        }
+      ]
+    },
+    {
+      "id": "indiegames",
+      "name": "Jeux indés / amateurs",
+      "voting": false,
+      "games": [
+        {
+          "id": "siblings-adventure",
+          "title": "Sibling’s Adventure",
+          "studio": "Grabouille Games",
+          "keywords": [
+            "rogue-like",
+            "rpg"
+          ],
+          "link": "https://www.stunfest.com/indiegame/siblings-adventure/"
+        },
+        {
+          "id": "otherside",
+          "title": "Otherside",
+          "studio": "Nirsos",
+          "keywords": [
+            "action-aventure"
+          ],
+          "link": "https://www.stunfest.com/indiegame/otherside/"
+        },
+        {
+          "id": "val-fortuna",
+          "title": "Val Fortuna",
+          "studio": "NEVERMIND",
+          "keywords": [
+            "roguelite-tour-par-tour"
+          ],
+          "link": "https://www.stunfest.com/indiegame/val-fortuna/"
+        },
+        {
+          "id": "beware-of-the-cartographer",
+          "title": "Beware of the Cartographer!",
+          "studio": "Tohu Bohu Games",
+          "keywords": [
+            "aventure",
+            "puzzle"
+          ],
+          "link": "https://www.stunfest.com/indiegame/beware-of-the-cartographer/"
+        },
+        {
+          "id": "towers-of-the-bane",
+          "title": "Towers of the Bane",
+          "studio": "Nirsos",
+          "keywords": [
+            "action-aventure"
+          ],
+          "link": "https://www.stunfest.com/indiegame/towers-of-the-bane/"
+        },
+        {
+          "id": "cosmo-cargo",
+          "title": "Cosmo Cargo",
+          "studio": "Pixelnest Studio",
+          "keywords": [
+            "auto-battler",
+            "strategie"
+          ],
+          "link": "https://www.stunfest.com/indiegame/cosmo-cargo/"
+        },
+        {
+          "id": "what-if-we-kissed",
+          "title": "What If We Kissed",
+          "studio": "Smol Dreamers",
+          "keywords": [
+            "co-op",
+            "simulation",
+            "versus"
+          ],
+          "link": "https://www.stunfest.com/indiegame/what-if-we-kissed/"
+        },
+        {
+          "id": "chronographer",
+          "title": "Chronographer",
+          "studio": "SciFunGames",
+          "keywords": [
+            "exploration",
+            "knowledgevania",
+            "puzzle"
+          ],
+          "link": "https://www.stunfest.com/indiegame/chronographer/"
+        },
+        {
+          "id": "what-surrounds-us",
+          "title": "What Surrounds Us",
+          "studio": "Florent Martinais",
+          "keywords": [
+            "cozy",
+            "exploration",
+            "puzzle"
+          ],
+          "link": "https://www.stunfest.com/indiegame/what-surrounds-us/"
+        },
+        {
+          "id": "my-death-as-a-duchess",
+          "title": "My Death as a Duchess",
+          "studio": "ObenStudios",
+          "keywords": [
+            "roguelike",
+            "visual-novel"
+          ],
+          "link": "https://www.stunfest.com/indiegame/my-death-as-a-duchess/"
+        },
+        {
+          "id": "kujira-no-hara",
+          "title": "Kujira no Hara",
+          "studio": "Roi of the Suisse",
+          "keywords": [
+            "aventure",
+            "exploration",
+            "rpg"
+          ],
+          "link": "https://www.stunfest.com/indiegame/kujira-no-hara/"
+        },
+        {
+          "id": "essence-of-the-tjikko",
+          "title": "Essence Of The Tjikko",
+          "studio": "La Revria Studio",
+          "keywords": [
+            "exploration",
+            "puzzle"
+          ],
+          "link": "https://www.stunfest.com/indiegame/essence-of-the-tjikko/"
+        },
+        {
+          "id": "keep-crafting",
+          "title": "Keep Crafting",
+          "studio": "ObenStudios",
+          "keywords": [
+            "asymetrique",
+            "co-op",
+            "crafting"
+          ],
+          "link": "https://www.stunfest.com/indiegame/keep-crafting/"
+        },
+        {
+          "id": "contenir",
+          "title": "Contenir",
+          "studio": "NaejDoree Studio",
+          "keywords": [
+            "narratif",
+            "platformer"
+          ],
+          "link": "https://www.stunfest.com/indiegame/contenir/"
+        },
+        {
+          "id": "toukan",
+          "title": "TOUKAN",
+          "studio": ".mar1000",
+          "keywords": [
+            "platformer",
+            "puzzle"
+          ],
+          "link": "https://www.stunfest.com/indiegame/toukan/"
+        },
+        {
+          "id": "heroic-musical-chairs",
+          "title": "Heroic Musical Chairs",
+          "studio": "Morbleu !",
+          "keywords": [
+            "action",
+            "multi",
+            "party-game"
+          ],
+          "link": "https://www.stunfest.com/indiegame/heroic-musical-chairs/"
+        },
+        {
+          "id": "heroes-of-the-seven-islands",
+          "title": "Heroes of the Seven Islands",
+          "studio": "Rap2h",
+          "link": "https://www.stunfest.com/indiegame/heroes-of-the-seven-islands/"
+        },
+        {
+          "id": "black-zen-white",
+          "title": "Black Zen White",
+          "studio": "24m² Studio",
+          "keywords": [
+            "plateform",
+            "reflexion"
+          ],
+          "link": "https://www.stunfest.com/indiegame/black-zen-white/"
+        },
+        {
+          "id": "broken-cycle",
+          "title": "Broken Cycle",
+          "studio": "ObenStudios",
+          "keywords": [
+            "auto-battler",
+            "rpg"
+          ],
+          "link": "https://www.stunfest.com/indiegame/broken-cycle/"
+        }
+      ]
+    }
+  ]
+}
