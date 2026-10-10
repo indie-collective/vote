@@ -6,12 +6,13 @@ import Base from "../layouts/Base.astro";
 import { app } from "../lib/app";
 import { t } from "../lib/i18n";
 import { rankGames } from "../lib/results";
-import { countVotes, getStatus } from "../lib/store";
+import { getStatus, tally } from "../lib/store";
 
 const { db, edition, competition } = app();
 const m = t(Astro.locals.locale);
 const { revealed } = await getStatus(db, edition.id);
-const games = revealed ? rankGames(competition.games, await countVotes(db, edition.id, competition.id)) : [];
+const results = revealed ? await tally(db, edition.id, competition.id) : { voters: 0, picks: {} };
+const games = rankGames(competition.games, results.picks);
 ---
 
 {
@@ -19,8 +20,10 @@ const games = revealed ? rankGames(competition.games, await countVotes(db, editi
     <Base title={m.resultsTitle}>
       <main class="results-page">
         <h1 class="outlined white">{m.resultsTitle}</h1>
-        <p class="edition">{edition.name}</p>
-        <ResultsTable edition={edition} games={games} />
+        <p class="edition">
+          {edition.name} · {results.voters} {m.voters.toLowerCase()}
+        </p>
+        <ResultsTable edition={edition} games={games} voters={results.voters} />
       </main>
     </Base>
   ) : (

@@ -5,7 +5,7 @@ import Base from "../layouts/Base.astro";
 import { app } from "../lib/app";
 import { t } from "../lib/i18n";
 import { rankGames } from "../lib/results";
-import { countVotes, getStatus, setRevealed, setVotingOpen } from "../lib/store";
+import { getStatus, setRevealed, setVotingOpen, tally } from "../lib/store";
 
 const { db, edition, competition } = app();
 const m = t(Astro.locals.locale);
@@ -21,9 +21,8 @@ if (Astro.request.method === "POST") {
 }
 
 const status = await getStatus(db, edition.id);
-const counts = await countVotes(db, edition.id, competition.id);
-const games = rankGames(competition.games, counts);
-const total = Object.values(counts).reduce((sum, votes) => sum + votes, 0);
+const results = await tally(db, edition.id, competition.id);
+const games = rankGames(competition.games, results.picks);
 ---
 
 <Base title={m.adminTitle}>
@@ -67,8 +66,8 @@ const total = Object.values(counts).reduce((sum, votes) => sum + votes, 0);
     }
 
     <section id="live">
-      <p class="total">{m.totalVotes} : {total}</p>
-      <ResultsTable edition={edition} games={games} />
+      <p class="total">{m.totalVoters} : {results.voters}</p>
+      <ResultsTable edition={edition} games={games} voters={results.voters} />
       <p class="hint">{m.refreshing}</p>
     </section>
   </main>
