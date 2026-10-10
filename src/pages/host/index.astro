@@ -18,7 +18,10 @@ const qr = votingOpen ? await freshQrCode(Astro.url.origin, edition.id, key) : n
 <Base title={fr.hostLink} bare>
   <div class="checker" aria-hidden="true"></div>
   <div class="host" data-refresh={QR_REFRESH_MS}>
-    <p class="kicker">Stunfest · Indie Awards</p>
+    <div class="kicker">
+      <img src="/stunfest-2026-logo.png" alt="Stunfest 2026" width="400" height="211" />
+      <span>Indie Awards</span>
+    </div>
     <h1 class="outlined">{fr.hostTop} {fr.hostBottom}</h1>
     <p class="english" lang="en">{en.hostTop} {en.hostBottom}</p>
     <div class="qr card" hidden={!qr} set:html={qr?.svg ?? ""} />
@@ -76,12 +79,19 @@ const qr = votingOpen ? await freshQrCode(Astro.url.origin, edition.id, key) : n
     text-align: center;
   }
   .kicker {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
     margin: 0;
     font-family: var(--display);
     font-weight: 700;
     font-size: min(28px, 3vh);
     text-transform: uppercase;
     letter-spacing: 0.08em;
+  }
+  .kicker img {
+    height: min(110px, 11vh);
+    width: auto;
   }
   h1 {
     margin: 0;
@@ -101,7 +111,7 @@ const qr = votingOpen ? await freshQrCode(Astro.url.origin, edition.id, key) : n
   }
   .qr :global(svg) {
     display: block;
-    width: min(52vh, 80vw);
+    width: min(46vh, 80vw);
     height: auto;
   }
   .closed {

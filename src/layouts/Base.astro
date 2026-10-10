@@ -33,7 +33,7 @@ const other = locale === "fr" ? "en" : "fr";
       !bare && (
         <header class="band">
           <a class="wordmark" href="/">
-            <span class="brand">stunfest</span>
+            <img class="brand" src="/stunfest-2026-logo.png" alt="Stunfest 2026" width="91" height="48" />
             <span class="tagline">Indie Awards</span>
           </a>
           <a class="locale-switch" href={`${Astro.url.pathname}?lang=${other}`} hreflang={other}>
@@ -140,22 +140,16 @@ const other = locale === "fr" ? "en" : "fr";
 
   .wordmark {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: 10px;
     color: var(--ink);
     text-decoration: none;
   }
 
   .brand {
-    font-family: var(--display);
-    font-weight: 900;
-    font-style: italic;
-    font-size: 26px;
-    letter-spacing: -0.02em;
-    color: white;
-    -webkit-text-stroke: 3px #000;
-    paint-order: stroke fill;
-    text-shadow: 2px 2px 0 #000;
+    display: block;
+    height: 48px;
+    width: auto;
   }
 
   .tagline {
