@@ -1,42 +1,33 @@
 {
-  "name": "remix-template-remix",
+  "name": "stunfest-vote",
   "private": true,
-  "description": "",
-  "license": "",
-  "sideEffects": false,
+  "type": "module",
+  "description": "Audience vote for the Stunfest Indie Awards",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
-    "build": "remix build",
-    "dev": "remix dev",
-    "start": "remix-serve build"
+    "postinstall": "wrangler types",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "vitest run",
+    "check": "astro check",
+    "db:migrate:local": "wrangler d1 migrations apply DB --local",
+    "db:migrate:remote": "wrangler d1 migrations apply DB --remote",
+    "deploy": "astro build && wrangler deploy",
+    "generate-types": "wrangler types"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^1.1.7",
-    "@chakra-ui/react": "^1.8.8",
-    "@emotion/cache": "^11.7.1",
-    "@emotion/react": "^11.9.0",
-    "@emotion/server": "^11.4.0",
-    "@emotion/styled": "^11.8.1",
-    "@prisma/client": "^3.14.0",
-    "@remix-run/node": "^1.4.1",
-    "@remix-run/react": "^1.4.1",
-    "@remix-run/serve": "^1.4.1",
-    "cookie": "^0.5.0",
-    "dotenv": "^16.0.3",
-    "framer-motion": "^6.3.3",
-    "jsonwebtoken": "^8.5.1",
-    "lodash.shuffle": "^4.2.0",
-    "prisma": "^3.14.0",
-    "qrcode": "^1.5.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "@astrojs/cloudflare": "^14.3.4",
+    "astro": "^7.3.8",
+    "qrcode": "^1.5.4",
+    "wrangler": "^4.149.0"
   },
   "devDependencies": {
-    "@babel/preset-react": "^7.16.7",
-    "@remix-run/dev": "^1.4.1",
-    "@remix-run/eslint-config": "^1.4.1",
-    "eslint": "^8.11.0"
-  },
-  "engines": {
-    "node": ">=14"
+    "@astrojs/check": "^0.9.10",
+    "@types/qrcode": "^1.5.6",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.3"
   }
 }

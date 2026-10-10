@@ -1,0 +1,99 @@
+---
+import { gameImage, type Edition } from "../lib/edition";
+import { t } from "../lib/i18n";
+import type { RankedGame } from "../lib/results";
+
+interface Props {
+  edition: Edition;
+  games: RankedGame[];
+}
+
+const { edition, games } = Astro.props;
+const m = t(Astro.locals.locale);
+---
+
+<table class="results">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">{m.game}</th>
+      <th scope="col" class="num">{m.votes}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {
+      games.map((game) => (
+        <tr class:list={{ winner: game.rank === 1 }}>
+          <td class="rank">{game.rank === 1 ? "🌟" : game.rank}</td>
+          <td class="game">
+            <img src={gameImage(edition, game)} alt="" width="80" height="80" loading="lazy" />
+            <span>{game.title}</span>
+          </td>
+          <td class="num">{game.votes}</td>
+        </tr>
+      ))
+    }
+  </tbody>
+</table>
+
+<style>
+  .results {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 32px;
+  }
+  th {
+    font-weight: normal;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid rgb(255 255 255 / 0.4);
+  }
+  td {
+    padding: 8px;
+    border-bottom: 1px solid rgb(255 255 255 / 0.2);
+  }
+  .num {
+    text-align: right;
+  }
+  .rank {
+    width: 2ch;
+  }
+  .game {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 0;
+  }
+  .game span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .game img {
+    flex: none;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  .winner {
+    font-size: 48px;
+  }
+  .winner img {
+    width: 120px;
+    height: 120px;
+  }
+  @media (max-width: 600px) {
+    .results {
+      font-size: 22px;
+    }
+    .winner {
+      font-size: 30px;
+    }
+    .game img,
+    .winner img {
+      width: 48px;
+      height: 48px;
+    }
+  }
+</style>

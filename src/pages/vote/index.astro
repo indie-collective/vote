@@ -1,0 +1,229 @@
+---
+// Voting step: a visitor holding a Ballot picks one Game of the Competition.
+import Notice from "../../components/Notice.astro";
+import Base from "../../layouts/Base.astro";
+import { app, BALLOT_COOKIE, cookieOptions, votedCookie } from "../../lib/app";
+import { gameImage, type Game } from "../../lib/edition";
+import { t } from "../../lib/i18n";
+import { castVote, getStatus } from "../../lib/store";
+import { readBallot } from "../../lib/voting";
+
+const VOTED_COOKIE_DAYS = 30;
+
+const { db, key, edition, competition } = app();
+const m = t(Astro.locals.locale);
+const thanks = { title: m.thanksTitle, text: m.thanksText, status: "success" as const };
+const closed = { title: m.closedTitle, text: m.closedText, status: "info" as const };
+const noBallot = { title: m.noBallotTitle, text: m.noBallotText };
+
+const markVoted = () => {
+  Astro.cookies.set(
+    votedCookie(edition.id),
+    "1",
+    cookieOptions(Astro.url, VOTED_COOKIE_DAYS * 24 * 60 * 60)
+  );
+  Astro.cookies.delete(BALLOT_COOKIE, { path: "/vote" });
+};
+
+const ballot = await readBallot(Astro.cookies.get(BALLOT_COOKIE)?.value, edition.id, key);
+let notice: { title: string; text: string; status?: "success" | "error" | "info" } | undefined;
+
+if (Astro.cookies.has(votedCookie(edition.id))) {
+  notice = thanks;
+} else if (Astro.request.method === "POST") {
+  const gameId = (await Astro.request.formData()).get("game");
+  const game = competition.games.find((candidate) => candidate.id === gameId);
+
+  if (!ballot) {
+    notice = (await getStatus(db, edition.id)).votingOpen ? noBallot : closed;
+  } else if (!game) {
+    notice = { title: m.unknownGameTitle, text: m.unknownGameText };
+    Astro.response.status = 400;
+  } else {
+    const result = await castVote(db, {
+      edition: edition.id,
+      category: competition.id,
+      gameId: game.id,
+      ballotId: ballot.id,
+    });
+    if (result === "closed") {
+      notice = closed;
+    } else {
+      // "ballot-used" means this Ballot already produced a Vote (e.g. a double submit).
+      markVoted();
+      notice = thanks;
+    }
+  }
+} else if (!(await getStatus(db, edition.id)).votingOpen) {
+  notice = closed;
+} else if (!ballot) {
+  notice = noBallot;
+}
+
+/** Random order on every load so no Game benefits from being listed first. */
+function shuffle(games: Game[]): Game[] {
+  const copy = [...games];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+---
+
+{
+  notice ? (
+    <Notice {...notice} />
+  ) : (
+    <Base title={m.votePrompt}>
+      <main>
+        <img class="logo" src="/logo-2023.png" alt="Indie Stunfest" />
+        <h1>{m.votePrompt}</h1>
+        <form method="post" id="ballot">
+          <fieldset>
+            <legend class="visually-hidden">{m.votePrompt}</legend>
+            {shuffle(competition.games).map((game) => (
+              <label class="game">
+                <input type="radio" name="game" value={game.id} required />
+                <img src={gameImage(edition, game)} alt="" width="80" height="80" />
+                <span class="title">{game.title}</span>
+                <span class="studio">{game.studio}</span>
+              </label>
+            ))}
+          </fieldset>
+          <div class="bar">
+            <div
+              class="countdown"
+              data-expires={ballot!.expiresAt}
+              data-total={ballot!.expiresAt - Date.now()}
+              role="timer"
+              aria-label={m.timeLeft}
+            >
+              <span />
+            </div>
+            <button type="submit" disabled>
+              {m.voteButton}
+            </button>
+          </div>
+        </form>
+      </main>
+    </Base>
+  )
+}
+
+<script>
+  const form = document.querySelector<HTMLFormElement>("#ballot");
+  const countdown = document.querySelector<HTMLElement>(".countdown");
+
+  if (form && countdown) {
+    const submit = form.querySelector("button")!;
+    form.addEventListener("change", () => (submit.disabled = false));
+    form.addEventListener("submit", () => (submit.disabled = true));
+
+    // Count down against the server-side expiry, using elapsed time so a skewed phone clock doesn't matter.
+    const total = Number(countdown.dataset.total);
+    const start = performance.now();
+    const label = countdown.querySelector("span")!;
+    const tick = () => {
+      const left = Math.max(0, Math.ceil((total - (performance.now() - start)) / 1000));
+      label.textContent = left > 60 ? `${Math.ceil(left / 60)}m` : String(left);
+      countdown.style.setProperty("--progress", String((left * 1000) / total));
+      if (left === 0) location.reload();
+    };
+    tick();
+    setInterval(tick, 500);
+  }
+</script>
+
+<style>
+  h1 {
+    font-size: 40px;
+    margin: 0 0 20px;
+  }
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  .game {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: 20px;
+    padding: 12px 20px;
+    border-radius: 6px;
+    background: var(--yellow);
+    color: black;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  .game:has(input:checked) {
+    background: white;
+    color: var(--blue);
+  }
+  .game:has(input:focus-visible) {
+    box-shadow: 0 0 0 3px white;
+  }
+  .game input {
+    position: absolute;
+    opacity: 0;
+  }
+  .game img {
+    grid-row: 1 / 3;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  .title {
+    font-size: 28px;
+    line-height: 0.8;
+  }
+  .studio {
+    font-size: 18px;
+  }
+  .bar {
+    position: fixed;
+    inset: auto 0 0 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background: white;
+  }
+  .countdown {
+    --progress: 1;
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: conic-gradient(var(--green) calc(var(--progress) * 360deg), #e2e8f0 0);
+    color: black;
+    font-family: system-ui, sans-serif;
+    font-size: 14px;
+  }
+  .countdown span {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: white;
+  }
+  .bar button {
+    flex: 1;
+    background: var(--green);
+    color: white;
+    font-size: 30px;
+  }
+</style>

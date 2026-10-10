@@ -1,8 +1,7 @@
 node_modules
-
-/.cache
-/build
-/public/build
+dist
+.astro
+.wrangler
+.dev.vars
 .env
-prisma/dev.db
-prisma/dev.db
+worker-configuration.d.ts

@@ -1,0 +1,73 @@
+---
+import Base from "../layouts/Base.astro";
+import { app, cookieOptions } from "../lib/app";
+import { t } from "../lib/i18n";
+import { createSession, ORGANISER_COOKIE, ORGANISER_SESSION_MS, secretMatches } from "../lib/organiser";
+
+const m = t(Astro.locals.locale);
+const requested = Astro.url.searchParams.get("next") ?? "";
+// Only allow same-site paths, never "//other-host".
+const next = requested.startsWith("/") && !requested.startsWith("//") ? requested : "/admin";
+let wrong = false;
+
+if (Astro.request.method === "POST") {
+  const { key, organiserSecret } = app();
+  const attempt = String((await Astro.request.formData()).get("secret") ?? "");
+  if (await secretMatches(attempt, organiserSecret)) {
+    Astro.cookies.set(
+      ORGANISER_COOKIE,
+      await createSession(key),
+      cookieOptions(Astro.url, ORGANISER_SESSION_MS / 1000)
+    );
+    return Astro.redirect(next, 303);
+  }
+  wrong = true;
+  Astro.response.status = 401;
+} else if (Astro.locals.organiser) {
+  return Astro.redirect(next);
+}
+---
+
+<Base title={m.loginTitle}>
+  <main>
+    <h1>{m.loginTitle}</h1>
+    <form method="post">
+      <label for="secret">{m.secretLabel}</label>
+      <input id="secret" name="secret" type="password" autocomplete="current-password" required autofocus />
+      {wrong && <p role="alert">{m.wrongSecret}</p>}
+      <button>{m.loginButton}</button>
+    </form>
+  </main>
+</Base>
+
+<style>
+  h1 {
+    font-size: 48px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 400px;
+    margin: 0 auto;
+    font-size: 24px;
+  }
+  input {
+    font-size: 20px;
+    padding: 10px;
+    border: 0;
+    border-radius: 6px;
+  }
+  button {
+    font-size: 26px;
+    background: white;
+    color: var(--brown);
+  }
+  [role="alert"] {
+    margin: 0;
+    color: #fff5f5;
+    background: var(--red);
+    padding: 8px;
+    border-radius: 6px;
+  }
+</style>

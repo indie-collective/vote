@@ -1,0 +1,157 @@
+---
+// Organiser page: Voting Status, Reveal, and live Results.
+import ResultsTable from "../components/ResultsTable.astro";
+import Base from "../layouts/Base.astro";
+import { app } from "../lib/app";
+import { t } from "../lib/i18n";
+import { rankGames } from "../lib/results";
+import { countVotes, getStatus, setRevealed, setVotingOpen } from "../lib/store";
+
+const { db, edition, competition } = app();
+const m = t(Astro.locals.locale);
+
+if (Astro.request.method === "POST") {
+  const action = (await Astro.request.formData()).get("action");
+  let refused = false;
+  if (action === "open") await setVotingOpen(db, edition.id, true);
+  if (action === "close") await setVotingOpen(db, edition.id, false);
+  if (action === "reveal") refused = !(await setRevealed(db, edition.id, true));
+  if (action === "unreveal") await setRevealed(db, edition.id, false);
+  return Astro.redirect(refused ? "/admin?refused=reveal" : "/admin", 303);
+}
+
+const status = await getStatus(db, edition.id);
+const counts = await countVotes(db, edition.id, competition.id);
+const games = rankGames(competition.games, counts);
+const total = Object.values(counts).reduce((sum, votes) => sum + votes, 0);
+---
+
+<Base title={m.adminTitle}>
+  <main class="admin">
+    <h1>{m.adminTitle} · {edition.name}</h1>
+
+    <nav>
+      <a href="/host">{m.hostLink}</a>
+      <a href="/">{m.publicLink}</a>
+      <form method="post" action="/logout"><button class="link">{m.logout}</button></form>
+    </nav>
+
+    <section class="controls">
+      <form method="post">
+        <p class:list={["badge", status.votingOpen ? "on" : "off"]}>
+          {status.votingOpen ? m.votingOpen : m.votingClosed}
+        </p>
+        <button name="action" value={status.votingOpen ? "close" : "open"}>
+          {status.votingOpen ? m.closeVoting : m.openVoting}
+        </button>
+      </form>
+      <form method="post">
+        <p class:list={["badge", status.revealed ? "on" : "off"]}>
+          {status.revealed ? m.revealed : m.notRevealed}
+        </p>
+        <button
+          name="action"
+          value={status.revealed ? "unreveal" : "reveal"}
+          disabled={status.votingOpen}
+          title={status.votingOpen ? m.revealNeedsClosed : undefined}
+        >
+          {status.revealed ? m.unreveal : m.reveal}
+        </button>
+      </form>
+    </section>
+    {
+      (status.votingOpen || Astro.url.searchParams.has("refused")) && (
+        <p class="hint">{m.revealNeedsClosed}</p>
+      )
+    }
+
+    <section id="live">
+      <p class="total">{m.totalVotes} : {total}</p>
+      <ResultsTable edition={edition} games={games} />
+      <p class="hint">{m.refreshing}</p>
+    </section>
+  </main>
+</Base>
+
+<script>
+  // Swap in fresh Results without reloading the page (and without disturbing the buttons).
+  setInterval(async () => {
+    try {
+      const response = await fetch("/admin", { cache: "no-store" });
+      if (response.redirected) return location.reload();
+      const page = new DOMParser().parseFromString(await response.text(), "text/html");
+      const fresh = page.querySelector("#live");
+      if (fresh) document.querySelector("#live")!.replaceWith(fresh);
+    } catch {
+      // Ignore network blips.
+    }
+  }, 5000);
+</script>
+
+<style>
+  .admin {
+    max-width: 90ch;
+  }
+  h1 {
+    font-size: 48px;
+    margin: 0 0 16px;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+  nav a,
+  .link {
+    color: white;
+    background: none;
+    padding: 0;
+    font-size: inherit;
+    text-transform: none;
+    text-decoration: underline;
+  }
+  .controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .controls form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    border-radius: 6px;
+    background: rgb(0 0 0 / 0.25);
+  }
+  .controls button {
+    font-size: 26px;
+    background: white;
+    color: var(--brown);
+  }
+  .badge {
+    margin: 0;
+    font-size: 28px;
+    text-transform: uppercase;
+  }
+  .badge::before {
+    content: "● ";
+  }
+  .on::before {
+    color: #68d391;
+  }
+  .off::before {
+    color: #a0aec0;
+  }
+  .hint {
+    font-family: system-ui, sans-serif;
+    font-size: 14px;
+    text-align: center;
+  }
+  .total {
+    font-size: 28px;
+    margin: 24px 0 8px;
+  }
+</style>

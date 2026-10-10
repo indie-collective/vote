@@ -1,0 +1,120 @@
+---
+import { t } from "../lib/i18n";
+
+interface Props {
+  title?: string;
+  /** Hide the FR/EN switch (e.g. on the Host Screen). */
+  hideLocaleSwitch?: boolean;
+}
+
+const { title, hideLocaleSwitch = false } = Astro.props;
+const locale = Astro.locals.locale;
+const m = t(locale);
+const other = locale === "fr" ? "en" : "fr";
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content={m.siteDescription} />
+    <link rel="icon" href="/favicon.ico" />
+    <title>{title ? `${title} · ${m.siteTitle}` : m.siteTitle}</title>
+  </head>
+  <body>
+    {
+      !hideLocaleSwitch && (
+        <a class="locale-switch" href={`${Astro.url.pathname}?lang=${other}`} hreflang={other}>
+          {other.toUpperCase()}
+        </a>
+      )
+    }
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @font-face {
+    font-family: "Jersey10";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/Jersey10.woff2) format("woff2");
+  }
+
+  :root {
+    --brown: #543926;
+    --pink: #ffb7d7;
+    --orange: #ed7129;
+    --yellow: #e8db22;
+    --blue: #46bee7;
+    --green: #38a169;
+    --red: #e53e3e;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    min-height: 100%;
+    margin: 0;
+  }
+
+  body {
+    font-family: "Jersey10", system-ui, sans-serif;
+    color: white;
+    background: linear-gradient(180deg, var(--brown), var(--pink), var(--orange)) fixed;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  main {
+    max-width: 60ch;
+    margin: 0 auto;
+    padding: 30px 16px 120px;
+  }
+
+  h1 {
+    font-weight: normal;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+  }
+
+  .logo {
+    display: block;
+    max-width: 75%;
+    margin: 0 auto 20px;
+  }
+
+  .locale-switch {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgb(0 0 0 / 0.25);
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+  }
+
+  button,
+  .button {
+    font: inherit;
+    border: 0;
+    border-radius: 6px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+</style>

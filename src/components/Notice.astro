@@ -1,0 +1,63 @@
+---
+// Full-page message for visitors: thanks, expired link, voting closed…
+import Base from "../layouts/Base.astro";
+
+interface Props {
+  title: string;
+  text: string;
+  status?: "success" | "error" | "info";
+}
+
+const { title, text, status = "error" } = Astro.props;
+const icon = { success: "✔", error: "!", info: "i" }[status];
+---
+
+<Base title={title}>
+  <main>
+    <img class="logo" src="/logo-2023.png" alt="Indie Stunfest" />
+    <section class:list={["notice", status]} role={status === "error" ? "alert" : "status"}>
+      <span class="icon" aria-hidden="true">{icon}</span>
+      <h1>{title}</h1>
+      <p>{text}</p>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .notice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border-radius: 6px;
+    text-align: center;
+  }
+  .success {
+    background: var(--green);
+  }
+  .error {
+    background: var(--red);
+  }
+  .info {
+    background: var(--blue);
+  }
+  .icon {
+    display: grid;
+    place-items: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: white;
+    color: var(--brown);
+    font-size: 44px;
+  }
+  h1 {
+    margin: 20px 0;
+    font-size: 38px;
+  }
+  p {
+    margin: 0;
+    font-size: 22px;
+    line-height: 1;
+  }
+</style>

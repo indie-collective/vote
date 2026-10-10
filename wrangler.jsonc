@@ -1,0 +1,27 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "stunfest-vote",
+  "main": "@astrojs/cloudflare/entrypoints/server",
+  "compatibility_date": "2026-10-06",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    // Must match a file in src/data/editions/
+    "ACTIVE_EDITION": "2025"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "stunfest-vote",
+      // Replace with the id printed by `wrangler d1 create stunfest-vote`
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ]
+}
