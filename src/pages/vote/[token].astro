@@ -1,0 +1,33 @@
+---
+// Scan step: a fresh QR code is exchanged for a Ballot, then the visitor is sent to /vote.
+import Notice from "../../components/Notice.astro";
+import { app, BALLOT_COOKIE, cookieOptions, votedCookie } from "../../lib/app";
+import { t } from "../../lib/i18n";
+import { getStatus } from "../../lib/store";
+import { BALLOT_TTL_MS, checkQrToken, issueBallot } from "../../lib/voting";
+
+const { db, key, edition } = app();
+const m = t(Astro.locals.locale);
+
+let notice: { title: string; text: string; status?: "success" | "error" | "info" } | undefined;
+
+if (Astro.cookies.has(votedCookie(edition.id))) {
+  notice = { title: m.thanksTitle, text: m.thanksText, status: "success" };
+} else if (!(await getStatus(db, edition.id)).votingOpen) {
+  notice = { title: m.closedTitle, text: m.closedText, status: "info" };
+} else {
+  const check = await checkQrToken(Astro.params.token, edition.id, key);
+  if (check.ok) {
+    const { cookie } = await issueBallot(edition.id, key);
+    Astro.cookies.set(BALLOT_COOKIE, cookie, cookieOptions(Astro.url, BALLOT_TTL_MS / 1000, "/vote"));
+    return Astro.redirect("/vote");
+  }
+  notice = {
+    title: check.reason === "expired" ? m.expiredTitle : m.invalidTitle,
+    text: m.scanAgain,
+  };
+  Astro.response.status = 400;
+}
+---
+
+<Notice {...notice!} />

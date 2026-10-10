@@ -1,0 +1,93 @@
+---
+// Host Screen: the big display at the stand showing a QR code that changes every few seconds.
+// Always bilingual (French first) since it's read by every visitor, whatever their language.
+import Base from "../../layouts/Base.astro";
+import { app } from "../../lib/app";
+import { t } from "../../lib/i18n";
+import { freshQrCode } from "../../lib/qr";
+import { getStatus } from "../../lib/store";
+import { QR_REFRESH_MS } from "../../lib/voting";
+
+const { db, key, edition } = app();
+const fr = t("fr");
+const en = t("en");
+const { votingOpen } = await getStatus(db, edition.id);
+const qr = votingOpen ? await freshQrCode(Astro.url.origin, edition.id, key) : null;
+---
+
+<Base title={fr.hostLink} hideLocaleSwitch>
+  <div class="host" data-refresh={QR_REFRESH_MS}>
+    <h1>{fr.hostTop}<span lang="en">{en.hostTop}</span></h1>
+    <div class="qr" hidden={!qr} set:html={qr?.svg ?? ""} />
+    <p class="closed" hidden={!!qr}>{fr.hostClosed}<span lang="en">{en.hostClosed}</span></p>
+    <h1>{fr.hostBottom}<span lang="en">{en.hostBottom}</span></h1>
+    {
+      import.meta.env.DEV && (
+        <a class="dev-link" href={qr?.url ?? "#"}>
+          vote link (dev only)
+        </a>
+      )
+    }
+  </div>
+</Base>
+
+<script>
+  const host = document.querySelector<HTMLElement>(".host")!;
+  const qr = host.querySelector<HTMLElement>(".qr")!;
+  const closed = host.querySelector<HTMLElement>(".closed")!;
+  const devLink = host.querySelector<HTMLAnchorElement>(".dev-link");
+
+  async function refresh() {
+    try {
+      const response = await fetch("/host/qr", { cache: "no-store" });
+      // Logged out (session expired): go through the login page again.
+      if (response.redirected || !response.ok) return location.reload();
+      const data: { votingOpen: boolean; svg?: string; url?: string } = await response.json();
+      qr.hidden = !data.votingOpen;
+      closed.hidden = data.votingOpen;
+      if (data.svg) qr.innerHTML = data.svg;
+      if (devLink && data.url) devLink.href = data.url;
+    } catch {
+      // Network blip: keep the current code; the next refresh will try again.
+    }
+  }
+
+  setInterval(refresh, Number(host.dataset.refresh));
+</script>
+
+<style>
+  .host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2vh;
+    min-height: 100vh;
+    padding: 2vh 16px;
+    text-align: center;
+  }
+  h1 {
+    margin: 0;
+    font-size: min(100px, 12vh);
+  }
+  h1 span,
+  .closed span {
+    display: block;
+    font-size: 0.45em;
+    opacity: 0.85;
+  }
+  .qr :global(svg) {
+    display: block;
+    width: min(62vh, 90vw);
+    height: auto;
+  }
+  .closed {
+    font-size: min(140px, 15vh);
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .dev-link {
+    color: white;
+    font-family: system-ui, sans-serif;
+  }
+</style>

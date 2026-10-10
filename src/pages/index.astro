@@ -1,0 +1,38 @@
+---
+// Public Results: a holding page until an Organiser performs the Reveal.
+import Notice from "../components/Notice.astro";
+import ResultsTable from "../components/ResultsTable.astro";
+import Base from "../layouts/Base.astro";
+import { app } from "../lib/app";
+import { t } from "../lib/i18n";
+import { rankGames } from "../lib/results";
+import { countVotes, getStatus } from "../lib/store";
+
+const { db, edition, competition } = app();
+const m = t(Astro.locals.locale);
+const { revealed } = await getStatus(db, edition.id);
+const games = revealed ? rankGames(competition.games, await countVotes(db, edition.id, competition.id)) : [];
+---
+
+{
+  revealed ? (
+    <Base title={m.resultsTitle}>
+      <main class="results-page">
+        <h1>{m.resultsTitle}</h1>
+        <ResultsTable edition={edition} games={games} />
+      </main>
+    </Base>
+  ) : (
+    <Notice title={m.holdingTitle} text={m.holdingText} status="info" />
+  )
+}
+
+<style>
+  .results-page {
+    max-width: 90ch;
+  }
+  h1 {
+    font-size: 80px;
+    margin: 0 0 30px;
+  }
+</style>

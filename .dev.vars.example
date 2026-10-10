@@ -1,0 +1,5 @@
+# Copy to .dev.vars for local development. In production use `wrangler secret put <NAME>`.
+# Shared secret organisers type on /login. Change it every edition.
+ORGANISER_SECRET=change-me
+# Key for signing QR codes, Ballots and organiser sessions (any long random string).
+SIGNING_KEY=dev-signing-key-change-me

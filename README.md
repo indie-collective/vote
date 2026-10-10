@@ -1,46 +1,67 @@
 # Vote
 
-Voting webapp mainly used for the indie awards of the video game festival Stunfest based in Rennes, France.
+Audience vote for the Indie Awards of [Stunfest](https://stunfest.com), the video game festival in Rennes, France. Visitors at the stand scan a QR code on a big screen and vote for their favourite game in the competition.
 
-## Motivations and requirements
+- Voting needs physical presence: the QR code on the Host Screen changes every 10 s and only works for 20 s after it is shown. Opening it grants a Ballot good for one Vote within 3 minutes ([why](docs/adr/0001-two-step-qr-and-ballot.md)).
+- Organisers open and close voting, follow live Results, and Reveal them publicly at the ceremony.
+- Interface in French and English (from the phone's language, with a FR/EN switch).
 
-Here's what is the need for the festival and what solutions we chose and can match yours:
+Domain vocabulary is in [CONTEXT.md](CONTEXT.md). Built with Astro on Cloudflare Workers and D1 ([why](docs/adr/0002-astro-on-cloudflare-workers.md)).
 
-- People needs to vote easily during the festival for one game they liked (through a QR code)
-- We want to restrict voting on site, preventing sharing link on social networks and asking for votes.
-- We aim at preventing voting multiple times
+## Pages
+
+| Path | Who | What |
+| --- | --- | --- |
+| `/` | Public | Holding page, then Results after the Reveal |
+| `/vote/<token>` | Visitors | Target of the QR code: exchanges a fresh code for a Ballot |
+| `/vote` | Visitors | Pick a game and vote |
+| `/login` | Organisers | Shared organiser password |
+| `/host` | Organisers | Host Screen with the rotating QR code |
+| `/admin` | Organisers | Voting Status, Reveal, live Results |
 
 ## Development
 
-From your terminal:
-
 ```sh
+npm install
+cp .dev.vars.example .dev.vars
+npm run db:migrate:local
 npm run dev
 ```
 
-This starts your app in development mode, rebuilding assets on file changes.
-
-## Deployment
-
-First, build your app for production:
+Log in at http://localhost:4321/login with the `ORGANISER_SECRET` from `.dev.vars`, open voting on `/admin`, then open `/host`. In development the Host Screen shows a clickable vote link under the QR code.
 
 ```sh
-npm run build
+npm test         # unit tests
+npm run check    # type check
 ```
 
-Then run the app in production mode:
+## New edition
+
+1. Add `src/data/editions/<year>.json` (copy the previous one). Each Game needs a unique kebab-case `id`; exactly one Category has `"voting": true`.
+2. Put each Game's image at `public/<year>/<id>.jpg`.
+3. Set `ACTIVE_EDITION` in `wrangler.jsonc` to `<year>`.
+4. Change the organiser password: `npx wrangler secret put ORGANISER_SECRET`.
+
+Votes are stored per Edition, so previous Results are kept.
+
+## Deployment (Cloudflare)
+
+One-time setup:
 
 ```sh
-npm start
+npx wrangler login
+npx wrangler d1 create stunfest-vote   # copy the database_id into wrangler.jsonc
+npx wrangler secret put ORGANISER_SECRET
+npx wrangler secret put SIGNING_KEY    # long random string, e.g. `openssl rand -base64 32`
 ```
 
-Now you'll need to pick a host to deploy it to.
+Every deploy:
 
-### DIY
+```sh
+npm run db:migrate:remote
+npm run deploy
+```
 
-If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
+The app is served at `https://stunfest-vote.<account>.workers.dev`. A custom domain such as `vote.indieco.xyz` needs the domain on Cloudflare; until then, the workers.dev address works because visitors only reach it through the QR code.
 
-Make sure to deploy the output of `remix build`
-
-- `build/`
-- `public/build/`
+Changing `SIGNING_KEY` logs out all organisers and invalidates open Ballots.
