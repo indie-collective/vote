@@ -8,6 +8,12 @@ const ORGANISER_PATHS = ["/host", "/admin"];
 export const onRequest = defineMiddleware(async (context, next) => {
   const { url, cookies, request } = context;
 
+  // Ballots and organiser sessions must never travel over plain HTTP.
+  if (url.protocol === "http:" && !["localhost", "127.0.0.1", "[::1]"].includes(url.hostname)) {
+    url.protocol = "https:";
+    return Response.redirect(url, 301);
+  }
+
   const query = url.searchParams.get("lang");
   const locale = pickLocale({
     query,
