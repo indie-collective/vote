@@ -1,0 +1,517 @@
+---
+// Ceremony race: every Vote replayed in the order it was cast, then a podium of the top three.
+// Organiser-only (under /admin). `?demo` uses made-up Votes to rehearse; `?seconds=60` changes the length.
+import Base from "../../layouts/Base.astro";
+import { app } from "../../lib/app";
+import { gameImage } from "../../lib/edition";
+import { t } from "../../lib/i18n";
+import { buildRace, demoVotes } from "../../lib/race";
+import { podium, rankGames } from "../../lib/results";
+import { timeline } from "../../lib/store";
+import { MAX_PICKS } from "../../lib/voting";
+
+const { db, edition, competition } = app();
+const m = t(Astro.locals.locale);
+const fr = t("fr");
+const en = t("en");
+
+const demo = Astro.url.searchParams.has("demo");
+const gameIds = competition.games.map((game) => game.id);
+const votes = demo
+  ? demoVotes(gameIds, { maxPicks: MAX_PICKS, days: ["2026-10-23", "2026-10-24", "2026-10-25"] })
+  : await timeline(db, edition.id, competition.id);
+const race = buildRace(gameIds, votes);
+
+const finalPicks = Object.fromEntries(gameIds.map((id) => [id, race.series[id][race.votes]]));
+const ranked = rankGames(competition.games, finalPicks);
+
+const steps = podium(ranked).map((step, index) => ({
+  place: index,
+  label: m.podiumPlaces[step.rank - 1],
+  games: step.games,
+}));
+const stepOrder = [steps[1], steps[0], steps[2]].filter(Boolean);
+
+// Lanes in alphabetical order so no lane position hints at the result.
+const lanes = [...competition.games].sort((a, b) => a.title.localeCompare(b.title));
+
+const payload = JSON.stringify({ race, locale: Astro.locals.locale }).replace(/</g, "\\u003c");
+---
+
+<Base title={m.raceLink} bare>
+  <div class="race" data-state="ready">
+    <header>
+      <img class="logo" src="/stunfest-2026-logo.png" alt="Stunfest 2026" width="400" height="211" />
+      <div class="titles">
+        <h1 class="outlined">{fr.raceTitle}</h1>
+        <p lang="en">{en.raceTitle}</p>
+      </div>
+      <div class="clock" aria-live="off">
+        <span class="when">&nbsp;</span>
+        <span class="count">0 / {race.votes}</span>
+      </div>
+    </header>
+
+    <ol class="lanes" style={`--lanes: ${lanes.length}`}>
+      {
+        lanes.map((game) => (
+          <li class="lane" data-game={game.id}>
+            <span class="name">{game.title}</span>
+            <div class="track">
+              <div class="car">
+                <span class="pos">–</span>
+                <img src={gameImage(edition, game)} alt={game.title} />
+              </div>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+
+    <section class="podium" aria-live="polite">
+      <div class="checker" aria-hidden="true"></div>
+      <div class="steps">
+        {
+          stepOrder.map((step) => (
+            <div class={`step place-${step.place + 1}`} data-place={step.place}>
+              <div class="winners">
+                {step.games.map((game) => (
+                  <figure class="winner">
+                    <img src={gameImage(edition, game)} alt="" />
+                    <figcaption>
+                      <strong>{game.title}</strong>
+                      <span>{game.studio}</span>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+              <div class="block">
+                <span class="label">{step.label}</span>
+                <span class="picks">
+                  {step.games[0].votes} {m.votes.toLowerCase()}
+                </span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <footer>
+      {demo && <span class="demo">{m.raceDemo}</span>}
+      {race.votes === 0 && <span class="empty">{m.raceEmpty}</span>}
+      <button class="hint" type="button" data-ready={m.raceStart} data-finished={m.racePodium} data-podium={m.raceNext}>
+        {m.raceStart}
+      </button>
+      <span class="keys">{m.raceRestart}</span>
+    </footer>
+  </div>
+  <script type="application/json" id="race-data" set:html={payload} />
+</Base>
+
+<script>
+  import type { Race } from "../../lib/race";
+
+  const root = document.querySelector<HTMLElement>(".race")!;
+  const { race, locale } = JSON.parse(document.querySelector("#race-data")!.textContent!) as {
+    race: Race;
+    locale: string;
+  };
+  const seconds = Number(new URLSearchParams(location.search).get("seconds")) || 40;
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const lanes = [...root.querySelectorAll<HTMLElement>(".lane")].map((lane) => ({
+    id: lane.dataset.game!,
+    lane,
+    track: lane.querySelector<HTMLElement>(".track")!,
+    car: lane.querySelector<HTMLElement>(".car")!,
+    pos: lane.querySelector<HTMLElement>(".pos")!,
+  }));
+  const hint = root.querySelector<HTMLButtonElement>(".hint")!;
+  const when = root.querySelector<HTMLElement>(".when")!;
+  const count = root.querySelector<HTMLElement>(".count")!;
+  // Reveal the lowest step first: 3rd, then 2nd, then 1st.
+  const steps = [...root.querySelectorAll<HTMLElement>(".step")].sort(
+    (a, b) => Number(b.dataset.place) - Number(a.dataset.place)
+  );
+
+  const clock = new Intl.DateTimeFormat(locale === "fr" ? "fr-FR" : "en-GB", {
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "Europe/Paris",
+  });
+
+  let state: "ready" | "racing" | "finished" | "podium" = "ready";
+  let revealed = 0;
+  let frame = 0;
+
+  function setState(next: typeof state) {
+    state = next;
+    root.dataset.state = next;
+    hint.textContent = hint.dataset[next === "racing" ? "ready" : next] ?? "";
+    hint.hidden = next === "racing" || race.votes === 0;
+  }
+
+  /** Positions every car after `progress` Votes (fractional, so cars glide between Votes). */
+  function render(progress: number) {
+    const whole = Math.min(Math.floor(progress), race.votes);
+    const fraction = progress - whole;
+    const picks = lanes.map(({ id }) => {
+      const series = race.series[id];
+      const next = series[Math.min(whole + 1, race.votes)];
+      return { id, exact: series[whole], smooth: series[whole] + (next - series[whole]) * fraction };
+    });
+
+    for (const [index, { car, track, pos }] of lanes.entries()) {
+      const { exact, smooth } = picks[index];
+      const room = track.clientWidth - car.offsetWidth;
+      car.style.transform = `translateX(${race.finish ? (smooth / race.finish) * room : 0}px)`;
+      const rank = 1 + picks.filter((other) => other.exact > exact).length;
+      pos.textContent = exact > 0 ? String(rank) : "–";
+      car.classList.toggle("leader", exact > 0 && rank === 1);
+    }
+
+    const shown = Math.max(0, Math.min(Math.ceil(progress), race.votes));
+    count.textContent = `${shown} / ${race.votes}`;
+    when.textContent = shown ? clock.format(new Date(race.castAt[shown - 1])) : " ";
+  }
+
+  const ease = (t: number) => (t < 0.5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2);
+
+  function start() {
+    setState("racing");
+    if (reduceMotion) return finish();
+    const began = performance.now();
+    const step = (now: number) => {
+      const t = Math.min(1, (now - began) / (seconds * 1000));
+      render(ease(t) * race.votes);
+      if (t < 1) frame = requestAnimationFrame(step);
+      else finish();
+    };
+    frame = requestAnimationFrame(step);
+  }
+
+  function finish() {
+    render(race.votes);
+    setState("finished");
+  }
+
+  function advance() {
+    if (race.votes === 0) return;
+    if (state === "ready") return start();
+    if (state === "finished") setState("podium");
+    if (state === "podium" && revealed < steps.length) steps[revealed++].classList.add("shown");
+    if (state === "podium" && revealed === steps.length) hint.hidden = true;
+  }
+
+  function reset() {
+    cancelAnimationFrame(frame);
+    revealed = 0;
+    for (const step of steps) step.classList.remove("shown");
+    render(0);
+    setState("ready");
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === " " || event.key === "ArrowRight" || event.key === "Enter") {
+      event.preventDefault();
+      advance();
+    } else if (event.key === "r" || event.key === "R") {
+      reset();
+    } else if (event.key === "f" || event.key === "F") {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else document.documentElement.requestFullscreen();
+    }
+  });
+  hint.addEventListener("click", (event) => {
+    event.stopPropagation();
+    advance();
+  });
+  addEventListener("resize", () => state !== "racing" && render(state === "ready" ? 0 : race.votes));
+
+  reset();
+</script>
+
+<style>
+  :global(body) {
+    background: #2b2b2b;
+    overflow: hidden;
+  }
+  .race {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+    color: white;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    padding: 1.2vh 2vw;
+    background: var(--yellow);
+    color: var(--ink);
+    border-bottom: 1px solid #000;
+  }
+  .logo {
+    height: min(80px, 8vh);
+    width: auto;
+  }
+  .titles {
+    flex: 1;
+  }
+  h1 {
+    margin: 0;
+    text-align: left;
+    font-size: min(44px, 4.4vh, 3.2vw);
+  }
+  .titles p {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: min(20px, 2vh);
+  }
+  .clock {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-family: var(--display);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .when {
+    font-size: min(28px, 2.8vh);
+  }
+  .count {
+    font-size: min(16px, 1.6vh);
+    font-weight: 500;
+  }
+
+  .lanes {
+    display: grid;
+    grid-template-rows: repeat(var(--lanes), 1fr);
+    margin: 0;
+    padding: 0.8vh 0;
+    list-style: none;
+    min-height: 0;
+  }
+  .lane {
+    display: grid;
+    grid-template-columns: minmax(120px, 17vw) 1fr;
+    align-items: stretch;
+    min-height: 0;
+  }
+  .name {
+    align-self: center;
+    padding: 0 1vw 0 2vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: min(18px, 1.9vh);
+  }
+  .track {
+    position: relative;
+    margin-right: 2vw;
+    border-bottom: 2px dashed rgb(255 255 255 / 0.25);
+    background: linear-gradient(90deg, rgb(255 255 255 / 0.5) 0 3px, transparent 3px);
+  }
+  .lane:last-child .track {
+    border-bottom: 0;
+  }
+  /* Checkered finish line at the end of each lane. */
+  .track::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 2vh;
+    background: repeating-conic-gradient(#000 0 25%, #fff 0 50%) 0 0 / 1vh 1vh;
+  }
+  .car {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.6vh;
+    height: 80%;
+    will-change: transform;
+  }
+  .car img {
+    height: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border: 1px solid #000;
+    border-radius: 4px;
+    box-shadow: 2px 2px 0 #000;
+    background: var(--card);
+  }
+  .pos {
+    order: 2;
+    display: grid;
+    place-items: center;
+    height: 100%;
+    aspect-ratio: 1;
+    border: 1px solid #000;
+    border-radius: 50%;
+    background: var(--card);
+    color: #000;
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: min(16px, 1.7vh);
+  }
+  .car.leader img {
+    outline: 3px solid var(--yellow);
+  }
+  .car.leader .pos {
+    background: var(--yellow);
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+    padding: 1vh 2vw 1.5vh;
+    font-size: min(16px, 1.8vh);
+  }
+  .hint {
+    font-size: min(18px, 2vh);
+  }
+  .keys {
+    opacity: 0.6;
+  }
+  .demo,
+  .empty {
+    padding: 4px 12px;
+    border: 1px solid #000;
+    border-radius: 999px;
+    background: var(--orange);
+    font-weight: 700;
+  }
+
+  .podium {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    background: var(--yellow);
+    color: var(--ink);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 600ms;
+  }
+  .race[data-state="podium"] .podium {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .race[data-state="podium"] footer {
+    position: relative;
+    z-index: 3;
+    color: var(--ink);
+  }
+  .steps {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 2vw;
+    padding: 0 4vw 8vh;
+  }
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: min(28vw, 420px);
+    opacity: 0;
+    transform: translateY(6vh);
+    transition:
+      opacity 700ms,
+      transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1.2);
+  }
+  .step.shown {
+    opacity: 1;
+    transform: none;
+  }
+  .winners {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+    width: 100%;
+    margin-bottom: 2vh;
+  }
+  .winner {
+    margin: 0;
+    text-align: center;
+  }
+  .winner img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border: 1px solid #000;
+    border-radius: var(--radius);
+    box-shadow: 6px 6px 0 #000;
+  }
+  /* Tied Games share a step: smaller images so the stack still fits a 16:9 screen. */
+  .winners:has(.winner + .winner) .winner img {
+    width: 70%;
+  }
+  .winners:has(.winner + .winner) .winner strong {
+    font-size: min(24px, 2.6vh);
+  }
+  .winner figcaption {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.2vh;
+  }
+  .winner strong {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: min(32px, 3.4vh);
+    line-height: 1.1;
+  }
+  .winner span {
+    font-size: min(18px, 2vh);
+  }
+  .block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: var(--radius) var(--radius) 0 0;
+    box-shadow: 6px 6px 0 #000;
+    background: var(--card);
+  }
+  .label {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: min(72px, 8vh);
+    line-height: 1;
+  }
+  .picks {
+    font-weight: 700;
+    font-size: min(20px, 2.2vh);
+  }
+  .place-1 .block {
+    height: 26vh;
+    background: var(--lavender);
+  }
+  .place-1 .winner strong {
+    font-size: min(40px, 4.2vh);
+  }
+  .place-2 .block {
+    height: 18vh;
+  }
+  .place-3 .block {
+    height: 12vh;
+  }
+</style>

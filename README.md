@@ -19,6 +19,7 @@ The look follows the festival's 2026 identity on [stunfest.com](https://www.stun
 | `/login` | Organisers | Shared organiser password |
 | `/host` | Organisers | Host Screen with the rotating QR code |
 | `/admin` | Organisers | Voting Status, Reveal, live Results |
+| `/admin/race` | Organisers | Ceremony animation: Votes replayed as a race, then the podium (`?demo` to rehearse with made-up Votes, `?seconds=60` to change its length) |
 
 ## Development
 
