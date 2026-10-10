@@ -44,6 +44,12 @@ npm run check    # type check
 
 Votes are stored per Edition, so previous Results are kept.
 
+Votes cast while rehearsing count towards the active Edition. Before the festival opens, clear them:
+
+```sh
+npx wrangler d1 execute DB --remote --command "DELETE FROM votes WHERE edition = '2026'"
+```
+
 ## Deployment (Cloudflare)
 
 The Worker runs on the Indie Collective Cloudflare account (`account_id` in `wrangler.jsonc`) with a D1 database `stunfest-vote` (Western Europe). Secrets are set with:
