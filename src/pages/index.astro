@@ -18,7 +18,8 @@ const games = revealed ? rankGames(competition.games, await countVotes(db, editi
   revealed ? (
     <Base title={m.resultsTitle}>
       <main class="results-page">
-        <h1>{m.resultsTitle}</h1>
+        <h1 class="outlined white">{m.resultsTitle}</h1>
+        <p class="edition">{edition.name}</p>
         <ResultsTable edition={edition} games={games} />
       </main>
     </Base>
@@ -32,7 +33,13 @@ const games = revealed ? rankGames(competition.games, await countVotes(db, editi
     max-width: 90ch;
   }
   h1 {
-    font-size: 80px;
-    margin: 0 0 30px;
+    margin: 8px 0 4px;
+    font-size: clamp(36px, 10vw, 64px);
+  }
+  .edition {
+    margin: 0 0 28px;
+    text-align: center;
+    font-family: var(--display);
+    font-weight: 600;
   }
 </style>

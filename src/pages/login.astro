@@ -30,19 +30,20 @@ if (Astro.request.method === "POST") {
 
 <Base title={m.loginTitle}>
   <main>
-    <h1>{m.loginTitle}</h1>
-    <form method="post">
+    <h1 class="outlined">{m.loginTitle}</h1>
+    <form method="post" class="card">
       <label for="secret">{m.secretLabel}</label>
       <input id="secret" name="secret" type="password" autocomplete="current-password" required autofocus />
       {wrong && <p role="alert">{m.wrongSecret}</p>}
-      <button>{m.loginButton}</button>
+      <button class="primary">{m.loginButton}</button>
     </form>
   </main>
 </Base>
 
 <style>
   h1 {
-    font-size: 48px;
+    margin: 8px 0 28px;
+    font-size: 36px;
   }
   form {
     display: flex;
@@ -50,24 +51,24 @@ if (Astro.request.method === "POST") {
     gap: 12px;
     max-width: 400px;
     margin: 0 auto;
-    font-size: 24px;
+    padding: 24px;
+  }
+  label {
+    font-weight: 700;
   }
   input {
-    font-size: 20px;
-    padding: 10px;
-    border: 0;
-    border-radius: 6px;
-  }
-  button {
-    font-size: 26px;
+    padding: 12px;
+    font: inherit;
+    border: 1px solid #000;
+    border-radius: var(--radius);
     background: white;
-    color: var(--brown);
   }
   [role="alert"] {
     margin: 0;
-    color: #fff5f5;
-    background: var(--red);
-    padding: 8px;
-    border-radius: 6px;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: var(--radius);
+    background: var(--orange);
+    color: white;
   }
 </style>
