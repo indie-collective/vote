@@ -1,6 +1,8 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "stunfest-vote",
+  // Indie Collective account (Contact@indieco.xyz)
+  "account_id": "87f543652bc8e66b5a5b854fed541ed4",
   "main": "@astrojs/cloudflare/entrypoints/server",
   "compatibility_date": "2026-10-06",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
@@ -19,8 +21,7 @@
     {
       "binding": "DB",
       "database_name": "stunfest-vote",
-      // Replace with the id printed by `wrangler d1 create stunfest-vote`
-      "database_id": "00000000-0000-0000-0000-000000000000",
+      "database_id": "66decffc-ec9e-480d-8de9-a103af76987e",
       "migrations_dir": "migrations"
     }
   ]

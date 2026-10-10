@@ -46,13 +46,11 @@ Votes are stored per Edition, so previous Results are kept.
 
 ## Deployment (Cloudflare)
 
-One-time setup:
+The Worker runs on the Indie Collective Cloudflare account (`account_id` in `wrangler.jsonc`) with a D1 database `stunfest-vote` (Western Europe). Secrets are set with:
 
 ```sh
-npx wrangler login
-npx wrangler d1 create stunfest-vote   # copy the database_id into wrangler.jsonc
 npx wrangler secret put ORGANISER_SECRET
-npx wrangler secret put SIGNING_KEY    # long random string, e.g. `openssl rand -base64 32`
+npx wrangler secret put SIGNING_KEY    # long random string, e.g. `openssl rand -base64 48`
 ```
 
 Every deploy:
@@ -62,6 +60,6 @@ npm run db:migrate:remote
 npm run deploy
 ```
 
-The app is served at `https://stunfest-vote.<account>.workers.dev`. A custom domain such as `vote.indieco.xyz` needs the domain on Cloudflare; until then, the workers.dev address works because visitors only reach it through the QR code.
+The app is served at https://stunfest-vote.indiecollective.workers.dev. A custom domain such as `vote.indieco.xyz` needs the domain on Cloudflare; until then, the workers.dev address works because visitors only reach it through the QR code.
 
 Changing `SIGNING_KEY` logs out all organisers and invalidates open Ballots.
