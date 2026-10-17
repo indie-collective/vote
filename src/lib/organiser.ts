@@ -25,3 +25,19 @@ export async function isOrganiser(cookie: string | undefined, key: string, now =
   const session = await verify<Session>(cookie, key);
   return session?.kind === "organiser" && session.expiresAt > now;
 }
+
+/** Login page URL that returns to the requested page afterwards, query string included. */
+export function loginUrl(requested: URL): string {
+  return `/login?next=${encodeURIComponent(requested.pathname + requested.search)}`;
+}
+
+/**
+ * Where to go after logging in: the requested path on this site, or /admin. Rejects anything
+ * a browser could treat as another host ("//evil.example", "/\evil.example").
+ */
+export function safeNext(requested: string | null): string {
+  if (!requested || !requested.startsWith("/") || requested.startsWith("//") || requested.includes("\\")) {
+    return "/admin";
+  }
+  return requested;
+}
