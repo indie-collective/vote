@@ -2,12 +2,10 @@
 import Base from "../layouts/Base.astro";
 import { app, cookieOptions } from "../lib/app";
 import { t } from "../lib/i18n";
-import { createSession, ORGANISER_COOKIE, ORGANISER_SESSION_MS, secretMatches } from "../lib/organiser";
+import { createSession, ORGANISER_COOKIE, ORGANISER_SESSION_MS, safeNext, secretMatches } from "../lib/organiser";
 
 const m = t(Astro.locals.locale);
-const requested = Astro.url.searchParams.get("next") ?? "";
-// Only allow same-site paths, never "//other-host".
-const next = requested.startsWith("/") && !requested.startsWith("//") ? requested : "/admin";
+const next = safeNext(Astro.url.searchParams.get("next"));
 let wrong = false;
 
 if (Astro.request.method === "POST") {

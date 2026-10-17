@@ -1,7 +1,7 @@
 import { defineMiddleware } from "astro:middleware";
 import { env } from "cloudflare:workers";
 import { LOCALE_COOKIE, pickLocale } from "./lib/i18n";
-import { isOrganiser, ORGANISER_COOKIE } from "./lib/organiser";
+import { isOrganiser, loginUrl, ORGANISER_COOKIE } from "./lib/organiser";
 
 const ORGANISER_PATHS = ["/host", "/admin"];
 
@@ -30,7 +30,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
     (path) => url.pathname === path || url.pathname.startsWith(`${path}/`)
   );
   if (needsOrganiser && !context.locals.organiser) {
-    return context.redirect(`/login?next=${encodeURIComponent(url.pathname)}`);
+    return context.redirect(loginUrl(url));
   }
 
   return next();
