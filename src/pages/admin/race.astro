@@ -3,12 +3,9 @@
 // Organiser-only (under /admin). `?demo` uses made-up Votes to rehearse; `?seconds=60` changes the length.
 import Base from "../../layouts/Base.astro";
 import { app } from "../../lib/app";
+import { loadCeremony, scriptJson } from "../../lib/ceremony";
 import { gameImage } from "../../lib/edition";
 import { t } from "../../lib/i18n";
-import { buildRace, demoVotes } from "../../lib/race";
-import { podium, rankGames } from "../../lib/results";
-import { timeline } from "../../lib/store";
-import { MAX_PICKS } from "../../lib/voting";
 
 const { db, edition, competition } = app();
 const m = t(Astro.locals.locale);
@@ -16,26 +13,11 @@ const fr = t("fr");
 const en = t("en");
 
 const demo = Astro.url.searchParams.has("demo");
-const gameIds = competition.games.map((game) => game.id);
-const votes = demo
-  ? demoVotes(gameIds, { maxPicks: MAX_PICKS, days: ["2026-10-23", "2026-10-24", "2026-10-25"] })
-  : await timeline(db, edition.id, competition.id);
-const race = buildRace(gameIds, votes);
-
-const finalPicks = Object.fromEntries(gameIds.map((id) => [id, race.series[id][race.votes]]));
-const ranked = rankGames(competition.games, finalPicks);
-
-const steps = podium(ranked).map((step, index) => ({
-  place: index,
-  label: m.podiumPlaces[step.rank - 1],
-  games: step.games,
-}));
+const { race, lanes, steps: podiumSteps } = await loadCeremony({ db, edition, competition, demo });
+const steps = podiumSteps.map((step) => ({ ...step, label: m.podiumPlaces[step.rank - 1] }));
 const stepOrder = [steps[1], steps[0], steps[2]].filter(Boolean);
 
-// Lanes in alphabetical order so no lane position hints at the result.
-const lanes = [...competition.games].sort((a, b) => a.title.localeCompare(b.title));
-
-const payload = JSON.stringify({ race, locale: Astro.locals.locale }).replace(/</g, "\\u003c");
+const payload = scriptJson({ race, locale: Astro.locals.locale });
 ---
 
 <Base title={m.raceLink} bare>

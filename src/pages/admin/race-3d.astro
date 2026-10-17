@@ -1,0 +1,471 @@
+---
+// Ceremony race in 3D: a soapbox derby down a festival hill with music, then a 3D podium.
+// Same data as /admin/race (every Vote replayed in the order it was cast). Organiser-only.
+// `?demo` uses made-up Votes to rehearse; `?seconds=60` changes the race length.
+import Base from "../../layouts/Base.astro";
+import { app } from "../../lib/app";
+import { loadCeremony, scriptJson } from "../../lib/ceremony";
+import { gameImage } from "../../lib/edition";
+import { t } from "../../lib/i18n";
+
+const { db, edition, competition } = app();
+const m = t(Astro.locals.locale);
+const fr = t("fr");
+const en = t("en");
+
+const demo = Astro.url.searchParams.has("demo");
+const { race, lanes, steps } = await loadCeremony({ db, edition, competition, demo });
+
+const payload = scriptJson({
+  race,
+  locale: Astro.locals.locale,
+  lanes: lanes.map((game) => ({ id: game.id, title: game.title, image: gameImage(edition, game) })),
+  steps: steps.map((step) => ({ place: step.place, rank: step.rank, gameIds: step.games.map((game) => game.id) })),
+});
+---
+
+<Base title={m.race3dLink} bare>
+  <div class="race3d" data-state="loading">
+    <canvas aria-label={fr.raceTitle}></canvas>
+
+    <header>
+      <img class="logo" src="/stunfest-2026-logo.png" alt="Stunfest 2026" width="400" height="211" />
+      <div class="titles">
+        <h1 class="outlined">{fr.raceTitle}</h1>
+        <p lang="en">{en.raceTitle}</p>
+      </div>
+      <div class="clock" aria-live="off">
+        <span class="when">&nbsp;</span>
+        <span class="count">0 / {race.votes}</span>
+      </div>
+    </header>
+
+    <div class="labels">
+      {
+        steps.map((step) => (
+          <div class={`label place-${step.place + 1}`} data-place={step.place} hidden>
+            <span class="place">{m.podiumPlaces[step.rank - 1]}</span>
+            {step.games.map((game) => (
+              <span class="game">
+                <strong>{game.title}</strong>
+                <small>{game.studio}</small>
+              </span>
+            ))}
+            <span class="picks">
+              {step.games[0].votes} {m.votes.toLowerCase()}
+            </span>
+          </div>
+        ))
+      }
+    </div>
+
+    <footer>
+      {demo && <span class="badge demo">{m.raceDemo}</span>}
+      {race.votes === 0 && <span class="badge">{m.raceEmpty}</span>}
+      <button class="hint" type="button" data-ready={m.raceStart} data-finished={m.racePodium} data-podium={m.raceNext}>
+        {m.raceStart}
+      </button>
+      <span class="keys">{m.raceRestart} · {m.raceMute}</span>
+      <span class="sound" aria-live="polite">♪</span>
+    </footer>
+  </div>
+  <script type="application/json" id="race-data" set:html={payload} />
+</Base>
+
+<script>
+  import * as THREE from "three";
+  import type { Race } from "../../lib/race";
+  import { Soundtrack } from "../../scripts/soapbox/music";
+  import { createWorld, START_Z, TRACK_LENGTH, type LaneGame, type PodiumStep } from "../../scripts/soapbox/world";
+
+  const root = document.querySelector<HTMLElement>(".race3d")!;
+  const data = JSON.parse(document.querySelector("#race-data")!.textContent!) as {
+    race: Race;
+    locale: string;
+    lanes: LaneGame[];
+    steps: PodiumStep[];
+  };
+  const { race } = data;
+  const seconds = Number(new URLSearchParams(location.search).get("seconds")) || 45;
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const hint = root.querySelector<HTMLButtonElement>(".hint")!;
+  const when = root.querySelector<HTMLElement>(".when")!;
+  const count = root.querySelector<HTMLElement>(".count")!;
+  const sound = root.querySelector<HTMLElement>(".sound")!;
+  const labels = [...root.querySelectorAll<HTMLElement>(".label")];
+  const clock = new Intl.DateTimeFormat(data.locale === "fr" ? "fr-FR" : "en-GB", {
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "Europe/Paris",
+  });
+
+  // Canvas text on the signs and banners uses the festival font, so wait for it first.
+  await Promise.all(["900 64px", "800 64px"].map((font) => document.fonts.load(`${font} "Unbounded Variable"`)));
+
+  const world = createWorld(root.querySelector("canvas")!, data.lanes, data.steps);
+  const music = new Soundtrack();
+
+  type State = "ready" | "racing" | "finished" | "podium";
+  let state: State = "ready";
+  let raceStart = 0;
+  let finishedAt = 0;
+  let busy = false; // during a podium drum roll
+  // Reveal the lowest step first: 3rd, then 2nd, then 1st.
+  const revealOrder = data.steps.map((step) => step.place).sort((a, b) => b - a);
+  let revealed = 0;
+
+  function setState(next: State) {
+    state = next;
+    root.dataset.state = next;
+    hint.textContent = hint.dataset[next === "racing" ? "ready" : next] ?? "";
+    hint.hidden = next === "racing" || race.votes === 0;
+  }
+
+  // --- Race replay ----------------------------------------------------------------------
+
+  const ease = (t: number) => (t < 0.5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2);
+  const easeSpeed = (t: number) => (t < 0.5 ? 2 * t : 2 * (1 - t)); // derivative / 2, peaks at 1
+
+  /** Positions every cart after `progress` Votes (fractional, so carts roll between Votes). */
+  function render(progress: number) {
+    const whole = Math.min(Math.floor(progress), race.votes);
+    const fraction = progress - whole;
+    const picks = data.lanes.map(({ id }) => {
+      const series = race.series[id];
+      const next = series[Math.min(whole + 1, race.votes)];
+      return { id, exact: series[whole], smooth: series[whole] + (next - series[whole]) * fraction };
+    });
+    for (const { id, exact, smooth } of picks) {
+      world.setProgress(id, race.finish ? smooth / race.finish : 0);
+      const rank = 1 + picks.filter((other) => other.exact > exact).length;
+      world.setRank(id, exact > 0 ? rank : null, exact > 0 && rank === 1);
+    }
+    const shown = Math.max(0, Math.min(Math.ceil(progress), race.votes));
+    count.textContent = `${shown} / ${race.votes}`;
+    when.textContent = shown ? clock.format(new Date(race.castAt[shown - 1])) : " ";
+  }
+
+  async function start() {
+    await music.start();
+    setState("racing");
+    if (reduceMotion) return finish();
+    music.startLoop();
+    raceStart = performance.now();
+    world.setExcitement(0.6);
+  }
+
+  function finish() {
+    render(race.votes);
+    music.stopLoop();
+    music.finish();
+    world.setExcitement(1);
+    finishedAt = performance.now();
+    setState("finished");
+  }
+
+  async function advance() {
+    if (race.votes === 0 || busy) return;
+    if (state === "ready") return start();
+    if (state === "finished") {
+      setState("podium");
+      world.showPodium();
+      world.setExcitement(0.35);
+      cut = true;
+      return;
+    }
+    if (state === "podium" && revealed < revealOrder.length) {
+      const place = revealOrder[revealed++];
+      busy = true;
+      hint.hidden = true;
+      await music.start();
+      setTimeout(() => {
+        world.reveal(place);
+        music.sting(data.steps.find((step) => step.place === place)!.rank);
+        world.setExcitement(place === 0 ? 1 : 0.6);
+        labels.find((label) => Number(label.dataset.place) === place)!.hidden = false;
+        busy = false;
+        hint.hidden = revealed === revealOrder.length;
+      }, music.drumroll(place === 0 ? 2.4 : 1.6));
+    }
+  }
+
+  function reset() {
+    music.stopLoop();
+    world.resetCarts();
+    world.setExcitement(0.2);
+    revealed = 0;
+    busy = false;
+    for (const label of labels) label.hidden = true;
+    render(0);
+    setState("ready");
+    cut = true;
+  }
+
+  // --- Camera ---------------------------------------------------------------------------
+
+  const camPos = new THREE.Vector3();
+  const camLook = new THREE.Vector3();
+  let cut = true;
+
+  function shot(time: number): { pos: THREE.Vector3; look: THREE.Vector3 } {
+    const w = world.width;
+    if (state === "podium") {
+      const centre = world.podiumCentre;
+      return {
+        pos: centre.clone().add(new THREE.Vector3(Math.sin(time * 0.15) * 6, 8, -27)),
+        look: centre.clone().add(new THREE.Vector3(0, 3.6, 0)),
+      };
+    }
+    const { leader, median } = world.pack();
+    const nearFinish = state === "finished" || leader > TRACK_LENGTH - 32;
+    if (state === "ready") {
+      // Overview of the start grid on the ramp.
+      return {
+        pos: world.toWorld(w * 0.55 + Math.sin(time * 0.2) * 4, 10, START_Z - 18),
+        look: world.toWorld(0, 0, 14),
+      };
+    }
+    if (nearFinish) {
+      // Finish-line camera looking back up the hill.
+      return {
+        pos: world.toWorld(w * 0.45 + Math.sin(time * 0.1) * 2, 6.5, TRACK_LENGTH + 18),
+        look: world.toWorld(0, 1.5, TRACK_LENGTH - 20),
+      };
+    }
+    // Tracking shot: ahead of the leader, to the side, looking back at the oncoming pack.
+    return {
+      pos: world.toWorld(w * 0.5, 11, leader + 26),
+      look: world.toWorld(0, 1, (leader + median) / 2),
+    };
+  }
+
+  // --- Loop -----------------------------------------------------------------------------
+
+  let last = performance.now();
+  function frame(now: number) {
+    const dt = Math.min(0.05, (now - last) / 1000);
+    last = now;
+
+    if (state === "racing") {
+      const t = Math.min(1, (now - raceStart) / (seconds * 1000));
+      render(ease(t) * race.votes);
+      music.setIntensity(t);
+      music.setSpeed(easeSpeed(t));
+      if (t >= 1) finish();
+    }
+    if (state === "finished" && now - finishedAt > 4000) world.setExcitement(0.5);
+
+    const target = shot(now / 1000);
+    if (cut) {
+      camPos.copy(target.pos);
+      camLook.copy(target.look);
+      cut = false;
+    } else {
+      const k = 1 - Math.exp(-dt * 2.2);
+      camPos.lerp(target.pos, k);
+      camLook.lerp(target.look, k);
+    }
+    world.camera.position.copy(camPos);
+    world.camera.lookAt(camLook);
+    world.aimSun(camLook);
+    world.update(dt);
+    world.render();
+
+    if (state === "podium") {
+      for (const label of labels) {
+        const step = world.steps.find((candidate) => candidate.place === Number(label.dataset.place))!;
+        const point = step.anchor.clone().project(world.camera);
+        label.style.left = `${((point.x + 1) / 2) * innerWidth}px`;
+        label.style.top = `${((1 - point.y) / 2) * innerHeight}px`;
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function resize() {
+    world.resize(innerWidth, innerHeight);
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === " " || event.key === "ArrowRight" || event.key === "Enter") {
+      event.preventDefault();
+      advance();
+    } else if (event.key === "r" || event.key === "R") {
+      reset();
+    } else if (event.key === "f" || event.key === "F") {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else document.documentElement.requestFullscreen();
+    } else if (event.key === "m" || event.key === "M") {
+      sound.classList.toggle("muted", music.toggleMute());
+    }
+  });
+  hint.addEventListener("click", () => advance());
+  addEventListener("resize", resize);
+
+  resize();
+  reset();
+  requestAnimationFrame(frame);
+</script>
+
+<style>
+  :global(body) {
+    overflow: hidden;
+    background: #8ed1fc;
+  }
+  .race3d {
+    position: fixed;
+    inset: 0;
+  }
+  canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  header {
+    position: absolute;
+    inset: 0 0 auto 0;
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    padding: 1.2vh 2vw;
+    background: var(--yellow);
+    border-bottom: 1px solid #000;
+    box-shadow: 0 4px 0 #000;
+    transition: transform 500ms;
+  }
+  .race3d[data-state="podium"] header {
+    transform: translateY(-110%);
+  }
+  .logo {
+    height: min(80px, 8vh);
+    width: auto;
+  }
+  .titles {
+    flex: 1;
+  }
+  h1 {
+    margin: 0;
+    text-align: left;
+    font-size: min(44px, 4.4vh, 3.2vw);
+  }
+  .titles p {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: min(20px, 2vh);
+  }
+  .clock {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-family: var(--display);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .when {
+    font-size: min(28px, 2.8vh);
+  }
+  .count {
+    font-size: min(16px, 1.6vh);
+    font-weight: 500;
+  }
+
+  .labels {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .label {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4vh;
+    max-width: min(24vw, 400px);
+    padding: 1.2vh 1.4vw;
+    transform: translate(-50%, -100%);
+    background: var(--card);
+    border: 1px solid #000;
+    border-radius: var(--radius);
+    box-shadow: 6px 6px 0 #000;
+    text-align: center;
+    animation: pop 600ms cubic-bezier(0.2, 0.8, 0.2, 1.3);
+  }
+  .label[hidden] {
+    display: none;
+  }
+  .label.place-1 {
+    background: var(--yellow);
+  }
+  .place {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: min(48px, 5vh);
+    line-height: 1;
+  }
+  .game {
+    display: flex;
+    flex-direction: column;
+  }
+  .game strong {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: min(26px, 2.8vh);
+    line-height: 1.1;
+  }
+  .place-1 .game strong {
+    font-size: min(34px, 3.6vh);
+  }
+  .game small,
+  .picks {
+    font-size: min(16px, 1.8vh);
+  }
+  .picks {
+    font-weight: 700;
+  }
+  @keyframes pop {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -60%) scale(0.6);
+    }
+  }
+
+  footer {
+    position: absolute;
+    inset: auto 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5vw;
+    padding: 1.5vh 2vw;
+    font-size: min(16px, 1.8vh);
+  }
+  .hint {
+    font-size: min(18px, 2vh);
+  }
+  .keys,
+  .sound {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.75);
+  }
+  .sound.muted {
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+  .badge {
+    padding: 4px 12px;
+    border: 1px solid #000;
+    border-radius: 999px;
+    background: var(--orange);
+    color: white;
+    font-weight: 700;
+  }
+</style>

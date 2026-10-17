@@ -20,6 +20,7 @@ The look follows the festival's 2026 identity on [stunfest.com](https://www.stun
 | `/host` | Organisers | Host Screen with the rotating QR code |
 | `/admin` | Organisers | Voting Status, Reveal, live Results |
 | `/admin/race` | Organisers | Ceremony animation: Votes replayed as a race, then the podium (`?demo` to rehearse with made-up Votes, `?seconds=60` to change its length) |
+| `/admin/race-3d` | Organisers | The same race as a 3D soapbox derby with music, then a 3D podium (same `?demo` and `?seconds=` options; M mutes) |
 
 ## Development
 
