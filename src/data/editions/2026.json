@@ -199,6 +199,17 @@
             "roguelike"
           ],
           "link": "https://www.stunfest.com/indiegame/billion-citizens/"
+        },
+        {
+          "id": "follow-my-steps",
+          "title": "Follow My Steps",
+          "studio": "Midnight Games",
+          "keywords": [
+            "narratif",
+            "rpg",
+            "aventure"
+          ],
+          "link": "https://store.steampowered.com/app/1487300/Follow_My_Steps/"
         }
       ]
     },
