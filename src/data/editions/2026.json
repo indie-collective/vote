@@ -245,6 +245,17 @@
           "title": "Heroes of the Seven Islands",
           "studio": "Rap2h",
           "link": "https://www.stunfest.com/indiegame/heroes-of-the-seven-islands/"
+        },
+        {
+          "id": "keep-crafting",
+          "title": "Keep Crafting",
+          "studio": "ObenStudios",
+          "keywords": [
+            "asymetrique",
+            "co-op",
+            "crafting"
+          ],
+          "link": "https://www.stunfest.com/indiegame/keep-crafting/"
         }
       ]
     },
@@ -344,17 +355,6 @@
             "puzzle"
           ],
           "link": "https://www.stunfest.com/indiegame/essence-of-the-tjikko/"
-        },
-        {
-          "id": "keep-crafting",
-          "title": "Keep Crafting",
-          "studio": "ObenStudios",
-          "keywords": [
-            "asymetrique",
-            "co-op",
-            "crafting"
-          ],
-          "link": "https://www.stunfest.com/indiegame/keep-crafting/"
         },
         {
           "id": "contenir",
