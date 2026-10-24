@@ -210,6 +210,41 @@
             "aventure"
           ],
           "link": "https://store.steampowered.com/app/1487300/Follow_My_Steps/"
+        },
+        {
+          "id": "beware-of-the-cartographer",
+          "title": "Beware of the Cartographer!",
+          "studio": "Tohu Bohu Games",
+          "keywords": [
+            "aventure",
+            "puzzle"
+          ],
+          "link": "https://www.stunfest.com/indiegame/beware-of-the-cartographer/"
+        },
+        {
+          "id": "val-fortuna",
+          "title": "Val Fortuna",
+          "studio": "NEVERMIND",
+          "keywords": [
+            "roguelite-tour-par-tour"
+          ],
+          "link": "https://www.stunfest.com/indiegame/val-fortuna/"
+        },
+        {
+          "id": "my-death-as-a-duchess",
+          "title": "My Death as a Duchess",
+          "studio": "ObenStudios",
+          "keywords": [
+            "roguelike",
+            "visual-novel"
+          ],
+          "link": "https://www.stunfest.com/indiegame/my-death-as-a-duchess/"
+        },
+        {
+          "id": "heroes-of-the-seven-islands",
+          "title": "Heroes of the Seven Islands",
+          "studio": "Rap2h",
+          "link": "https://www.stunfest.com/indiegame/heroes-of-the-seven-islands/"
         }
       ]
     },
@@ -236,25 +271,6 @@
             "action-aventure"
           ],
           "link": "https://www.stunfest.com/indiegame/otherside/"
-        },
-        {
-          "id": "val-fortuna",
-          "title": "Val Fortuna",
-          "studio": "NEVERMIND",
-          "keywords": [
-            "roguelite-tour-par-tour"
-          ],
-          "link": "https://www.stunfest.com/indiegame/val-fortuna/"
-        },
-        {
-          "id": "beware-of-the-cartographer",
-          "title": "Beware of the Cartographer!",
-          "studio": "Tohu Bohu Games",
-          "keywords": [
-            "aventure",
-            "puzzle"
-          ],
-          "link": "https://www.stunfest.com/indiegame/beware-of-the-cartographer/"
         },
         {
           "id": "towers-of-the-bane",
@@ -307,16 +323,6 @@
             "puzzle"
           ],
           "link": "https://www.stunfest.com/indiegame/what-surrounds-us/"
-        },
-        {
-          "id": "my-death-as-a-duchess",
-          "title": "My Death as a Duchess",
-          "studio": "ObenStudios",
-          "keywords": [
-            "roguelike",
-            "visual-novel"
-          ],
-          "link": "https://www.stunfest.com/indiegame/my-death-as-a-duchess/"
         },
         {
           "id": "kujira-no-hara",
@@ -380,12 +386,6 @@
             "party-game"
           ],
           "link": "https://www.stunfest.com/indiegame/heroic-musical-chairs/"
-        },
-        {
-          "id": "heroes-of-the-seven-islands",
-          "title": "Heroes of the Seven Islands",
-          "studio": "Rap2h",
-          "link": "https://www.stunfest.com/indiegame/heroes-of-the-seven-islands/"
         },
         {
           "id": "black-zen-white",
